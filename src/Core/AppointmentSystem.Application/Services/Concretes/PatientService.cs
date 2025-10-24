@@ -1,0 +1,75 @@
+﻿
+namespace AppointmentSystem.Application.Services.Concretes;
+
+public class PatientService(IAppDbContext context, IMapper mapper) : IPatientService
+{
+    public async Task<PatientDto> CreatePatientAsync(CreatePatientDto patientDto)
+    {
+        // Email-ə görə mövcudluq yoxlaması (unikal)
+        var existing = await context.Patients
+            .FirstOrDefaultAsync(p => p.Email == patientDto.Email && !p.IsDeleted);
+
+        if (existing != null)
+            throw new ConflictException("Patient with this email already exists.");
+
+        var patient = mapper.Map<Patient>(patientDto);
+
+        await context.Patients.AddAsync(patient);
+        await context.SaveChangesAsync();
+
+        return mapper.Map<PatientDto>(patient);
+    }
+
+    public async Task<IEnumerable<PatientDto>> GetAllPatientsAsync()
+    {
+        var patients = await context.Patients
+            .Where(p => !p.IsDeleted)
+            .ToListAsync();
+
+        return mapper.Map<List<PatientDto>>(patients);
+    }
+
+    public async Task<PatientDto> GetPatientByIdAsync(string id)
+    {
+        var patient = await context.Patients
+            .FirstOrDefaultAsync(p => p.Id == id && !p.IsDeleted);
+
+        if (patient == null)
+            throw new NotFoundException("Patient not found.");
+
+        return mapper.Map<PatientDto>(patient);
+    }
+
+    public async Task UpdatePatientAsync(string id, UpdatePatientDto patientDto)
+    {
+        var patient = await context.Patients
+            .FirstOrDefaultAsync(p => p.Id == id && !p.IsDeleted);
+
+        if (patient == null)
+            throw new NotFoundException("Patient not found.");
+
+        patient.Update(
+            patientDto.FirstName,
+            patientDto.LastName,
+            patientDto.Email,
+            patientDto.PhoneNumber,
+            patientDto.DateOfBirth
+        );
+
+        context.Patients.Update(patient);
+        await context.SaveChangesAsync();
+    }
+
+    public async Task SoftDeletePatientAsync(string id, string deletedBy)
+    {
+        var patient = await context.Patients
+            .FirstOrDefaultAsync(p => p.Id == id && !p.IsDeleted);
+
+        if (patient == null)
+            throw new NotFoundException("Patient not found.");
+
+        context.Patients.Remove(patient);
+
+        await context.SaveChangesAsync();
+    }
+}

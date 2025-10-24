@@ -1,0 +1,17 @@
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\obj\Debug\net8.0\AppointmentSystem.Persistance.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\obj\Debug\net8.0\AppointmentSystem.Persistance.AssemblyInfoInputs.cache
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\obj\Debug\net8.0\AppointmentSystem.Persistance.AssemblyInfo.cs
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\obj\Debug\net8.0\AppointmentSystem.Persistance.csproj.CoreCompileInputs.cache
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\obj\Debug\net8.0\AppointmentSystem.Persistance.csproj.AssemblyReference.cache
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\bin\Debug\net8.0\AppointmentSystem.Persistance.deps.json
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\bin\Debug\net8.0\AppointmentSystem.Persistance.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\bin\Debug\net8.0\AppointmentSystem.Persistance.pdb
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\bin\Debug\net8.0\AppointmentSystem.Application.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\bin\Debug\net8.0\AppointmentSystem.Domain.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\bin\Debug\net8.0\AppointmentSystem.Application.pdb
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\bin\Debug\net8.0\AppointmentSystem.Domain.pdb
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\obj\Debug\net8.0\Appointm.E30E16AE.Up2Date
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\obj\Debug\net8.0\AppointmentSystem.Persistance.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\obj\Debug\net8.0\refint\AppointmentSystem.Persistance.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\obj\Debug\net8.0\AppointmentSystem.Persistance.pdb
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\obj\Debug\net8.0\ref\AppointmentSystem.Persistance.dll

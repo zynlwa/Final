@@ -1,0 +1,11 @@
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\bin\Debug\net8.0\AppointmentSystem.Domain.deps.json
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\bin\Debug\net8.0\AppointmentSystem.Domain.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\bin\Debug\net8.0\AppointmentSystem.Domain.pdb
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\obj\Debug\net8.0\AppointmentSystem.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\obj\Debug\net8.0\AppointmentSystem.Domain.AssemblyInfoInputs.cache
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\obj\Debug\net8.0\AppointmentSystem.Domain.AssemblyInfo.cs
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\obj\Debug\net8.0\AppointmentSystem.Domain.csproj.CoreCompileInputs.cache
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\obj\Debug\net8.0\AppointmentSystem.Domain.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\obj\Debug\net8.0\refint\AppointmentSystem.Domain.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\obj\Debug\net8.0\AppointmentSystem.Domain.pdb
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\obj\Debug\net8.0\ref\AppointmentSystem.Domain.dll

@@ -1,0 +1,13 @@
+﻿global using AppointmentSystem.Domain.Models;
+global using Microsoft.EntityFrameworkCore;
+global using AutoMapper;
+global using AppointmentSystem.Application.Services.Abstractions;
+global using AppointmentSystem.Application.Common.Models.Doctor;
+global using AppointmentSystem.Domain.Entities;
+global using AppointmentSystem.Application.Common.Models.Patient;
+global using AppointmentSystem.Application.Common.Interfaces;
+global using AppointmentSystem.Domain.Exceptions;
+global using AppointmentSystem.Application.Common.Mappers;
+global using AppointmentSystem.Application.Services.Concretes;
+global using Microsoft.Extensions.DependencyInjection;
+
