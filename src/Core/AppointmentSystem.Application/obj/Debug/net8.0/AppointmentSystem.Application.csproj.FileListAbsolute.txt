@@ -13,3 +13,4 @@ C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSyst
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Application\bin\Debug\net8.0\AppointmentSystem.Domain.dll
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Application\bin\Debug\net8.0\AppointmentSystem.Domain.pdb
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Application\obj\Debug\net8.0\Appointm.413CD4E0.Up2Date
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Application\obj\Debug\net8.0\AppointmentSystem.Application.sourcelink.json

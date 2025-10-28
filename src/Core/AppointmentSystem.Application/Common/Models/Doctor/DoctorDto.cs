@@ -17,7 +17,8 @@ public record CreateDoctorDto(
     string LastName,
     string Specialty,
     string Email,
-    string? PhoneNumber
+    string? PhoneNumber,
+    string AppUserId
 );
 
 public record UpdateDoctorDto(

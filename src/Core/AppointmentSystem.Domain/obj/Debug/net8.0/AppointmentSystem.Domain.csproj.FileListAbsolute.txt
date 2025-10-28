@@ -9,3 +9,5 @@ C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSyst
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\obj\Debug\net8.0\refint\AppointmentSystem.Domain.dll
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\obj\Debug\net8.0\AppointmentSystem.Domain.pdb
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\obj\Debug\net8.0\ref\AppointmentSystem.Domain.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\obj\Debug\net8.0\AppointmentSystem.Domain.sourcelink.json
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Core\AppointmentSystem.Domain\obj\Debug\net8.0\AppointmentSystem.Domain.csproj.AssemblyReference.cache

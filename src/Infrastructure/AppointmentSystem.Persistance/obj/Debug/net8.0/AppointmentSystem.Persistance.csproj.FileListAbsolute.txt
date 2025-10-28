@@ -15,3 +15,4 @@ C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\Appoi
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\obj\Debug\net8.0\refint\AppointmentSystem.Persistance.dll
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\obj\Debug\net8.0\AppointmentSystem.Persistance.pdb
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\obj\Debug\net8.0\ref\AppointmentSystem.Persistance.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\src\Infrastructure\AppointmentSystem.Persistance\obj\Debug\net8.0\AppointmentSystem.Persistance.sourcelink.json

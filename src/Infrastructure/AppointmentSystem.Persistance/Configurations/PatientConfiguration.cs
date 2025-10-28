@@ -1,4 +1,6 @@
-﻿namespace AppointmentSystem.Persistance.Configurations;
+﻿using AppointmentSystem.Domain.Entities;
+
+namespace AppointmentSystem.Persistance.Configurations;
 
 public class PatientConfiguration : IEntityTypeConfiguration<Patient>
 {

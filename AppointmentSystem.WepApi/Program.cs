@@ -28,7 +28,7 @@ namespace AppointmentSystem.WepApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            app.UseMiddleware<ExceptiongHandlingMiddleware>();
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
             app.UseAuthorization();
 
 

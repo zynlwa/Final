@@ -65,7 +65,7 @@ public class DoctorService(IAppDbContext context, IMapper mapper) : IDoctorServi
         if (doctor == null)
             throw new NotFoundException("Doctor not found.");
 
-        doctor.UpdateDoctor(
+        doctor.Update(
             updateDoctorDto.FirstName,
             updateDoctorDto.LastName,
             updateDoctorDto.Email,

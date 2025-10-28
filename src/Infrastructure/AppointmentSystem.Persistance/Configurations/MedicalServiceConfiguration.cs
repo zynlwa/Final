@@ -1,4 +1,5 @@
 ﻿
+using AppointmentSystem.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AppointmentSystem.Persistance.Configurations;

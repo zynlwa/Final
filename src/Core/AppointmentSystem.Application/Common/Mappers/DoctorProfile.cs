@@ -1,4 +1,6 @@
-﻿namespace AppointmentSystem.Application.Common.Mappers;
+﻿using AppointmentSystem.Domain.Models;
+
+namespace AppointmentSystem.Application.Common.Mappers;
 
 public class DoctorProfile:Profile
 {
@@ -24,7 +26,9 @@ public class DoctorProfile:Profile
                 dto.LastName,
                 dto.Email,
                 dto.Specialty,
-                dto.PhoneNumber
+                dto.PhoneNumber,
+                dto.AppUserId
+
             ));
     }
     }

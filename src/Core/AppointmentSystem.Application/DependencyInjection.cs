@@ -6,8 +6,14 @@ public static class DependencyInjection
     {
         services.AddAutoMapper(cfg => cfg.AddProfile<DoctorProfile>());
         services.AddAutoMapper(cfg => cfg.AddProfile<PatientProfile>());
+        services.AddAutoMapper(cfg => cfg.AddProfile<AppointmentProfile>());
+        services.AddAutoMapper(cfg => cfg.AddProfile<AvailabilityProfile>());
+        services.AddAutoMapper(cfg => cfg.AddProfile<MedicalServiceProfile>());
         services.AddScoped<IDoctorService, DoctorService>();
         services.AddScoped<IPatientService, PatientService>();
+        services.AddScoped<IAppointmentService, AppointmentService>();
+        services.AddScoped<IAvailabilityService, AvailabilityService>();
+        services.AddScoped<IMedicalServiceService, MedicalServiceService>();
         return services;
     }
 }

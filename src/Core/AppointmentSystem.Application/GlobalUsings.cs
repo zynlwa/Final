@@ -10,4 +10,6 @@ global using AppointmentSystem.Domain.Exceptions;
 global using AppointmentSystem.Application.Common.Mappers;
 global using AppointmentSystem.Application.Services.Concretes;
 global using Microsoft.Extensions.DependencyInjection;
-
+global using AppointmentSystem.Application.Common.Models.Appointment;
+global using AppointmentSystem.Application.Common.Models.Availability;
+global using AppointmentSystem.Application.Common.Models.MedicalService;

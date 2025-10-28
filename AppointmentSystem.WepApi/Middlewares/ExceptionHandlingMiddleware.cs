@@ -3,7 +3,7 @@ using AppointmentSystem.Domain.Common;
 
 namespace AppointmentSystem.WepApi.Middlewares;
 
-public class ExceptiongHandlingMiddleware(RequestDelegate next)
+public class ExceptionHandlingMiddleware(RequestDelegate next)
 {
     public async Task InvokeAsync(HttpContext context)
     {

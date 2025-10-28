@@ -68,6 +68,14 @@
           }
         }
       },
+      "FluentValidation/12.0.0": {
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.0.0"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/8.0.10": {
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
@@ -651,6 +659,7 @@
         "dependencies": {
           "AppointmentSystem.Domain": "1.0.0",
           "AutoMapper": "15.0.1",
+          "FluentValidation": "12.0.0",
           "Microsoft.EntityFrameworkCore": "8.0.20"
         },
         "runtime": {
@@ -661,6 +670,10 @@
         }
       },
       "AppointmentSystem.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.10",
+          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.20"
+        },
         "runtime": {
           "AppointmentSystem.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -696,6 +709,13 @@
       "sha512": "sha512-Sf4BoE6Q3jTgFkgBkx7qztYOFELBCo+wQgpYDwal/qJ1unBH73ywPztIJKXBXORRzAeNijsuxhk94h0TIMvfYg==",
       "path": "azure.identity/1.11.4",
       "hashPath": "azure.identity.1.11.4.nupkg.sha512"
+    },
+    "FluentValidation/12.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8NVLxtMUXynRHJIX3Hn1ACovaqZIJASufXIIFkD0EUbcd5PmMsL1xUD5h548gCezJ5BzlITaR9CAMrGe29aWpA==",
+      "path": "fluentvalidation/12.0.0",
+      "hashPath": "fluentvalidation.12.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/8.0.10": {
       "type": "package",

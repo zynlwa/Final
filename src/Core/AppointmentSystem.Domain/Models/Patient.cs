@@ -1,8 +1,10 @@
-﻿public class Patient : BaseEntity
+﻿namespace AppointmentSystem.Domain.Entities;
+
+public class Patient : BaseEntity
 {
     private Patient() { }
 
-    public Patient(string firstName, string lastName, string email, string? phoneNumber, DateTime dateOfBirth)
+    public Patient(string firstName, string lastName, string email, string? phoneNumber, DateTime dateOfBirth, string appUserId)
     {
         if (string.IsNullOrWhiteSpace(firstName))
             throw new ArgumentException("First name is required.");
@@ -18,6 +20,7 @@
         Email = email;
         PhoneNumber = phoneNumber;
         DateOfBirth = dateOfBirth;
+        AppUserId = appUserId;
     }
 
     public string FirstName { get; private set; }
@@ -25,6 +28,9 @@
     public string Email { get; private set; }
     public string? PhoneNumber { get; private set; }
     public DateTime DateOfBirth { get; private set; }
+
+    public string AppUserId { get; private set; }
+    public AppUser AppUser { get; private set; } = null!;
 
     public ICollection<Appointment> Appointments { get; private set; } = new List<Appointment>();
 

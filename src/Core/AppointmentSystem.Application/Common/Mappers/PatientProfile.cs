@@ -19,14 +19,14 @@ public class PatientProfile : Profile
             ));
 
         CreateMap<CreatePatientDto, Patient>()
-            .ConstructUsing(dto => new Patient(
-                dto.FirstName,
-                dto.LastName,
-                dto.Email,
-                dto.PhoneNumber,
-                dto.DateOfBirth
-            ));
-
+     .ConstructUsing(dto => new Patient(
+         dto.FirstName,
+         dto.LastName,
+         dto.Email,
+         dto.PhoneNumber,
+         dto.DateOfBirth,
+         dto.AppUserId
+     ));
         CreateMap<UpdatePatientDto, Patient>();
     }
 }

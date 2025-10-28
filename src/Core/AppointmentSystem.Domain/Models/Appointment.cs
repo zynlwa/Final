@@ -36,17 +36,32 @@ public class Appointment : BaseEntity
 
     public AppointmentStatus Status { get; private set; }
     public string? Notes { get; private set; }
-
- 
     public void Approve()
     {
+        if (Status == AppointmentStatus.Cancelled)
+            throw new InvalidOperationException("Cannot approve a cancelled appointment.");
+
+        if (Availability.IsBooked)
+            throw new InvalidOperationException("This time slot is already booked.");
+
         Status = AppointmentStatus.Confirmed;
         Availability.Book();
     }
 
     public void Cancel()
     {
+        if (Status == AppointmentStatus.Cancelled)
+            throw new InvalidOperationException("Appointment is already cancelled.");
+
         Status = AppointmentStatus.Cancelled;
         Availability.Cancel();
+    }
+
+    public void AddNotes(string notes)
+    {
+        if (string.IsNullOrWhiteSpace(notes))
+            throw new ArgumentException("Notes cannot be empty.");
+
+        Notes = notes;
     }
 }
