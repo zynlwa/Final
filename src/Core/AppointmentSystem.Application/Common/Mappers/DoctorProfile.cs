@@ -27,8 +27,7 @@ public class DoctorProfile:Profile
                 dto.Email,
                 dto.Specialty,
                 dto.PhoneNumber,
-                dto.AppUserId
-
+                ""
             ));
     }
     }

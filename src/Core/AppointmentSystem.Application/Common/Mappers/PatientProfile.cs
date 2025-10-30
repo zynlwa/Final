@@ -25,7 +25,7 @@ public class PatientProfile : Profile
          dto.Email,
          dto.PhoneNumber,
          dto.DateOfBirth,
-         dto.AppUserId
+         ""
      ));
         CreateMap<UpdatePatientDto, Patient>();
     }
