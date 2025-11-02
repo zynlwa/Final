@@ -26,6 +26,9 @@ namespace AppointmentSystem.Application.Validators.DoctorValidators
                 .When(x => !string.IsNullOrWhiteSpace(x.PhoneNumber))
                 .WithMessage("Invalid phone number format.");
 
+            RuleFor(x => x.AppUserId)
+                .NotEmpty().WithMessage("AppUserId is required.");
+
         }
     }
 }

@@ -7,6 +7,7 @@ public record PatientDto(
     string Email,
     DateTime DateOfBirth,
     string? PhoneNumber,
+    string AppUserId,
     bool IsDeleted,
     DateTime? DeletedAt,
     string? DeletedBy
@@ -17,9 +18,9 @@ public record CreatePatientDto(
     string LastName,
     string Email,
     DateTime DateOfBirth,
-    string? PhoneNumber
+    string? PhoneNumber,
+    string AppUserId
 );
-
 
 public record UpdatePatientDto(
     string FirstName,

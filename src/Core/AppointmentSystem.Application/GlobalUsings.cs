@@ -13,3 +13,7 @@ global using Microsoft.Extensions.DependencyInjection;
 global using AppointmentSystem.Application.Common.Models.Appointment;
 global using AppointmentSystem.Application.Common.Models.Availability;
 global using AppointmentSystem.Application.Common.Models.MedicalService;
+global using FluentValidation;
+global using AppointmentSystem.Application.Common.Models.Identity;
+global using AppointmentSystem.Application.Common.Models.Response;
+global using System.Text.RegularExpressions;

@@ -45,7 +45,9 @@ namespace AppointmentSystem.Persistance.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("MedicalServiceId")
                         .IsRequired()
@@ -83,6 +85,12 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AppUserId1")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -102,7 +110,9 @@ namespace AppointmentSystem.Persistance.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -124,7 +134,201 @@ namespace AppointmentSystem.Persistance.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AppUserId")
+                        .IsUnique()
+                        .HasFilter("[AppUserId] IS NOT NULL");
+
+                    b.HasIndex("AppUserId1")
+                        .IsUnique()
+                        .HasFilter("[AppUserId1] IS NOT NULL");
+
                     b.ToTable("Doctors");
+                });
+
+            modelBuilder.Entity("AppointmentSystem.Domain.Entities.MedicalService", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("DoctorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
+
+                    b.ToTable("MedicalServices");
+                });
+
+            modelBuilder.Entity("AppointmentSystem.Domain.Entities.Patient", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AppUserId1")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId")
+                        .IsUnique()
+                        .HasFilter("[AppUserId] IS NOT NULL");
+
+                    b.HasIndex("AppUserId1")
+                        .IsUnique()
+                        .HasFilter("[AppUserId1] IS NOT NULL");
+
+                    b.ToTable("Patients");
+                });
+
+            modelBuilder.Entity("AppointmentSystem.Domain.Models.AppUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppUser");
                 });
 
             modelBuilder.Entity("AppointmentSystem.Domain.Models.Availability", b =>
@@ -152,7 +356,9 @@ namespace AppointmentSystem.Persistance.Migrations
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
@@ -165,91 +371,6 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.HasIndex("DoctorId");
 
                     b.ToTable("Availabilities");
-                });
-
-            modelBuilder.Entity("AppointmentSystem.Domain.Models.MedicalService", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DeletedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MedicalServices");
-                });
-
-            modelBuilder.Entity("Patient", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DeletedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Patients");
                 });
 
             modelBuilder.Entity("Appointment", b =>
@@ -266,13 +387,13 @@ namespace AppointmentSystem.Persistance.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("AppointmentSystem.Domain.Models.MedicalService", "MedicalService")
+                    b.HasOne("AppointmentSystem.Domain.Entities.MedicalService", "MedicalService")
                         .WithMany("Appointments")
                         .HasForeignKey("MedicalServiceId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Patient", "Patient")
+                    b.HasOne("AppointmentSystem.Domain.Entities.Patient", "Patient")
                         .WithMany("Appointments")
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -285,6 +406,45 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.Navigation("MedicalService");
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("AppointmentSystem.Domain.Entities.Doctor", b =>
+                {
+                    b.HasOne("AppointmentSystem.Domain.Models.AppUser", "AppUser")
+                        .WithOne()
+                        .HasForeignKey("AppointmentSystem.Domain.Entities.Doctor", "AppUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("AppointmentSystem.Domain.Models.AppUser", null)
+                        .WithOne("Doctor")
+                        .HasForeignKey("AppointmentSystem.Domain.Entities.Doctor", "AppUserId1");
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("AppointmentSystem.Domain.Entities.MedicalService", b =>
+                {
+                    b.HasOne("AppointmentSystem.Domain.Entities.Doctor", "Doctor")
+                        .WithMany("MedicalServices")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Doctor");
+                });
+
+            modelBuilder.Entity("AppointmentSystem.Domain.Entities.Patient", b =>
+                {
+                    b.HasOne("AppointmentSystem.Domain.Models.AppUser", "AppUser")
+                        .WithOne()
+                        .HasForeignKey("AppointmentSystem.Domain.Entities.Patient", "AppUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("AppointmentSystem.Domain.Models.AppUser", null)
+                        .WithOne("Patient")
+                        .HasForeignKey("AppointmentSystem.Domain.Entities.Patient", "AppUserId1");
+
+                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("AppointmentSystem.Domain.Models.Availability", b =>
@@ -303,16 +463,25 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.Navigation("Appointments");
 
                     b.Navigation("Availabilities");
+
+                    b.Navigation("MedicalServices");
                 });
 
-            modelBuilder.Entity("AppointmentSystem.Domain.Models.MedicalService", b =>
+            modelBuilder.Entity("AppointmentSystem.Domain.Entities.MedicalService", b =>
                 {
                     b.Navigation("Appointments");
                 });
 
-            modelBuilder.Entity("Patient", b =>
+            modelBuilder.Entity("AppointmentSystem.Domain.Entities.Patient", b =>
                 {
                     b.Navigation("Appointments");
+                });
+
+            modelBuilder.Entity("AppointmentSystem.Domain.Models.AppUser", b =>
+                {
+                    b.Navigation("Doctor");
+
+                    b.Navigation("Patient");
                 });
 #pragma warning restore 612, 618
         }

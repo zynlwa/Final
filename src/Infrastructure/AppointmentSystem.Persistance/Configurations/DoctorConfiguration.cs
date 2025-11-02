@@ -29,6 +29,11 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
                .HasForeignKey(a => a.DoctorId)
                .OnDelete(DeleteBehavior.Cascade);
         builder.HasQueryFilter(p => !p.IsDeleted);
+        builder.HasOne(d => d.AppUser)
+       .WithOne()
+       .HasForeignKey<Doctor>(d => d.AppUserId)
+       .OnDelete(DeleteBehavior.Restrict);
+
 
 
 

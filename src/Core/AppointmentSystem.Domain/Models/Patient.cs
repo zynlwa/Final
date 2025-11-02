@@ -29,8 +29,8 @@ public class Patient : BaseEntity
     public string? PhoneNumber { get; private set; }
     public DateTime DateOfBirth { get; private set; }
 
-    public string AppUserId { get; private set; }
-    public AppUser AppUser { get; private set; } = null!;
+    public string? AppUserId { get; private set; }
+    public AppUser? AppUser { get; private set; } = null!;
 
     public ICollection<Appointment> Appointments { get; private set; } = new List<Appointment>();
 

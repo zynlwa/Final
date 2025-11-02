@@ -29,8 +29,8 @@ public class Doctor : BaseEntity
     public string Specialty { get; private set; }
     public string? PhoneNumber { get; private set; }
 
-    public string AppUserId { get; private set; }
-    public AppUser AppUser { get; private set; } = null!;
+    public string? AppUserId { get; private set; }
+    public AppUser? AppUser { get; private set; } = null!;
 
     public ICollection<Appointment> Appointments { get; private set; } = new List<Appointment>();
     public ICollection<Availability> Availabilities { get; private set; } = new List<Availability>();

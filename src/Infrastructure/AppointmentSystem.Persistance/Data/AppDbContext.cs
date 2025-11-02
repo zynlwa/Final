@@ -1,17 +1,19 @@
 ﻿
 using AppointmentSystem.Domain.Common;
 using AppointmentSystem.Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace AppointmentSystem.Persistance.Data;
 
-public class AppDbContext(DbContextOptions<AppDbContext> options) :
-    DbContext(options), IAppDbContext
+public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbContext<AppUser>(options), IAppDbContext
 { 
     public DbSet<Doctor> Doctors { get; set; }
     public DbSet<Patient> Patients { get; set; }
     public DbSet<Appointment> Appointments { get; set; }
     public DbSet<MedicalService> MedicalServices { get; set; }
     public DbSet<Availability> Availabilities { get; set; }
+    public DbSet<AppUser> Users { get; set; }
+
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
     {
@@ -20,7 +22,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) :
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder); // This applies Identity configurations
+        base.OnModelCreating(modelBuilder); 
 
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
 
