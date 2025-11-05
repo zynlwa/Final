@@ -249,6 +249,84 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
+    "Method": "Login",
+    "RelativePath": "api/Identity/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "AppointmentSystem.Application.Common.Models.Identity.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
+    "Method": "Logout",
+    "RelativePath": "api/Identity/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
+    "Method": "GetProfile",
+    "RelativePath": "api/Identity/profile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
+    "Method": "UpdateProfile",
+    "RelativePath": "api/Identity/profile",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateUserDto",
+        "Type": "AppointmentSystem.Application.Common.Models.Identity.UpdateUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
+    "Method": "DeleteProfile",
+    "RelativePath": "api/Identity/profile",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
+    "Method": "Register",
+    "RelativePath": "api/Identity/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerDto",
+        "Type": "AppointmentSystem.Application.Common.Models.Identity.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppointmentSystem.WebApi.Controllers.MedicalServiceController",
     "Method": "GetAll",
     "RelativePath": "api/MedicalService",

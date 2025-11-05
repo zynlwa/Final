@@ -2,3 +2,4 @@
 global using AppointmentSystem.Domain.Enums;
 global using AppointmentSystem.Domain.Entities;
 global using AppointmentSystem.Domain.Models;
+global using Microsoft.AspNetCore.Identity;

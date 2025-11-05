@@ -33,11 +33,6 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
        .WithOne()
        .HasForeignKey<Doctor>(d => d.AppUserId)
        .OnDelete(DeleteBehavior.Restrict);
-
-
-
-
-
     }
 
 

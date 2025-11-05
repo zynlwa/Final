@@ -162,6 +162,5 @@ C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\obj\Debug\net8.0\AppointmentSystem.WebApi.sourcelink.json
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\FluentValidation.dll
-C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

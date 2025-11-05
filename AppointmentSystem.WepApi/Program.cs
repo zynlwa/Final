@@ -16,10 +16,10 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ Controllers
+//  Controllers
 builder.Services.AddControllers();
 
-// ✅ Swagger
+//  Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -48,7 +48,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// ✅ CORS
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -57,16 +57,16 @@ builder.Services.AddCors(options =>
     });
 });
 
-// ✅ Application Layers
+//  Application Layers
 builder.Services.AddApplication();
 builder.Services.AddPersistance(builder.Configuration);
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
-// ✅ FluentValidation (modern, deprecated olmayan üsul)
+//  FluentValidation (modern, deprecated olmayan üsul)
 builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
-// ✅ Identity setup
+//  Identity setup
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {
     options.Password.RequireDigit = true;
@@ -81,7 +81,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 .AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
 
-// ✅ JWT
+//  JWT
 JsonWebTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
 JsonWebTokenHandler.DefaultInboundClaimTypeMap.Remove("role");
 JsonWebTokenHandler.DefaultInboundClaimTypeMap.Remove("email");
@@ -141,10 +141,10 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
-// ✅ Build app
+//  Build app
 var app = builder.Build();
 
-// ✅ Middleware pipeline
+// Middleware pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

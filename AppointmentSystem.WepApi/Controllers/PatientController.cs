@@ -1,5 +1,4 @@
-﻿
-using AppointmentSystem.Application.Common.Models.Patient;
+﻿using AppointmentSystem.Application.Common.Models.Patient;
 using AppointmentSystem.Application.Common.Models.Response;
 using AppointmentSystem.Application.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
