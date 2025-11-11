@@ -6,11 +6,6 @@ public class Availability : BaseEntity
 
     public Availability(string doctorId, DateTime startTime, DateTime endTime)
     {
-        if (string.IsNullOrWhiteSpace(doctorId))
-            throw new ArgumentException("DoctorId cannot be empty.");
-        if (endTime <= startTime)
-            throw new ArgumentException("End time must be after start time.");
-
         DoctorId = doctorId;
         StartTime = startTime;
         EndTime = endTime;

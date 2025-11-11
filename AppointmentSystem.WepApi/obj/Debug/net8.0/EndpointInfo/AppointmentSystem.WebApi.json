@@ -5,6 +5,18 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Admin/create": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Appointment": {
       "post": {
         "tags": [
@@ -819,7 +831,7 @@
             "type": "string",
             "nullable": true
           },
-          "appUserId": {
+          "password": {
             "type": "string",
             "nullable": true
           }
@@ -871,7 +883,7 @@
             "type": "string",
             "nullable": true
           },
-          "appUserId": {
+          "password": {
             "type": "string",
             "nullable": true
           }
@@ -923,6 +935,10 @@
             "nullable": true
           },
           "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
             "type": "string",
             "nullable": true
           }

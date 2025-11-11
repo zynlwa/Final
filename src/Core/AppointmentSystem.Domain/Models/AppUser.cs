@@ -4,6 +4,7 @@ public class AppUser : IdentityUser, ISoftDeletable
 {
     public string FirstName { get; set; } = null!;
     public string LastName { get; set; } = null!;
+    public string FullName => $"{FirstName} {LastName}";
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime? UpdatedAt { get; set; }
 

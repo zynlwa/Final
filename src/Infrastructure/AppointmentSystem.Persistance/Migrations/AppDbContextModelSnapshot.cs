@@ -86,6 +86,7 @@ namespace AppointmentSystem.Persistance.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("AppUserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("AppUserId1")
@@ -102,7 +103,8 @@ namespace AppointmentSystem.Persistance.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -120,9 +122,8 @@ namespace AppointmentSystem.Persistance.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Specialty")
                         .IsRequired()
@@ -135,8 +136,7 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId")
-                        .IsUnique()
-                        .HasFilter("[AppUserId] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("AppUserId1")
                         .IsUnique()
@@ -197,6 +197,7 @@ namespace AppointmentSystem.Persistance.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("AppUserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("AppUserId1")
@@ -244,8 +245,7 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId")
-                        .IsUnique()
-                        .HasFilter("[AppUserId] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("AppUserId1")
                         .IsUnique()
@@ -559,7 +559,8 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.HasOne("AppointmentSystem.Domain.Models.AppUser", "AppUser")
                         .WithOne()
                         .HasForeignKey("AppointmentSystem.Domain.Entities.Doctor", "AppUserId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("AppointmentSystem.Domain.Models.AppUser", null)
                         .WithOne("Doctor")
@@ -584,7 +585,8 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.HasOne("AppointmentSystem.Domain.Models.AppUser", "AppUser")
                         .WithOne()
                         .HasForeignKey("AppointmentSystem.Domain.Entities.Patient", "AppUserId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("AppointmentSystem.Domain.Models.AppUser", null)
                         .WithOne("Patient")

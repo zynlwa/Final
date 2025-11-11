@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
+﻿using AppointmentSystem.Application.Common.Interfaces;
 using AppointmentSystem.Application.Common.Models.Identity;
 using AppointmentSystem.Application.Common.Models.Response;
 using AppointmentSystem.Application.Services.Abstractions;
+using AppointmentSystem.Domain.Entities;
 using AppointmentSystem.Domain.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -14,14 +17,17 @@ namespace AppointmentSystem.Infrastructure.Services;
 public class IdentityService(
     UserManager<AppUser> userManager,
     SignInManager<AppUser> signInManager,
-    IOptions<JwtSettings> jwtSettings) : IIdentityService
+    IOptions<JwtSettings> jwtSettings,
+    RoleManager<IdentityRole> roleManager,
+    IAppDbContext context) : IIdentityService
 {
-    private readonly JwtSettings _jwtSettings = jwtSettings.Value;
+    private readonly JwtSettings jwtSettings = jwtSettings.Value;
 
     public async Task<Response<string>> RegisterAsync(RegisterDto registerDto)
     {
         try
         {
+            // 1️⃣ Email / Username yoxlama
             var existingUserByEmail = await userManager.FindByEmailAsync(registerDto.Email);
             if (existingUserByEmail != null)
                 return Response<string>.Fail("User with this email already exists", 400);
@@ -30,22 +36,64 @@ public class IdentityService(
             if (existingUserByUsername != null)
                 return Response<string>.Fail("User with this username already exists", 400);
 
+            // 2️⃣ AppUser yarat
             var user = new AppUser
             {
                 FirstName = registerDto.FirstName,
                 LastName = registerDto.LastName,
                 Email = registerDto.Email,
                 UserName = registerDto.UserName,
+                PhoneNumber = registerDto.PhoneNumber,
                 CreatedAt = DateTime.UtcNow
             };
 
             var result = await userManager.CreateAsync(user, registerDto.Password);
-
             if (!result.Succeeded)
             {
                 var errors = result.Errors.Select(e => e.Description);
                 return Response<string>.Fail(errors, 400);
             }
+
+            // 3️⃣ Role yoxdursa yarat
+            if (!await roleManager.RoleExistsAsync(registerDto.Role))
+                await roleManager.CreateAsync(new IdentityRole(registerDto.Role));
+
+            // 4️⃣ User-i role əlavə et
+            await userManager.AddToRoleAsync(user, registerDto.Role);
+
+            // 5️⃣ Rol-a görə entity əlavə et (constructor-based)
+            switch (registerDto.Role)
+            {
+                case "Doctor":
+                    var doctor = new Doctor(
+                        firstName: user.FirstName,
+                        lastName: user.LastName,
+                        email: user.Email,
+                        specialty: "Default Specialty", // lazım olsa frontend-dən al
+                        phoneNumber: user.PhoneNumber,
+                        appUserId: user.Id
+                    );
+                    context.Doctors.Add(doctor);
+                    break;
+
+                case "Patient":
+                    var patient = new Patient(
+                        firstName: user.FirstName,
+                        lastName: user.LastName,
+                        email: user.Email,
+                        phoneNumber: user.PhoneNumber,
+                        dateOfBirth: DateTime.UtcNow, // frontend-dən almalı
+                        appUserId: user.Id
+                    );
+                    context.Patients.Add(patient);
+                    break;
+
+                case "Admin":
+                    // Admin üçün ayrıca entity lazım deyil
+                    break;
+            }
+
+            await context.SaveChangesAsync();
 
             return Response<string>.Success(user.Id, 201);
         }
@@ -54,6 +102,8 @@ public class IdentityService(
             return Response<string>.Fail($"An error occurred during registration: {ex.Message}", 500);
         }
     }
+
+
 
     public async Task<Response<LoginResponseDto>> LoginAsync(LoginDto loginDto)
     {
@@ -81,7 +131,7 @@ public class IdentityService(
             {
                 Token = token,
                 User = userDto,
-                ExpiresAt = DateTime.UtcNow.AddHours(_jwtSettings.ExpirationInHours)
+                ExpiresAt = DateTime.UtcNow.AddHours(jwtSettings.ExpirationInHours)
             };
 
             return Response<LoginResponseDto>.Success(loginResponse, 200);
@@ -192,14 +242,14 @@ public class IdentityService(
             new Claim("role", role)
         };
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.SecretKey));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SecretKey));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(
-            issuer: _jwtSettings.Issuer,
-            audience: _jwtSettings.Audience,
+            issuer: jwtSettings.Issuer,
+            audience: jwtSettings.Audience,
             claims: claims,
-            expires: DateTime.UtcNow.AddHours(_jwtSettings.ExpirationInHours),
+            expires: DateTime.UtcNow.AddHours(jwtSettings.ExpirationInHours),
             signingCredentials: credentials
         );
 

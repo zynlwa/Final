@@ -5,15 +5,6 @@ public class Appointment : BaseEntity
 
     public Appointment(string doctorId, string patientId, string availabilityId, string medicalServiceId, string? notes = null)
     {
-        if (string.IsNullOrWhiteSpace(doctorId))
-            throw new ArgumentException("DoctorId cannot be empty.");
-        if (string.IsNullOrWhiteSpace(patientId))
-            throw new ArgumentException("PatientId cannot be empty.");
-        if (string.IsNullOrWhiteSpace(availabilityId))
-            throw new ArgumentException("AvailabilityId cannot be empty.");
-        if (string.IsNullOrWhiteSpace(medicalServiceId))
-            throw new ArgumentException("MedicalServiceId cannot be empty.");
-
         DoctorId = doctorId;
         PatientId = patientId;
         AvailabilityId = availabilityId;

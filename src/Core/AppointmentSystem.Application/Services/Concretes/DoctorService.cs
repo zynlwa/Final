@@ -1,34 +1,63 @@
-﻿namespace AppointmentSystem.Application.Services.Concretes;
+﻿using Microsoft.AspNetCore.Identity;
+namespace AppointmentSystem.Application.Services.Concretes;
 
-public class DoctorService(IAppDbContext context, IMapper mapper) : IDoctorService
+public class DoctorService(IAppDbContext context, IMapper mapper, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager) : IDoctorService
 {
-    public async Task<DoctorDto> CreateDoctorAsync(CreateDoctorDto createdoctorDto)
+    public async Task<DoctorDto> CreateDoctorAsync(CreateDoctorDto createDoctorDto)
     {
+
         var existing = await context.Doctors
-               .FirstOrDefaultAsync(d => d.FirstName == createdoctorDto.FirstName &&
-                                         d.LastName == createdoctorDto.LastName &&
-                                         !d.IsDeleted);
+            .FirstOrDefaultAsync(d => d.Email == createDoctorDto.Email && !d.IsDeleted);
 
         if (existing != null)
-            throw new ConflictException("Doctor already exists.");
+            throw new ConflictException("A doctor with this email already exists.");
 
-        var doctor = mapper.Map<Doctor>(createdoctorDto);
+
+        var appUser = new AppUser
+        {
+            FirstName = createDoctorDto.FirstName,
+            LastName = createDoctorDto.LastName,
+            UserName = createDoctorDto.Email,
+            Email = createDoctorDto.Email
+        };
+
+        var result = await userManager.CreateAsync(appUser, createDoctorDto.Password);
+        if (!result.Succeeded)
+        {
+            var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+            throw new Exception($"User creation failed: {errors}");
+        }
+
+        // 3. Rol yoxdursa, əvvəlcə yaradıb sonra əlavə et
+        if (!await roleManager.RoleExistsAsync("Doctor"))
+            await roleManager.CreateAsync(new IdentityRole("Doctor"));
+
+        await userManager.AddToRoleAsync(appUser, "Doctor");
+
+        // 4. Doctor obyektini AppUser ilə bağla
+        var doctor = new Doctor(
+            createDoctorDto.FirstName,
+            createDoctorDto.LastName,
+            createDoctorDto.Email,
+            createDoctorDto.Specialty,
+            createDoctorDto.PhoneNumber,
+            appUser.Id
+        );
+
         await context.Doctors.AddAsync(doctor);
         await context.SaveChangesAsync();
-        var doctorDto = mapper.Map<DoctorDto>(doctor);
 
+        var doctorDto = mapper.Map<DoctorDto>(doctor);
         return doctorDto;
     }
 
     public async Task<IEnumerable<DoctorDto>> GetAllDoctorsAsync()
     {
-
         var doctors = await context.Doctors
             .Where(d => !d.IsDeleted)
             .ToListAsync();
 
         return mapper.Map<List<DoctorDto>>(doctors);
-
     }
 
     public async Task<DoctorDto> GetDoctorByIdAsync(string id)
@@ -41,21 +70,6 @@ public class DoctorService(IAppDbContext context, IMapper mapper) : IDoctorServi
 
         return mapper.Map<DoctorDto>(doctor);
     }
-
-    public async Task SoftDeleteDoctorAsync(string id, string deletedBy)
-    {
-        var doctor = await context.Doctors
-            .FirstOrDefaultAsync(d => d.Id == id && !d.IsDeleted);
-
-        if (doctor == null)
-            throw new NotFoundException("Doctor not found.");
-
-        doctor.SoftDelete(deletedBy);
-
-        context.Doctors.Update(doctor);
-        await context.SaveChangesAsync();
-    }
-
 
     public async Task UpdateDoctorAsync(string id, UpdateDoctorDto updateDoctorDto)
     {
@@ -77,4 +91,19 @@ public class DoctorService(IAppDbContext context, IMapper mapper) : IDoctorServi
         await context.SaveChangesAsync();
     }
 
+    public async Task SoftDeleteDoctorAsync(string id, string deletedBy)
+    {
+        var doctor = await context.Doctors
+            .FirstOrDefaultAsync(d => d.Id == id && !d.IsDeleted);
+
+        if (doctor == null)
+            throw new NotFoundException("Doctor not found.");
+
+        doctor.SoftDelete(deletedBy);
+
+        context.Doctors.Update(doctor);
+        await context.SaveChangesAsync();
+    }
 }
+
+

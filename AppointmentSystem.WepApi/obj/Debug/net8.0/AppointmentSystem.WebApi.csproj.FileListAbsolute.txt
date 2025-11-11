@@ -164,3 +164,8 @@ C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\FluentValidation.dll
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\MailKit.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\MimeKit.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

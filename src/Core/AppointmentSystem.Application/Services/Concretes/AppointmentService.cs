@@ -10,8 +10,24 @@ public class AppointmentService(IAppDbContext context, IMapper mapper) : IAppoin
                                       && a.DoctorId == dto.DoctorId
                                       && !a.IsBooked);
 
+
         if (availability == null)
-            throw new InvalidOperationException("This slot is either booked or does not exist for the doctor.");
+        {
+            throw new InvalidOperationException($"Availability with ID '{dto.AvailabilityId}' not found in the system.");
+        }
+
+        // Doctor uyğun gəlirmi?
+        if (availability.DoctorId != dto.DoctorId)
+        {
+            throw new InvalidOperationException($"Availability '{dto.AvailabilityId}' belongs to another doctor (DoctorId: {availability.DoctorId}).");
+        }
+
+        // Slot artıq tutulubmu?
+        if (availability.IsBooked)
+        {
+            throw new InvalidOperationException($"Availability '{dto.AvailabilityId}' is already booked.");
+        }
+
 
         var appointment = mapper.Map<Appointment>(dto);
 

@@ -5,4 +5,4 @@ global using AppointmentSystem.Persistance.Data;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
+global using AppointmentSystem.Domain.Entities;

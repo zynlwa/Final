@@ -9,4 +9,5 @@ public record RegisterDto
     public string Password { get; init; } = null!;
     public string ConfirmPassword { get; init; } = null!;
     public string? PhoneNumber { get; init; }
+    public string Role { get; set; } = "Patient";
 }

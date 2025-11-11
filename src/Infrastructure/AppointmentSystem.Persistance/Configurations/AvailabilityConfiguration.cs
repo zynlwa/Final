@@ -1,6 +1,4 @@
-﻿
-
-namespace AppointmentSystem.Persistance.Configurations;
+﻿namespace AppointmentSystem.Persistance.Configurations;
 
 public class AvailabilityConfiguration : IEntityTypeConfiguration<Availability>
 {

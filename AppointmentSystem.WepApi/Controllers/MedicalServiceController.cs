@@ -1,8 +1,6 @@
 ﻿using AppointmentSystem.Application.Common.Models.MedicalService;
 using AppointmentSystem.Application.Common.Models.Response;
 using AppointmentSystem.Application.Services.Abstractions;
-using AppointmentSystem.Application.Services.Concretes;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppointmentSystem.WebApi.Controllers;

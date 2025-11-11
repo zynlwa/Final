@@ -1,18 +1,46 @@
 ﻿
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 namespace AppointmentSystem.Application.Services.Concretes;
 
-public class PatientService(IAppDbContext context, IMapper mapper) : IPatientService
+public class PatientService(IAppDbContext context, IMapper mapper,UserManager<AppUser> userManager) : IPatientService
 {
     public async Task<PatientDto> CreatePatientAsync(CreatePatientDto patientDto)
     {
-        // Email-ə görə mövcudluq yoxlaması (unikal)
+        // Email yoxlaması
         var existing = await context.Patients
             .FirstOrDefaultAsync(p => p.Email == patientDto.Email && !p.IsDeleted);
 
         if (existing != null)
             throw new ConflictException("Patient with this email already exists.");
 
-        var patient = mapper.Map<Patient>(patientDto);
+        // AppUser yaradılır
+        var appUser = new AppUser
+        {
+            FirstName = patientDto.FirstName,
+            LastName = patientDto.LastName,
+            Email = patientDto.Email,
+            UserName = patientDto.Email, // Email username kimi
+            CreatedAt = DateTime.UtcNow
+        };
+
+        var result = await userManager.CreateAsync(appUser, patientDto.Password);
+        if (!result.Succeeded)
+            throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
+
+        // AppUser role təyin etmək (optional)
+        await userManager.AddToRoleAsync(appUser, "Patient");
+
+        // Patient entity yaradılır
+        var patient = new Patient(
+            patientDto.FirstName,
+            patientDto.LastName,
+            patientDto.Email,
+            patientDto.PhoneNumber,
+            patientDto.DateOfBirth,
+            appUser.Id
+        );
 
         await context.Patients.AddAsync(patient);
         await context.SaveChangesAsync();
@@ -68,7 +96,9 @@ public class PatientService(IAppDbContext context, IMapper mapper) : IPatientSer
         if (patient == null)
             throw new NotFoundException("Patient not found.");
 
-        context.Patients.Remove(patient);
+        // Soft delete
+        patient.SoftDelete(deletedBy);
+        context.Patients.Update(patient);
 
         await context.SaveChangesAsync();
     }

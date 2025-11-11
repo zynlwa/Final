@@ -24,8 +24,6 @@ public class CreatePatientDtoValidator : AbstractValidator<CreatePatientDto>
             .Matches(@"^\+?\d{10,15}$")
             .When(x => !string.IsNullOrWhiteSpace(x.PhoneNumber))
             .WithMessage("Invalid phone number format.");
-
-        RuleFor(x => x.AppUserId)
-            .NotEmpty().WithMessage("AppUserId is required.");
+       
     }
 }

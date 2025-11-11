@@ -19,8 +19,8 @@ public record CreatePatientDto(
     string Email,
     DateTime DateOfBirth,
     string? PhoneNumber,
-    string AppUserId
-);
+    string Password
+    );
 
 public record UpdatePatientDto(
     string FirstName,
