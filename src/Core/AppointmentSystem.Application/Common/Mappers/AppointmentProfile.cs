@@ -14,14 +14,22 @@ public class AppointmentProfile:Profile
          dto.MedicalServiceId,
          dto.Notes
      ));
-
         CreateMap<Appointment, AppointmentDto>()
-            .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()))
-            .ForMember(dest => dest.DoctorName, opt => opt.MapFrom(src => $"{src.Doctor.FirstName} {src.Doctor.LastName}"))
-            .ForMember(dest => dest.PatientName, opt => opt.MapFrom(src => $"{src.Patient.FirstName} {src.Patient.LastName}"))
-            .ForMember(dest => dest.StartTime, opt => opt.MapFrom(src => src.Availability.StartTime))
-            .ForMember(dest => dest.EndTime, opt => opt.MapFrom(src => src.Availability.EndTime))
-            .ForMember(dest => dest.MedicalServiceName, opt => opt.MapFrom(src => src.MedicalService.Name));
+            .ConstructUsing(src => new AppointmentDto(
+                src.Id.ToString(),
+                src.DoctorId.ToString(),
+                $"{src.Doctor.FirstName} {src.Doctor.LastName}",
+                src.PatientId.ToString(),
+                $"{src.Patient.FirstName} {src.Patient.LastName}",
+                src.AvailabilityId.ToString(),
+                src.Availability.StartTime,
+                src.Availability.EndTime,
+                src.MedicalServiceId.ToString(),
+                src.MedicalService.Name,
+                src.Status.ToString(),
+                src.Notes
+            ));
+
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AppointmentSystem.Application;
 using AppointmentSystem.Application.Common.Models.Response;
+using AppointmentSystem.Application.Common.Validators.IdentityValidators;
 using AppointmentSystem.Domain.Models;
 using AppointmentSystem.Infrastructure;
 using AppointmentSystem.Infrastructure.Services;
@@ -7,6 +8,7 @@ using AppointmentSystem.Persistance;
 using AppointmentSystem.Persistance.Data;
 using AppointmentSystem.WepApi.Middlewares;
 using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.JsonWebTokens;
@@ -16,8 +18,20 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//  Controllers
 builder.Services.AddControllers();
+
+// Automatic validation & client-side adapters
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+
+// Register validators
+builder.Services.AddValidatorsFromAssemblyContaining<RegisterDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<LoginDtoValidator>();
+//builder.Services.AddValidatorsFromAssemblyContaining<ForgotPasswordDtoValidator>();
+//builder.Services.AddValidatorsFromAssemblyContaining<ResetPasswordDtoValidator>();
+//builder.Services.AddValidatorsFromAssemblyContaining<ChangePasswordDtoValidator>();
+
+
 
 //  Swagger
 builder.Services.AddEndpointsApiExplorer();

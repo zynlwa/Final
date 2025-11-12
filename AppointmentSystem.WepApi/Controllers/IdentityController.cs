@@ -91,19 +91,19 @@ public class IdentityController : ControllerBase
         return BadRequest(result);
     }
 
-    
-    [HttpDelete("profile")]
-    [Authorize]
-    public async Task<IActionResult> DeleteProfile()
-    {
-        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        if (string.IsNullOrEmpty(userId))
-            return Unauthorized();
 
-        var result = await _identityService.DeleteUserAsync(userId);
+    [HttpDelete("profile/{id}")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> DeleteProfile(string id) 
+    {
+        if (string.IsNullOrEmpty(id))
+            return BadRequest("User ID is required.");
+
+        var result = await _identityService.DeleteUserAsync(id);
 
         if (result.IsSuccess)
             return Ok(result);
         return BadRequest(result);
     }
+
 }

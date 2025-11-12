@@ -228,6 +228,7 @@ public class IdentityService(
         }
     }
 
+    // IdentityService.cs
     private async Task<string> GenerateJwtToken(AppUser user)
     {
         var roles = await userManager.GetRolesAsync(user);
@@ -235,12 +236,13 @@ public class IdentityService(
 
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.Id),
-            new Claim(JwtRegisteredClaimNames.Email, user.Email ?? string.Empty),
-            new Claim(ClaimTypes.Name, user.UserName ?? string.Empty),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim("role", role)
-        };
+        new Claim(JwtRegisteredClaimNames.Sub, user.Id),
+        new Claim(ClaimTypes.NameIdentifier, user.Id), // <-- Əlavə edildi
+        new Claim(JwtRegisteredClaimNames.Email, user.Email ?? string.Empty),
+        new Claim(ClaimTypes.Name, user.UserName ?? string.Empty),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+        new Claim("role", role)
+    };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SecretKey));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -255,6 +257,7 @@ public class IdentityService(
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
+
 
     private static UserDto MapToUserDto(AppUser user)
     {

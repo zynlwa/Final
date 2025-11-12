@@ -505,10 +505,22 @@
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/api/Identity/profile/{id}": {
       "delete": {
         "tags": [
           "Identity"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {

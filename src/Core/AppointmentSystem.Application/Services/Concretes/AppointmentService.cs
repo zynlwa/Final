@@ -2,41 +2,40 @@
 
 public class AppointmentService(IAppDbContext context, IMapper mapper) : IAppointmentService
 {
-    public  async Task<AppointmentDto> CreateAppointmentAsync(CreateAppointmentDto dto)
+    public async Task<AppointmentDto> CreateAppointmentAsync(CreateAppointmentDto dto)
     {
-
         var availability = await context.Availabilities
-            .FirstOrDefaultAsync(a => a.Id == dto.AvailabilityId
-                                      && a.DoctorId == dto.DoctorId
-                                      && !a.IsBooked);
-
+     .FirstOrDefaultAsync(a => a.Id == dto.AvailabilityId && a.DoctorId == dto.DoctorId);
 
         if (availability == null)
-        {
             throw new InvalidOperationException($"Availability with ID '{dto.AvailabilityId}' not found in the system.");
-        }
 
-        // Doctor uyğun gəlirmi?
-        if (availability.DoctorId != dto.DoctorId)
-        {
-            throw new InvalidOperationException($"Availability '{dto.AvailabilityId}' belongs to another doctor (DoctorId: {availability.DoctorId}).");
-        }
-
-        // Slot artıq tutulubmu?
         if (availability.IsBooked)
-        {
             throw new InvalidOperationException($"Availability '{dto.AvailabilityId}' is already booked.");
-        }
 
-
+        // Appointment yaradılır
         var appointment = mapper.Map<Appointment>(dto);
 
         context.Appointments.Add(appointment);
-        availability.Book();
-        await context.SaveChangesAsync();
-        return mapper.Map<AppointmentDto>(appointment);
 
+        // Availability-ni book et
+        availability.Book();
+
+        // DB-ə yaz
+        await context.SaveChangesAsync();
+
+        // Navigation-ları DB-dən yenidən yüklə
+        appointment = await context.Appointments
+            .Include(a => a.Doctor)
+            .Include(a => a.Patient)
+            .Include(a => a.Availability)
+            .Include(a => a.MedicalService)
+            .FirstOrDefaultAsync(a => a.Id == appointment.Id);
+
+        // AutoMapper ilə AppointmentDto-ya map et
+        return mapper.Map<AppointmentDto>(appointment);
     }
+
     public async Task<AppointmentDto> ApproveAppointmentAsync(string appointmentId)
     {
         var appointment = await context.Appointments

@@ -313,11 +313,17 @@
   {
     "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
     "Method": "DeleteProfile",
-    "RelativePath": "api/Identity/profile",
+    "RelativePath": "api/Identity/profile/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
