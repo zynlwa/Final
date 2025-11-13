@@ -1,27 +1,28 @@
-﻿
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-
+﻿using Microsoft.AspNetCore.Identity;
 namespace AppointmentSystem.Application.Services.Concretes;
 
-public class PatientService(IAppDbContext context, IMapper mapper,UserManager<AppUser> userManager) : IPatientService
+public class PatientService(IAppDbContext context, IMapper mapper, UserManager<AppUser> userManager) : IPatientService
 {
     public async Task<PatientDto> CreatePatientAsync(CreatePatientDto patientDto)
     {
-        // Email yoxlaması
-        var existing = await context.Patients
+       
+        var existingUser = await userManager.FindByEmailAsync(patientDto.Email);
+        if (existingUser != null)
+            throw new ConflictException("A user with this email already exists.");
+
+        var existingPatient = await context.Patients
             .FirstOrDefaultAsync(p => p.Email == patientDto.Email && !p.IsDeleted);
 
-        if (existing != null)
+        if (existingPatient != null)
             throw new ConflictException("Patient with this email already exists.");
 
-        // AppUser yaradılır
+      
         var appUser = new AppUser
         {
             FirstName = patientDto.FirstName,
             LastName = patientDto.LastName,
             Email = patientDto.Email,
-            UserName = patientDto.Email, // Email username kimi
+            UserName = patientDto.Email,
             CreatedAt = DateTime.UtcNow
         };
 
@@ -29,10 +30,10 @@ public class PatientService(IAppDbContext context, IMapper mapper,UserManager<Ap
         if (!result.Succeeded)
             throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
 
-        // AppUser role təyin etmək (optional)
+     
         await userManager.AddToRoleAsync(appUser, "Patient");
 
-        // Patient entity yaradılır
+      
         var patient = new Patient(
             patientDto.FirstName,
             patientDto.LastName,
@@ -76,6 +77,14 @@ public class PatientService(IAppDbContext context, IMapper mapper,UserManager<Ap
         if (patient == null)
             throw new NotFoundException("Patient not found.");
 
+        
+        if (!string.Equals(patient.Email, patientDto.Email, StringComparison.OrdinalIgnoreCase))
+        {
+            var existingUser = await userManager.FindByEmailAsync(patientDto.Email);
+            if (existingUser != null && existingUser.Id != patient.AppUserId)
+                throw new ConflictException("This email is already in use by another user.");
+        }
+
         patient.Update(
             patientDto.FirstName,
             patientDto.LastName,
@@ -83,6 +92,18 @@ public class PatientService(IAppDbContext context, IMapper mapper,UserManager<Ap
             patientDto.PhoneNumber,
             patientDto.DateOfBirth
         );
+
+        
+        var appUser = await userManager.FindByIdAsync(patient.AppUserId);
+        if (appUser != null && appUser.Email != patientDto.Email)
+        {
+            appUser.Email = patientDto.Email;
+            appUser.UserName = patientDto.Email;
+            appUser.FirstName = patientDto.FirstName;
+            appUser.LastName = patientDto.LastName;
+
+            await userManager.UpdateAsync(appUser);
+        }
 
         context.Patients.Update(patient);
         await context.SaveChangesAsync();
@@ -96,7 +117,6 @@ public class PatientService(IAppDbContext context, IMapper mapper,UserManager<Ap
         if (patient == null)
             throw new NotFoundException("Patient not found.");
 
-        // Soft delete
         patient.SoftDelete(deletedBy);
         context.Patients.Update(patient);
 

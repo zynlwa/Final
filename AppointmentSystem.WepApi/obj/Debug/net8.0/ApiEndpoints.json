@@ -175,6 +175,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.BasketController",
+    "Method": "GetBasket",
+    "RelativePath": "api/Basket/{patientId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patientId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.BasketController",
+    "Method": "Checkout",
+    "RelativePath": "api/Basket/{patientId}/checkout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patientId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "promoCode",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.BasketController",
+    "Method": "AddItem",
+    "RelativePath": "api/Basket/{patientId}/items",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patientId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "itemDto",
+        "Type": "AppointmentSystem.Application.Common.Models.Basket.AddBasketItemDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.BasketController",
+    "Method": "RemoveItem",
+    "RelativePath": "api/Basket/{patientId}/items/{itemId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patientId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "itemId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorController",
     "Method": "GetAllDoctors",
     "RelativePath": "api/Doctor",
@@ -260,6 +339,22 @@
   },
   {
     "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
+    "Method": "ForgotPassword",
+    "RelativePath": "api/Identity/forgot-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AppointmentSystem.Application.Common.Models.Identity.ForgotPasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
     "Method": "Login",
     "RelativePath": "api/Identity/login",
     "HttpMethod": "POST",
@@ -312,6 +407,16 @@
   },
   {
     "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
+    "Method": "DeleteOwnProfile",
+    "RelativePath": "api/Identity/profile",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
     "Method": "DeleteProfile",
     "RelativePath": "api/Identity/profile/{id}",
     "HttpMethod": "DELETE",
@@ -337,6 +442,22 @@
       {
         "Name": "registerDto",
         "Type": "AppointmentSystem.Application.Common.Models.Identity.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/Identity/reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AppointmentSystem.Application.Common.Models.Identity.ResetPasswordDto",
         "IsRequired": true
       }
     ],

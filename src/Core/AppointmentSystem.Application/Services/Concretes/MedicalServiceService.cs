@@ -4,6 +4,9 @@ public class MedicalServiceService(IAppDbContext context, IMapper mapper): IMedi
 {
     public async Task<MedicalServiceDto> CreateMedicalServiceAsync(CreateMedicalServiceDto dto)
     {
+        var doctorExists = await context.Doctors.AnyAsync(d => d.Id == dto.DoctorId);
+        if (!doctorExists)
+            throw new NotFoundException("Doctor not found with the given ID.");
         var service = mapper.Map<MedicalService>(dto);
         context.MedicalServices.Add(service);
         await context.SaveChangesAsync();

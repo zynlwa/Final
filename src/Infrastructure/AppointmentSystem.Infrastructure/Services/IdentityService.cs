@@ -5,7 +5,6 @@ using AppointmentSystem.Application.Services.Abstractions;
 using AppointmentSystem.Domain.Entities;
 using AppointmentSystem.Domain.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -19,7 +18,8 @@ public class IdentityService(
     SignInManager<AppUser> signInManager,
     IOptions<JwtSettings> jwtSettings,
     RoleManager<IdentityRole> roleManager,
-    IAppDbContext context) : IIdentityService
+    IAppDbContext context,
+    EmailService emailService) : IIdentityService
 {
     private readonly JwtSettings jwtSettings = jwtSettings.Value;
 
@@ -27,7 +27,7 @@ public class IdentityService(
     {
         try
         {
-            // 1️⃣ Email / Username yoxlama
+            
             var existingUserByEmail = await userManager.FindByEmailAsync(registerDto.Email);
             if (existingUserByEmail != null)
                 return Response<string>.Fail("User with this email already exists", 400);
@@ -36,7 +36,7 @@ public class IdentityService(
             if (existingUserByUsername != null)
                 return Response<string>.Fail("User with this username already exists", 400);
 
-            // 2️⃣ AppUser yarat
+            
             var user = new AppUser
             {
                 FirstName = registerDto.FirstName,
@@ -54,14 +54,12 @@ public class IdentityService(
                 return Response<string>.Fail(errors, 400);
             }
 
-            // 3️⃣ Role yoxdursa yarat
+            
             if (!await roleManager.RoleExistsAsync(registerDto.Role))
                 await roleManager.CreateAsync(new IdentityRole(registerDto.Role));
 
-            // 4️⃣ User-i role əlavə et
             await userManager.AddToRoleAsync(user, registerDto.Role);
 
-            // 5️⃣ Rol-a görə entity əlavə et (constructor-based)
             switch (registerDto.Role)
             {
                 case "Doctor":
@@ -69,7 +67,7 @@ public class IdentityService(
                         firstName: user.FirstName,
                         lastName: user.LastName,
                         email: user.Email,
-                        specialty: "Default Specialty", // lazım olsa frontend-dən al
+                        specialty: "Default Specialty", 
                         phoneNumber: user.PhoneNumber,
                         appUserId: user.Id
                     );
@@ -82,14 +80,14 @@ public class IdentityService(
                         lastName: user.LastName,
                         email: user.Email,
                         phoneNumber: user.PhoneNumber,
-                        dateOfBirth: DateTime.UtcNow, // frontend-dən almalı
+                        dateOfBirth: DateTime.UtcNow,
                         appUserId: user.Id
                     );
                     context.Patients.Add(patient);
                     break;
 
                 case "Admin":
-                    // Admin üçün ayrıca entity lazım deyil
+                   
                     break;
             }
 
@@ -109,13 +107,16 @@ public class IdentityService(
     {
         try
         {
-            // İstifadəçi həm email, həm də username ilə daxil ola bilər
+
             AppUser? user = null;
 
             if (loginDto.EmailOrUsername!.Contains("@"))
                 user = await userManager.FindByEmailAsync(loginDto.EmailOrUsername);
             else
                 user = await userManager.FindByNameAsync(loginDto.EmailOrUsername);
+
+            if (user == null || user.IsDeleted) 
+                return Response<LoginResponseDto>.Fail("Invalid email/username or password", 401);
 
             if (user == null)
                 return Response<LoginResponseDto>.Fail("Invalid email/username or password", 401);
@@ -227,6 +228,60 @@ public class IdentityService(
             return Response<string>.Fail($"An error occurred while deleting user: {ex.Message}", 500);
         }
     }
+    public async Task<Response<string>> ForgotPasswordAsync(ForgotPasswordDto dto)
+    {
+        try
+        {
+            var user = await userManager.FindByEmailAsync(dto.Email);
+            if (user == null)
+                return Response<string>.Success("If the email is registered, you will receive a password reset link", 200);
+
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+
+            // API və test üçün link (frontend yoxdursa)
+            var resetLink = $"http://localhost:5194/api/identity/reset-password?email={Uri.EscapeDataString(user.Email)}&token={Uri.EscapeDataString(token)}";
+
+            // Email HTML templatedən oxuma
+            var templatePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "templates", "emailResetTemplate.html");
+            string html = await File.ReadAllTextAsync(templatePath);
+            html = html.Replace("{{link}}", resetLink);
+            html = html.Replace("{{username}}", user.UserName ?? "user");
+
+            // Email göndər
+            emailService.SendEmail(user.Email, "Reset your password", html);
+
+            // Test üçün Postman-da da görə biləsən deyə linki qaytarırıq
+            return Response<string>.Success($"Password reset link sent. For testing: {resetLink}", 200);
+        }
+        catch (Exception ex)
+        {
+            return Response<string>.Fail($"An error occurred while sending reset link: {ex.Message}", 500);
+        }
+    }
+    public async Task<Response<string>> ResetPasswordAsync(ResetPasswordDto dto)
+    {
+        try
+        {
+            var user = await userManager.FindByEmailAsync(dto.Email);
+            if (user == null)
+                return Response<string>.Fail("Invalid email", 404);
+
+            var result = await userManager.ResetPasswordAsync(user, dto.Token, dto.NewPassword);
+            if (!result.Succeeded)
+            {
+                var errors = result.Errors.Select(e => e.Description);
+                return Response<string>.Fail(errors, 400);
+            }
+
+            await userManager.UpdateSecurityStampAsync(user);
+            return Response<string>.Success("Password has been reset successfully", 200);
+        }
+        catch (Exception ex)
+        {
+            return Response<string>.Fail($"An error occurred while resetting password: {ex.Message}", 500);
+        }
+    }
+
 
     // IdentityService.cs
     private async Task<string> GenerateJwtToken(AppUser user)

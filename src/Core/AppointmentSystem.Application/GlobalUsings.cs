@@ -17,3 +17,5 @@ global using FluentValidation;
 global using AppointmentSystem.Application.Common.Models.Identity;
 global using AppointmentSystem.Application.Common.Models.Response;
 global using System.Text.RegularExpressions;
+global using AppointmentSystem.Application.Common.Models.Basket;
+global using AppointmentSystem.Application.Common.Models.PromoCode;

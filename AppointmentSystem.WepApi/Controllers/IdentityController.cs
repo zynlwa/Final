@@ -105,5 +105,41 @@ public class IdentityController : ControllerBase
             return Ok(result);
         return BadRequest(result);
     }
+    [HttpDelete("profile")]
+    [Authorize]
+    public async Task<IActionResult> DeleteOwnProfile()
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (string.IsNullOrEmpty(userId))
+            return Unauthorized();
+
+        var result = await _identityService.DeleteUserAsync(userId);
+
+        if (result.IsSuccess)
+            return Ok(result);
+        return BadRequest(result);
+    }
+
+    [HttpPost("forgot-password")]
+    [AllowAnonymous]
+    public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto dto)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        var result = await _identityService.ForgotPasswordAsync(dto);
+        return StatusCode(result.StatusCode, result);
+    }
+
+    [HttpPost("reset-password")]
+    [AllowAnonymous]
+    public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto dto)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        var result = await _identityService.ResetPasswordAsync(dto);
+        return StatusCode(result.StatusCode, result);
+    }
 
 }

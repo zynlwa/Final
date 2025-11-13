@@ -19,7 +19,6 @@ public class AppUser : IdentityUser, ISoftDeletable
         DeletedBy = deletedBy;
     }
 
-    // 🔗 Relations
     public Doctor? Doctor { get; set; }
     public Patient? Patient { get; set; }
 }

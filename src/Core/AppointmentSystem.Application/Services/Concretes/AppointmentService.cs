@@ -1,30 +1,65 @@
-﻿namespace AppointmentSystem.Application.Services.Concretes;
+﻿using AppointmentSystem.Domain.Enums;
+
+namespace AppointmentSystem.Application.Services.Concretes;
 
 public class AppointmentService(IAppDbContext context, IMapper mapper) : IAppointmentService
 {
     public async Task<AppointmentDto> CreateAppointmentAsync(CreateAppointmentDto dto)
     {
+  
         var availability = await context.Availabilities
-     .FirstOrDefaultAsync(a => a.Id == dto.AvailabilityId && a.DoctorId == dto.DoctorId);
+            .FirstOrDefaultAsync(a => a.Id == dto.AvailabilityId && a.DoctorId == dto.DoctorId);
 
         if (availability == null)
-            throw new InvalidOperationException($"Availability with ID '{dto.AvailabilityId}' not found in the system.");
+            throw new InvalidOperationException($"Availability with ID '{dto.AvailabilityId}' for Doctor '{dto.DoctorId}' not found.");
 
+        if (availability.StartTime < DateTime.UtcNow)
+            throw new InvalidOperationException("Cannot book an availability in the past.");
+
+       
         if (availability.IsBooked)
             throw new InvalidOperationException($"Availability '{dto.AvailabilityId}' is already booked.");
 
-        // Appointment yaradılır
+      
+        var service = await context.MedicalServices
+            .FirstOrDefaultAsync(s => s.Id == dto.MedicalServiceId);
+
+        if (service == null)
+            throw new InvalidOperationException($"Medical service '{dto.MedicalServiceId}' not found.");
+
+        if (service.DoctorId != dto.DoctorId)
+            throw new InvalidOperationException("Selected medical service does not belong to the doctor.");
+
+        
+        var overlappingPatientAppointment = await context.Appointments
+      .AnyAsync(a => a.PatientId == dto.PatientId &&
+                     a.Availability.StartTime == availability.StartTime &&
+                     a.Status != AppointmentStatus.Cancelled);
+        if (overlappingPatientAppointment)
+            throw new InvalidOperationException("Patient already has an appointment at this time.");
+
+       
+        var overlappingDoctorAppointment = await context.Appointments
+            .AnyAsync(a => a.DoctorId == dto.DoctorId &&
+                           a.Availability.StartTime == availability.StartTime &&
+                           a.Status != AppointmentStatus.Cancelled);
+
+        if (overlappingDoctorAppointment)
+            throw new InvalidOperationException("Doctor already has an appointment at this time.");
+        if (overlappingDoctorAppointment)
+            throw new InvalidOperationException("Doctor already has an appointment at this time.");
+
+
         var appointment = mapper.Map<Appointment>(dto);
 
         context.Appointments.Add(appointment);
 
-        // Availability-ni book et
         availability.Book();
 
-        // DB-ə yaz
+       
         await context.SaveChangesAsync();
 
-        // Navigation-ları DB-dən yenidən yüklə
+       
         appointment = await context.Appointments
             .Include(a => a.Doctor)
             .Include(a => a.Patient)
@@ -32,7 +67,7 @@ public class AppointmentService(IAppDbContext context, IMapper mapper) : IAppoin
             .Include(a => a.MedicalService)
             .FirstOrDefaultAsync(a => a.Id == appointment.Id);
 
-        // AutoMapper ilə AppointmentDto-ya map et
+       
         return mapper.Map<AppointmentDto>(appointment);
     }
 
@@ -77,6 +112,7 @@ public class AppointmentService(IAppDbContext context, IMapper mapper) : IAppoin
 
         return appointment == null ? null : mapper.Map<AppointmentDto>(appointment);
     }
+
     public async Task<IEnumerable<AppointmentDto>> GetAppointmentsForDoctorAsync(string doctorId)
     {
         var appointments = await context.Appointments
@@ -87,6 +123,7 @@ public class AppointmentService(IAppDbContext context, IMapper mapper) : IAppoin
 
         return mapper.Map<IEnumerable<AppointmentDto>>(appointments);
     }
+
     public async Task<IEnumerable<AppointmentDto>> GetAppointmentsForPatientAsync(string patientId)
     {
         var appointments = await context.Appointments

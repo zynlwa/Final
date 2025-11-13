@@ -1,17 +1,27 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 namespace AppointmentSystem.Application.Services.Concretes;
 
-public class DoctorService(IAppDbContext context, IMapper mapper, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager) : IDoctorService
+public class DoctorService(
+    IAppDbContext context,
+    IMapper mapper,
+    UserManager<AppUser> userManager,
+    RoleManager<IdentityRole> roleManager
+) : IDoctorService
 {
     public async Task<DoctorDto> CreateDoctorAsync(CreateDoctorDto createDoctorDto)
     {
+        
+        var existingUser = await userManager.FindByEmailAsync(createDoctorDto.Email);
+        if (existingUser != null)
+            throw new ConflictException("A user with this email already exists.");
 
-        var existing = await context.Doctors
+        var existingDoctor = await context.Doctors
             .FirstOrDefaultAsync(d => d.Email == createDoctorDto.Email && !d.IsDeleted);
 
-        if (existing != null)
+        if (existingDoctor != null)
             throw new ConflictException("A doctor with this email already exists.");
-
 
         var appUser = new AppUser
         {
@@ -28,13 +38,12 @@ public class DoctorService(IAppDbContext context, IMapper mapper, UserManager<Ap
             throw new Exception($"User creation failed: {errors}");
         }
 
-        // 3. Rol yoxdursa, əvvəlcə yaradıb sonra əlavə et
         if (!await roleManager.RoleExistsAsync("Doctor"))
             await roleManager.CreateAsync(new IdentityRole("Doctor"));
 
         await userManager.AddToRoleAsync(appUser, "Doctor");
 
-        // 4. Doctor obyektini AppUser ilə bağla
+       
         var doctor = new Doctor(
             createDoctorDto.FirstName,
             createDoctorDto.LastName,
@@ -47,8 +56,7 @@ public class DoctorService(IAppDbContext context, IMapper mapper, UserManager<Ap
         await context.Doctors.AddAsync(doctor);
         await context.SaveChangesAsync();
 
-        var doctorDto = mapper.Map<DoctorDto>(doctor);
-        return doctorDto;
+        return mapper.Map<DoctorDto>(doctor);
     }
 
     public async Task<IEnumerable<DoctorDto>> GetAllDoctorsAsync()
@@ -79,6 +87,14 @@ public class DoctorService(IAppDbContext context, IMapper mapper, UserManager<Ap
         if (doctor == null)
             throw new NotFoundException("Doctor not found.");
 
+        if (!string.Equals(doctor.Email, updateDoctorDto.Email, StringComparison.OrdinalIgnoreCase))
+        {
+            var existingUser = await userManager.FindByEmailAsync(updateDoctorDto.Email);
+            if (existingUser != null && existingUser.Id != doctor.AppUserId)
+                throw new ConflictException("This email is already in use by another user.");
+        }
+
+        
         doctor.Update(
             updateDoctorDto.FirstName,
             updateDoctorDto.LastName,
@@ -86,6 +102,17 @@ public class DoctorService(IAppDbContext context, IMapper mapper, UserManager<Ap
             updateDoctorDto.PhoneNumber,
             updateDoctorDto.Specialty
         );
+
+        var appUser = await userManager.FindByIdAsync(doctor.AppUserId);
+        if (appUser != null && appUser.Email != updateDoctorDto.Email)
+        {
+            appUser.Email = updateDoctorDto.Email;
+            appUser.UserName = updateDoctorDto.Email;
+            appUser.FirstName = updateDoctorDto.FirstName;
+            appUser.LastName = updateDoctorDto.LastName;
+
+            await userManager.UpdateAsync(appUser);
+        }
 
         context.Doctors.Update(doctor);
         await context.SaveChangesAsync();
@@ -100,10 +127,7 @@ public class DoctorService(IAppDbContext context, IMapper mapper, UserManager<Ap
             throw new NotFoundException("Doctor not found.");
 
         doctor.SoftDelete(deletedBy);
-
         context.Doctors.Update(doctor);
         await context.SaveChangesAsync();
     }
 }
-
-

@@ -1,20 +1,5 @@
-﻿using AppointmentSystem.Application;
-using AppointmentSystem.Application.Common.Models.Response;
-using AppointmentSystem.Application.Common.Validators.IdentityValidators;
-using AppointmentSystem.Domain.Models;
-using AppointmentSystem.Infrastructure;
-using AppointmentSystem.Infrastructure.Services;
-using AppointmentSystem.Persistance;
-using AppointmentSystem.Persistance.Data;
-using AppointmentSystem.WepApi.Middlewares;
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.JsonWebTokens;
-using Microsoft.IdentityModel.Tokens;
-using System.Reflection;
-using System.Text;
+﻿
+using AppointmentSystem.Application.Common.Validators.Basket;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,9 +12,19 @@ builder.Services.AddFluentValidationClientsideAdapters();
 // Register validators
 builder.Services.AddValidatorsFromAssemblyContaining<RegisterDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<LoginDtoValidator>();
-//builder.Services.AddValidatorsFromAssemblyContaining<ForgotPasswordDtoValidator>();
-//builder.Services.AddValidatorsFromAssemblyContaining<ResetPasswordDtoValidator>();
-//builder.Services.AddValidatorsFromAssemblyContaining<ChangePasswordDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<UpdateUserDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateDoctorDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<UpdateDoctorDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreatePatientDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<UpdatePatientDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateAppointmentDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateMedicalServiceDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<UpdateMedicalServiceDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateAvailabilityDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<ForgotPasswordDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<ResetPasswordDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreatePromoCodeDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<AddBasketItemDtoValidator>();
 
 
 
