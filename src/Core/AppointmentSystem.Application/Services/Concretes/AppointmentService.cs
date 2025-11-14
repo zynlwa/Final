@@ -1,4 +1,5 @@
-﻿using AppointmentSystem.Domain.Enums;
+﻿using AppointmentSystem.Domain.Entities;
+using AppointmentSystem.Domain.Enums;
 
 namespace AppointmentSystem.Application.Services.Concretes;
 
@@ -6,7 +7,7 @@ public class AppointmentService(IAppDbContext context, IMapper mapper) : IAppoin
 {
     public async Task<AppointmentDto> CreateAppointmentAsync(CreateAppointmentDto dto)
     {
-  
+        // 1. Availabilty tap
         var availability = await context.Availabilities
             .FirstOrDefaultAsync(a => a.Id == dto.AvailabilityId && a.DoctorId == dto.DoctorId);
 
@@ -16,11 +17,11 @@ public class AppointmentService(IAppDbContext context, IMapper mapper) : IAppoin
         if (availability.StartTime < DateTime.UtcNow)
             throw new InvalidOperationException("Cannot book an availability in the past.");
 
-       
+        // Already booked?
         if (availability.IsBooked)
-            throw new InvalidOperationException($"Availability '{dto.AvailabilityId}' is already booked.");
+            throw new InvalidOperationException("This availability slot is already booked.");
 
-      
+        // 2. Medical service yoxla
         var service = await context.MedicalServices
             .FirstOrDefaultAsync(s => s.Id == dto.MedicalServiceId);
 
@@ -28,38 +29,44 @@ public class AppointmentService(IAppDbContext context, IMapper mapper) : IAppoin
             throw new InvalidOperationException($"Medical service '{dto.MedicalServiceId}' not found.");
 
         if (service.DoctorId != dto.DoctorId)
-            throw new InvalidOperationException("Selected medical service does not belong to the doctor.");
+            throw new InvalidOperationException("Selected medical service does not belong to this doctor.");
 
-        
-        var overlappingPatientAppointment = await context.Appointments
-      .AnyAsync(a => a.PatientId == dto.PatientId &&
-                     a.Availability.StartTime == availability.StartTime &&
-                     a.Status != AppointmentStatus.Cancelled);
-        if (overlappingPatientAppointment)
+        // 3. Same availability üçün ikinci appointment yaratmaq olmaz
+        var exists = await context.Appointments
+            .AnyAsync(a => a.AvailabilityId == dto.AvailabilityId &&
+                           a.Status != AppointmentStatus.Cancelled);
+
+        if (exists)
+            throw new InvalidOperationException("You cannot create two appointments for the same time slot.");
+
+        // 4. Patient overlapping check
+        var overlappingPatient = await context.Appointments
+            .AnyAsync(a => a.PatientId == dto.PatientId &&
+                           a.Availability.StartTime == availability.StartTime &&
+                           a.Status != AppointmentStatus.Cancelled);
+
+        if (overlappingPatient)
             throw new InvalidOperationException("Patient already has an appointment at this time.");
 
-       
-        var overlappingDoctorAppointment = await context.Appointments
+        // 5. Doctor overlapping check
+        var overlappingDoctor = await context.Appointments
             .AnyAsync(a => a.DoctorId == dto.DoctorId &&
                            a.Availability.StartTime == availability.StartTime &&
                            a.Status != AppointmentStatus.Cancelled);
 
-        if (overlappingDoctorAppointment)
-            throw new InvalidOperationException("Doctor already has an appointment at this time.");
-        if (overlappingDoctorAppointment)
+        if (overlappingDoctor)
             throw new InvalidOperationException("Doctor already has an appointment at this time.");
 
-
+        // 6. Appointment yarat
         var appointment = mapper.Map<Appointment>(dto);
-
         context.Appointments.Add(appointment);
 
+        // 7. Availability-ni book et
         availability.Book();
 
-       
         await context.SaveChangesAsync();
 
-       
+        // 8. Full include ilə appointment qaytar
         appointment = await context.Appointments
             .Include(a => a.Doctor)
             .Include(a => a.Patient)
@@ -67,9 +74,9 @@ public class AppointmentService(IAppDbContext context, IMapper mapper) : IAppoin
             .Include(a => a.MedicalService)
             .FirstOrDefaultAsync(a => a.Id == appointment.Id);
 
-       
         return mapper.Map<AppointmentDto>(appointment);
     }
+
 
     public async Task<AppointmentDto> ApproveAppointmentAsync(string appointmentId)
     {
@@ -80,11 +87,22 @@ public class AppointmentService(IAppDbContext context, IMapper mapper) : IAppoin
         if (appointment == null)
             throw new KeyNotFoundException("Appointment not found.");
 
+        // Domain metodunu istifadə edərək təsdiqlə
         appointment.Approve();
+
         await context.SaveChangesAsync();
+
+        // Full include ilə DTO qaytar
+        appointment = await context.Appointments
+            .Include(a => a.Doctor)
+            .Include(a => a.Patient)
+            .Include(a => a.MedicalService)
+            .Include(a => a.Availability)
+            .FirstOrDefaultAsync(a => a.Id == appointment.Id);
 
         return mapper.Map<AppointmentDto>(appointment);
     }
+
 
     public async Task<AppointmentDto> CancelAppointmentAsync(string appointmentId)
     {
@@ -116,10 +134,13 @@ public class AppointmentService(IAppDbContext context, IMapper mapper) : IAppoin
     public async Task<IEnumerable<AppointmentDto>> GetAppointmentsForDoctorAsync(string doctorId)
     {
         var appointments = await context.Appointments
-            .Include(a => a.Patient)
-            .Include(a => a.Availability)
-            .Where(a => a.DoctorId == doctorId)
-            .ToListAsync();
+     .Include(a => a.Doctor)
+     .Include(a => a.Patient)
+     .Include(a => a.Availability)
+     .Include(a => a.MedicalService)
+     .Where(a => a.DoctorId == doctorId)
+     .ToListAsync();
+
 
         return mapper.Map<IEnumerable<AppointmentDto>>(appointments);
     }
@@ -127,10 +148,12 @@ public class AppointmentService(IAppDbContext context, IMapper mapper) : IAppoin
     public async Task<IEnumerable<AppointmentDto>> GetAppointmentsForPatientAsync(string patientId)
     {
         var appointments = await context.Appointments
-            .Include(a => a.Doctor)
-            .Include(a => a.Availability)
-            .Where(a => a.PatientId == patientId)
-            .ToListAsync();
+     .Include(a => a.Doctor)
+     .Include(a => a.Patient)
+     .Include(a => a.Availability)
+     .Include(a => a.MedicalService)
+     .Where(a => a.PatientId == patientId)
+     .ToListAsync();
 
         return mapper.Map<IEnumerable<AppointmentDto>>(appointments);
     }

@@ -32,12 +32,10 @@ public class Appointment : BaseEntity
         if (Status == AppointmentStatus.Cancelled)
             throw new InvalidOperationException("Cannot approve a cancelled appointment.");
 
-        if (Availability.IsBooked)
-            throw new InvalidOperationException("This time slot is already booked.");
-
+        // Availability artıq booked olubsa, sadəcə status dəyiş
         Status = AppointmentStatus.Confirmed;
-        Availability.Book();
     }
+
 
     public void Cancel()
     {

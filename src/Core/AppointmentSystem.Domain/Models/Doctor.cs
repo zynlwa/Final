@@ -4,7 +4,7 @@ public class Doctor : BaseEntity
 {
     private Doctor() { } // EF Core üçün
 
-    public Doctor(string firstName, string lastName, string email, string specialty, string? phoneNumber, string appUserId)
+    public Doctor(string firstName, string lastName, string email, string specialty, string? phoneNumber, string appUserId, string? imageUrl = null)
     {
         FirstName = firstName;
         LastName = lastName;
@@ -12,13 +12,15 @@ public class Doctor : BaseEntity
         Specialty = specialty;
         PhoneNumber = phoneNumber;
         AppUserId = appUserId;
+        ImageUrl = imageUrl;
     }
-   
+
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
     public string Email { get; private set; }
     public string Specialty { get; private set; }
     public string? PhoneNumber { get; private set; }
+    public string? ImageUrl { get; private set; }  
 
     public string AppUserId { get; private set; } = null!;
     public AppUser AppUser { get; private set; } = null!;
@@ -26,12 +28,13 @@ public class Doctor : BaseEntity
     public ICollection<Availability> Availabilities { get; private set; } = new List<Availability>();
     public ICollection<MedicalService> MedicalServices { get; private set; } = new List<MedicalService>();
 
-    public void Update(string firstName, string lastName, string email, string? phoneNumber, string specialty)
+    public void Update(string firstName, string lastName, string email, string? phoneNumber, string specialty, string? imageUrl = null)
     {
         FirstName = firstName;
         LastName = lastName;
         Email = email;
         PhoneNumber = phoneNumber;
         Specialty = specialty;
+        ImageUrl = imageUrl;
     }
 }

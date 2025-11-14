@@ -2,6 +2,7 @@
 using AppointmentSystem.Application.Common.Models.Response;
 using AppointmentSystem.Application.Services.Abstractions;
 using AppointmentSystem.Application.Services.Concretes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,7 +29,7 @@ namespace AppointmentSystem.WebApi.Controllers
 
             return Ok(Response<AppointmentDto>.Success(appointment, 200));
         }
-
+        [Authorize(Roles = "Doctor")]
         [HttpPut("{id}/approve")]
         public async Task<IActionResult> ApproveAppointment(string id)
         {

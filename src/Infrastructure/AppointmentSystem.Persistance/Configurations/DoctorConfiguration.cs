@@ -21,6 +21,7 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
         builder.Property(x => x.Email)
             .IsRequired()
             .HasMaxLength(150);
+        builder.Property(c => c.ImageUrl).IsRequired(true).HasMaxLength(200);
 
         builder.Property(x => x.PhoneNumber)
             .HasMaxLength(20);
@@ -36,6 +37,7 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
             .WithOne(a => a.Doctor)
             .HasForeignKey(a => a.DoctorId)
             .OnDelete(DeleteBehavior.Restrict);
+
 
         
         builder.HasMany(d => d.Availabilities)

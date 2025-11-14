@@ -23,3 +23,6 @@ global using System.Text;
 global using AppointmentSystem.Application.Common.Models.Basket;
 global using AppointmentSystem.Application.Services.Abstractions;
 global using Microsoft.AspNetCore.Mvc;
+global using AppointmentSystem.WebApi.Attributes;
+global using System.ComponentModel.DataAnnotations;
+

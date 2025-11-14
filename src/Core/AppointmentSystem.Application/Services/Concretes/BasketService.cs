@@ -123,7 +123,6 @@ public class BasketService(IAppDbContext context, IMapper mapper) : IBasketServi
             var appointment = new Appointment(item.DoctorId, patientId, item.AvailabilityId, item.MedicalServiceId);
             context.Appointments.Add(appointment);
 
-            availability.Book();
         }
 
         basket.Items.Clear();

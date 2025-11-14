@@ -11,10 +11,12 @@ public class DoctorProfile:Profile
                    d.LastName,
                    d.Specialty,
                    d.Email,
+                   d.ImageUrl,
                    d.PhoneNumber,
                    d.IsDeleted,
                    d.DeletedAt,
                    d.DeletedBy
+                 
                ));
 
         
@@ -23,6 +25,7 @@ public class DoctorProfile:Profile
                 dto.FirstName,
                 dto.LastName,
                 dto.Email,
+                dto.ImageUrl,
                 dto.Specialty,
                 dto.PhoneNumber,
                 null! 

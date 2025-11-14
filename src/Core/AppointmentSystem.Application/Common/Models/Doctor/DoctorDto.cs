@@ -6,6 +6,7 @@ public record DoctorDto(
     string LastName,
     string Specialty,
     string Email,
+    string? ImageUrl,
     string? PhoneNumber,
     bool IsDeleted,
     DateTime? DeletedAt,
@@ -17,6 +18,7 @@ public record CreateDoctorDto(
     string LastName,
     string Specialty,
     string Email,
+    string? ImageUrl,
     string? PhoneNumber,
      string Password
 );
@@ -26,5 +28,6 @@ public record UpdateDoctorDto(
     string LastName,
     string Specialty,
     string Email,
+    string? ImageUrl,
     string? PhoneNumber
 );
