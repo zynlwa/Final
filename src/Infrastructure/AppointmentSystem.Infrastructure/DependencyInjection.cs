@@ -1,5 +1,4 @@
-﻿using AppointmentSystem.Application.Services.Abstractions;
-using AppointmentSystem.Application.Services.Concretes;
+﻿using AppointmentSystem.Application.Services.Concretes;
 using AppointmentSystem.Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,8 +21,7 @@ public static class DependencyInjection
         // Register Identity service
         services.AddScoped<IDoctorService, DoctorService>();
         services.AddScoped<IIdentityService, IdentityService>();
-        services.AddScoped<EmailService>();
-
+        services.AddScoped<IEmailService, EmailService>();
 
         return services;
     }

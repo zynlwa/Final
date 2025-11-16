@@ -1,14 +1,4 @@
-﻿using AppointmentSystem.Application.Common.Models.Doctor;
-using AppointmentSystem.Application.Common.Models.Identity;
-using AppointmentSystem.Application.Common.Models.Response;
-using AppointmentSystem.Application.Services.Abstractions;
-using AppointmentSystem.Infrastructure.Helpers;
-using AppointmentSystem.Infrastructure.Services;
-using AppointmentSystem.WebApi.Requests.Doctor;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-
-namespace AppointmentSystem.WebApi.Controllers;
+﻿namespace AppointmentSystem.WebApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -59,8 +49,7 @@ public class DoctorController : ControllerBase
             request.Specialty,
             request.Email,
             imageUrl,
-            request.PhoneNumber,
-            request.Password
+            request.PhoneNumber
         );
 
         var doctor = await _doctorService.CreateDoctorAsync(dto);

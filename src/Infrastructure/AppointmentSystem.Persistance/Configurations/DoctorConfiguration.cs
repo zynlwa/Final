@@ -38,13 +38,10 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
             .HasForeignKey(a => a.DoctorId)
             .OnDelete(DeleteBehavior.Restrict);
 
-
-        
         builder.HasMany(d => d.Availabilities)
             .WithOne(a => a.Doctor)
             .HasForeignKey(a => a.DoctorId)
             .OnDelete(DeleteBehavior.Cascade);
-
         
         builder.HasQueryFilter(p => !p.IsDeleted);
     }

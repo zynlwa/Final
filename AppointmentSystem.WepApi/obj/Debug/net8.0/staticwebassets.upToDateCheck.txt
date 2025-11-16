@@ -1,1 +1,2 @@
+wwwroot\images\doctors\2f90e6fa-acfd-4766-9f56-b61c0d3428b2.png
 wwwroot\templates\emailResetTemplate.html

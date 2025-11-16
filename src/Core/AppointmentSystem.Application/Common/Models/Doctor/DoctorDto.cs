@@ -19,8 +19,7 @@ public record CreateDoctorDto(
     string Specialty,
     string Email,
     string? ImageUrl,
-    string? PhoneNumber,
-     string Password
+    string? PhoneNumber
 );
 
 public record UpdateDoctorDto(

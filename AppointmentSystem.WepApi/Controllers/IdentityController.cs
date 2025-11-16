@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using AppointmentSystem.Application.Common.Models.Identity;
-using AppointmentSystem.Application.Services.Abstractions;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 
 namespace AppointmentSystem.WebAPI.Controllers;
 
@@ -141,5 +137,19 @@ public class IdentityController : ControllerBase
         var result = await _identityService.ResetPasswordAsync(dto);
         return StatusCode(result.StatusCode, result);
     }
+    [HttpPost("change-temporary-password")]
+    [AllowAnonymous]
+    public async Task<IActionResult> ChangeTemporaryPassword([FromBody] ChangeTemporaryPasswordDto dto)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        var result = await _identityService.ChangeTemporaryPasswordAsync(dto.Email, dto.TemporaryPassword, dto.NewPassword);
+
+        if (result.IsSuccess)
+            return Ok(result);
+        return StatusCode(result.StatusCode, result);
+    }
+
 
 }

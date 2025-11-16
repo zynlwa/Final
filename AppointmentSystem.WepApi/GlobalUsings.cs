@@ -25,4 +25,8 @@ global using AppointmentSystem.Application.Services.Abstractions;
 global using Microsoft.AspNetCore.Mvc;
 global using AppointmentSystem.WebApi.Attributes;
 global using System.ComponentModel.DataAnnotations;
-
+global using AppointmentSystem.Application.Common.Models.Doctor;
+global using AppointmentSystem.Application.Common.Models.Identity;
+global using AppointmentSystem.Infrastructure.Helpers;
+global using AppointmentSystem.WebApi.Requests.Doctor;
+global using Microsoft.AspNetCore.Authorization;

@@ -23,8 +23,6 @@ public static class DependencyInjection
         services.AddScoped<IAvailabilityService, AvailabilityService>();
         services.AddScoped<IMedicalServiceService, MedicalServiceService>();
         services.AddScoped<IBasketService, BasketService>();
-
-
         return services;
     }
 }

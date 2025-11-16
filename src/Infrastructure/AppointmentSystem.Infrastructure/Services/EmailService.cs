@@ -1,11 +1,13 @@
-﻿using MailKit.Security;
+﻿
+using MailKit.Security;
 using MimeKit;
 using MimeKit.Text;
 using Microsoft.Extensions.Configuration;
+using AppointmentSystem.Application.Common.Interfaces;
 
 namespace AppointmentSystem.Infrastructure.Services;
 
-public class EmailService
+public class EmailService : IEmailService
 {
     private readonly IConfiguration _configuration;
 
@@ -34,5 +36,14 @@ public class EmailService
         );
         smtp.Send(email);
         smtp.Disconnect(true);
+    }
+
+    public Task SendTemporaryPasswordAsync(string toEmail, string tempPassword)
+    {
+        string subject = "Your Temporary Password";
+        string body = $"<p>Hello,</p><p>Your temporary password is: <strong>{tempPassword}</strong></p><p>Please change it after first login.</p>";
+
+        SendEmail(toEmail, subject, body);
+        return Task.CompletedTask;
     }
 }

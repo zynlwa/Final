@@ -6,7 +6,8 @@ public class DoctorService(
     IAppDbContext context,
     IMapper mapper,
     UserManager<AppUser> userManager,
-    RoleManager<IdentityRole> roleManager
+    RoleManager<IdentityRole> roleManager,
+    IEmailService emailService
 ) : IDoctorService
 {
     public async Task<DoctorDto> CreateDoctorAsync(CreateDoctorDto createDoctorDto)
@@ -18,15 +19,18 @@ public class DoctorService(
             .FirstOrDefaultAsync(d => d.Email == createDoctorDto.Email && !d.IsDeleted);
         if (existingDoctor != null) throw new ConflictException("A doctor with this email already exists.");
 
+        var tempPassword = Guid.NewGuid().ToString().Substring(0, 8); 
+
         var appUser = new AppUser
         {
             FirstName = createDoctorDto.FirstName,
             LastName = createDoctorDto.LastName,
             UserName = createDoctorDto.Email,
-            Email = createDoctorDto.Email
+            Email = createDoctorDto.Email,
+            MustChangePassword = true 
         };
 
-        var result = await userManager.CreateAsync(appUser, createDoctorDto.Password);
+        var result = await userManager.CreateAsync(appUser, tempPassword);
         if (!result.Succeeded)
         {
             var errors = string.Join(", ", result.Errors.Select(e => e.Description));
@@ -37,6 +41,9 @@ public class DoctorService(
             await roleManager.CreateAsync(new IdentityRole("Doctor"));
 
         await userManager.AddToRoleAsync(appUser, "Doctor");
+
+        
+        await emailService.SendTemporaryPasswordAsync(appUser.Email, tempPassword);
 
         var doctor = new Doctor(
             createDoctorDto.FirstName,
@@ -53,6 +60,7 @@ public class DoctorService(
 
         return mapper.Map<DoctorDto>(doctor);
     }
+
 
     public async Task UpdateDoctorAsync(string id, UpdateDoctorDto updateDoctorDto)
     {

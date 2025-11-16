@@ -9,5 +9,7 @@ public interface IIdentityService
     Task<Response<string>> DeleteUserAsync(string userId);
     Task<Response<string>> ForgotPasswordAsync(ForgotPasswordDto dto);
     Task<Response<string>> ResetPasswordAsync(ResetPasswordDto dto);
+    Task<Response<string>> ChangeTemporaryPasswordAsync(string doctorEmail, string tempPassword, string newPassword);
+
 
 }

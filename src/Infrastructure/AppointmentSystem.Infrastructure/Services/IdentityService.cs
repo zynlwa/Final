@@ -1,16 +1,4 @@
-﻿using AppointmentSystem.Application.Common.Interfaces;
-using AppointmentSystem.Application.Common.Models.Identity;
-using AppointmentSystem.Application.Common.Models.Response;
-using AppointmentSystem.Application.Services.Abstractions;
-using AppointmentSystem.Domain.Entities;
-using AppointmentSystem.Domain.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-
+﻿
 namespace AppointmentSystem.Infrastructure.Services;
 
 public class IdentityService(
@@ -19,7 +7,7 @@ public class IdentityService(
     IOptions<JwtSettings> jwtSettings,
     RoleManager<IdentityRole> roleManager,
     IAppDbContext context,
-    EmailService emailService) : IIdentityService
+    IEmailService emailService) : IIdentityService
 {
     private readonly JwtSettings jwtSettings = jwtSettings.Value;
 
@@ -124,6 +112,10 @@ public class IdentityService(
             var result = await signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
             if (!result.Succeeded)
                 return Response<LoginResponseDto>.Fail("Invalid email/username or password", 401);
+
+            if (user.Doctor != null && user.MustChangePassword)
+                return Response<LoginResponseDto>.Fail("You must change your temporary password", 403);
+
 
             var token = await GenerateJwtToken(user);
             var userDto = MapToUserDto(user);
@@ -238,19 +230,16 @@ public class IdentityService(
 
             var token = await userManager.GeneratePasswordResetTokenAsync(user);
 
-            // API və test üçün link (frontend yoxdursa)
             var resetLink = $"http://localhost:5194/api/identity/reset-password?email={Uri.EscapeDataString(user.Email)}&token={Uri.EscapeDataString(token)}";
 
-            // Email HTML templatedən oxuma
             var templatePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "templates", "emailResetTemplate.html");
             string html = await File.ReadAllTextAsync(templatePath);
             html = html.Replace("{{link}}", resetLink);
             html = html.Replace("{{username}}", user.UserName ?? "user");
 
-            // Email göndər
+           
             emailService.SendEmail(user.Email, "Reset your password", html);
 
-            // Test üçün Postman-da da görə biləsən deyə linki qaytarırıq
             return Response<string>.Success($"Password reset link sent. For testing: {resetLink}", 200);
         }
         catch (Exception ex)
@@ -281,6 +270,44 @@ public class IdentityService(
             return Response<string>.Fail($"An error occurred while resetting password: {ex.Message}", 500);
         }
     }
+    public async Task<Response<string>> ChangeTemporaryPasswordAsync(string doctorEmail, string tempPassword, string newPassword)
+    {
+        try
+        {
+            var user = await userManager.FindByEmailAsync(doctorEmail);
+            if (user == null)
+                return Response<string>.Fail("Doctor not found", 404);
+
+            var isDoctor = await userManager.IsInRoleAsync(user, "Doctor");
+            if (!isDoctor)
+                return Response<string>.Fail("This action is allowed only for doctors", 403);
+
+            var passwordCheck = await signInManager.CheckPasswordSignInAsync(user, tempPassword, false);
+            if (!passwordCheck.Succeeded)
+                return Response<string>.Fail("Invalid temporary password", 401);
+
+            
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await userManager.ResetPasswordAsync(user, token, newPassword);
+            if (!result.Succeeded)
+            {
+                var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+                return Response<string>.Fail(errors, 400);
+            }
+
+            if (user is AppUser appUser)
+                appUser.MustChangePassword = false;
+
+            await userManager.UpdateAsync(user);
+
+            return Response<string>.Success("Password changed successfully", 200);
+        }
+        catch (Exception ex)
+        {
+            return Response<string>.Fail($"An error occurred: {ex.Message}", 500);
+        }
+    }
+
 
 
     // IdentityService.cs
