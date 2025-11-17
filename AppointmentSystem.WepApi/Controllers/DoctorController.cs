@@ -1,4 +1,6 @@
-﻿namespace AppointmentSystem.WebApi.Controllers;
+﻿using AppointmentSystem.Application.Common.Interfaces;
+
+namespace AppointmentSystem.WebApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -6,9 +8,9 @@ public class DoctorController : ControllerBase
 {
     private readonly IDoctorService _doctorService;
     private readonly IIdentityService _identityService;
-    private readonly EmailService _emailService;
+    private readonly IEmailService _emailService;
 
-    public DoctorController(IDoctorService doctorService, IIdentityService identityService, EmailService emailService)
+    public DoctorController(IDoctorService doctorService, IIdentityService identityService, IEmailService emailService)
     {
         _doctorService = doctorService;
         _identityService = identityService;
@@ -69,13 +71,6 @@ public class DoctorController : ControllerBase
             PhoneNumber = doctor.PhoneNumber,
             Role = "Doctor"
         });
-
-        // Email göndər
-        _emailService.SendEmail(
-            doctor.Email,
-            "Your Doctor Account Created",
-            $"Hello Dr. {doctor.FirstName} {doctor.LastName},<br>Your temporary password is: <b>{tempPassword}</b>"
-        );
 
         return CreatedAtAction(
             nameof(GetDoctorById),

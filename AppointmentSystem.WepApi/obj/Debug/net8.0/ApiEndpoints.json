@@ -300,11 +300,6 @@
         "Name": "PhoneNumber",
         "Type": "System.String",
         "IsRequired": false
-      },
-      {
-        "Name": "Password",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -388,6 +383,22 @@
         "Name": "deletedBy",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
+    "Method": "ChangeTemporaryPassword",
+    "RelativePath": "api/Identity/change-temporary-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AppointmentSystem.Application.Common.Models.Identity.ChangeTemporaryPasswordDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

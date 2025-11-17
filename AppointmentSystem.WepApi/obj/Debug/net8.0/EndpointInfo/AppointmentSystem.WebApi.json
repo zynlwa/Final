@@ -429,9 +429,6 @@
                   },
                   "PhoneNumber": {
                     "type": "string"
-                  },
-                  "Password": {
-                    "type": "string"
                   }
                 }
               },
@@ -452,9 +449,6 @@
                   "style": "form"
                 },
                 "PhoneNumber": {
-                  "style": "form"
-                },
-                "Password": {
                   "style": "form"
                 }
               }
@@ -803,6 +797,37 @@
         }
       }
     },
+    "/api/Identity/change-temporary-password": {
+      "post": {
+        "tags": [
+          "Identity"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeTemporaryPasswordDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeTemporaryPasswordDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeTemporaryPasswordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/MedicalService": {
       "get": {
         "tags": [
@@ -1062,6 +1087,24 @@
             "nullable": true
           },
           "medicalServiceId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeTemporaryPasswordDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "temporaryPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
             "type": "string",
             "nullable": true
           }
