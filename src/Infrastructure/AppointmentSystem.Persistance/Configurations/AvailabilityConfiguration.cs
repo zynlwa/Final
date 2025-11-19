@@ -11,10 +11,7 @@ public class AvailabilityConfiguration : IEntityTypeConfiguration<Availability>
             .IsRequired();
         builder.Property(x => x.IsBooked)
             .IsRequired();
-        builder.HasOne(a => a.Doctor)
-            .WithMany(d => d.Availabilities)
-            .HasForeignKey(a => a.DoctorId)
-            .OnDelete(DeleteBehavior.Cascade);
+        
         builder.HasQueryFilter(p => !p.IsDeleted);
 
     }

@@ -21,28 +21,41 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
         builder.Property(x => x.Email)
             .IsRequired()
             .HasMaxLength(150);
-        builder.Property(c => c.ImageUrl).IsRequired(true).HasMaxLength(200);
+
+        builder.Property(x => x.ImageUrl)
+            .IsRequired()
+            .HasMaxLength(200);
 
         builder.Property(x => x.PhoneNumber)
             .HasMaxLength(20);
 
-        
+
         builder.HasOne(d => d.AppUser)
             .WithOne()
             .HasForeignKey<Doctor>(d => d.AppUserId)
             .OnDelete(DeleteBehavior.Restrict);
 
-       
         builder.HasMany(d => d.Appointments)
             .WithOne(a => a.Doctor)
             .HasForeignKey(a => a.DoctorId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasMany(d => d.Availabilities)
-            .WithOne(a => a.Doctor)
-            .HasForeignKey(a => a.DoctorId)
+        // ----- 1:N Work Schedules -----
+        builder.HasMany(d => d.WorkSchedules)
+            .WithOne(ws => ws.Doctor)
+            .HasForeignKey(ws => ws.DoctorId)
             .OnDelete(DeleteBehavior.Cascade);
-        
+
+        builder.HasMany(d => d.Breaks)
+            .WithOne(b => b.Doctor)
+            .HasForeignKey(b => b.DoctorId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(d => d.Unavailabilities)
+            .WithOne(u => u.Doctor)
+            .HasForeignKey(u => u.DoctorId)
+            .OnDelete(DeleteBehavior.Cascade);
+
         builder.HasQueryFilter(p => !p.IsDeleted);
     }
 }

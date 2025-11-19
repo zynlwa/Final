@@ -11,6 +11,10 @@ public interface IAppDbContext
     DbSet<Basket> Baskets { get; set; }
     DbSet<BasketItem> BasketItems { get; set; }
     DbSet<PromoCode> PromoCodes { get; set; }
+    DbSet<DoctorWorkSchedule> DoctorWorkSchedules { get; set; }
+    DbSet<DoctorBreak> DoctorBreaks { get; set; }
+    DbSet<DoctorUnavailability> DoctorUnavailabilities { get; set; }
+
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 

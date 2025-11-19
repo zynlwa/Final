@@ -1,11 +1,4 @@
 ﻿using AppointmentSystem.Application.Common.Models.Appointment;
-using AppointmentSystem.Application.Common.Models.Response;
-using AppointmentSystem.Application.Services.Abstractions;
-using AppointmentSystem.Application.Services.Concretes;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
 namespace AppointmentSystem.WebApi.Controllers
 {
     [Route("api/[controller]")]

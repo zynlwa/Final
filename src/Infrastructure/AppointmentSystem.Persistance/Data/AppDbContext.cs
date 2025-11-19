@@ -16,6 +16,10 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbCo
     public DbSet<Basket> Baskets { get; set; }
     public DbSet<BasketItem> BasketItems { get; set; }
     public DbSet<PromoCode> PromoCodes { get; set; }
+    public DbSet<DoctorWorkSchedule> DoctorWorkSchedules { get; set; }
+    public DbSet<DoctorBreak> DoctorBreaks { get; set; }
+    public DbSet<DoctorUnavailability> DoctorUnavailabilities { get; set; }
+
 
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
