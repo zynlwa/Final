@@ -25,7 +25,7 @@ public class Appointment : BaseEntity
     public string MedicalServiceId { get; private set; }
     public MedicalService MedicalService { get; private set; } = null!;
 
-    public AppointmentStatus Status { get; private set; }
+    public AppointmentStatus Status { get; private set; }= AppointmentStatus.Pending;
     public string? Notes { get; private set; }
     public void Approve()
     {

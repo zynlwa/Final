@@ -8,7 +8,9 @@ public class MedicalServiceProfile:Profile
                 .ConstructUsing(dto => new MedicalService(
                     dto.Name,
                     dto.Description,
-                    dto.Price
+                    dto.Price,
+                    dto.DurationMinutes
+
                 ));
         CreateMap<UpdateMedicalServiceDto, MedicalService>();
 

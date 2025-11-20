@@ -13,6 +13,16 @@ public class AvailabilityConfiguration : IEntityTypeConfiguration<Availability>
             .IsRequired();
         
         builder.HasQueryFilter(p => !p.IsDeleted);
+       //// builder.HasOne(a => a.Doctor)
+       //      .WithMany(d => d.Availabilities)
+       //      .HasForeignKey(a => a.DoctorId)
+       //      .OnDelete(DeleteBehavior.Restrict);
+
+        // Relation with MedicalService
+        builder.HasOne(a => a.MedicalService)
+            .WithMany(m => m.Availabilities)
+            .HasForeignKey(a => a.MedicalServiceId)
+            .OnDelete(DeleteBehavior.Restrict);
 
     }
 }

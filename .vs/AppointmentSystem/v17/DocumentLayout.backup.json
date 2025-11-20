@@ -3,32 +3,188 @@
   "WorkspaceRootPath": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\infrastructure\\appointmentsystem.persistance\\configurations\\availabilityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|solutionrelative:src\\infrastructure\\appointmentsystem.persistance\\configurations\\availabilityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|solutionrelative:src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\appointmentsystem.wepapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|solutionrelative:appointmentsystem.wepapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorunavailabilityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|solutionrelative:src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorunavailabilityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\validators\\schedulevalidator\\createdoctorunavailabilitydtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\validators\\schedulevalidator\\createdoctorunavailabilitydtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorbreakconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|solutionrelative:src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorbreakconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\validators\\schedulevalidator\\createdoctorworkscheduledtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\validators\\schedulevalidator\\createdoctorworkscheduledtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorworkscheduleconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|solutionrelative:src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorworkscheduleconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\models\\doctorschedule\\createworkscheduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\models\\doctorschedule\\createworkscheduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\validators\\schedulevalidator\\createdoctorbreakdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\validators\\schedulevalidator\\createdoctorbreakdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\models\\doctorworkschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\models\\doctorworkschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\appointmentsystem.wepapi\\controllers\\doctorschedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|solutionrelative:appointmentsystem.wepapi\\controllers\\doctorschedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\validators\\medicalservicevalidators\\createmedicalservicedtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\validators\\medicalservicevalidators\\createmedicalservicedtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\validators\\basket\\addbasketitemdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\validators\\basket\\addbasketitemdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\appointmentsystem.wepapi\\controllers\\slotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|solutionrelative:appointmentsystem.wepapi\\controllers\\slotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\appointmentsystem.wepapi\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|solutionrelative:appointmentsystem.wepapi\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\services\\concretes\\doctorscheduleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\services\\concretes\\doctorscheduleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\services\\abstractions\\idoctorscheduleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\services\\abstractions\\idoctorscheduleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\services\\concretes\\slotservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\services\\concretes\\slotservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\services\\abstractions\\islotservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\services\\abstractions\\islotservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\models\\slots\\slotdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\models\\slots\\slotdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\services\\concretes\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\services\\concretes\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|solutionrelative:src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\models\\availability.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\models\\availability.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\appointmentsystem.wepapi\\controllers\\availabilitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|solutionrelative:appointmentsystem.wepapi\\controllers\\availabilitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\infrastructure\\appointmentsystem.persistance\\migrations\\20251120122534_mig_4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|solutionrelative:src\\infrastructure\\appointmentsystem.persistance\\migrations\\20251120122534_mig_4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\services\\slotservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\services\\slotservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\helpers\\intervalhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\helpers\\intervalhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\services\\concretes\\availabilityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\services\\concretes\\availabilityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\mappers\\availabilityprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\mappers\\availabilityprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\models\\availability\\availabilitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\models\\availability\\availabilitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\services\\concretes\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\services\\concretes\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\models\\medicalservice\\medicalservicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\models\\medicalservice\\medicalservicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\services\\concretes\\patientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\services\\concretes\\patientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\models\\medicalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\models\\medicalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\models\\basket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\models\\basket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\mappers\\medicalserviceprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\mappers\\medicalserviceprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\enums\\appointmentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\enums\\appointmentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\services\\abstractions\\iappointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\services\\abstractions\\iappointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\models\\appointment\\appointmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\models\\appointment\\appointmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\models\\patient\\patientdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\models\\patient\\patientdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorworkscheduleconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|solutionrelative:src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorworkscheduleconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorunavailabilityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|solutionrelative:src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorunavailabilityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\infrastructure\\appointmentsystem.persistance\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|solutionrelative:src\\infrastructure\\appointmentsystem.persistance\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorbreakconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|solutionrelative:src\\infrastructure\\appointmentsystem.persistance\\configurations\\doctorbreakconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\interfaces\\iappdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,32 +195,8 @@
       "RelativeMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|solutionrelative:src\\infrastructure\\appointmentsystem.persistance\\configurations\\appointmentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\models\\availability.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\models\\availability.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\models\\basket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\models\\basket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\services\\concretes\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\services\\concretes\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\mappers\\promocodeprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\mappers\\promocodeprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\models\\medicalservice\\medicalservicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\common\\models\\medicalservice\\medicalservicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\common\\models\\doctor\\doctordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -89,14 +221,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\appointmentsystem.wepapi\\controllers\\basketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|solutionrelative:appointmentsystem.wepapi\\controllers\\basketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\appointmentsystem.wepapi\\controllers\\availabilitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|solutionrelative:appointmentsystem.wepapi\\controllers\\availabilitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\appointmentsystem.wepapi\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|solutionrelative:appointmentsystem.wepapi\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\appointmentsystem.wepapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -131,14 +255,6 @@
       "RelativeMoniker": "D:0:0:{CFE9983E-4678-4664-8D8A-E9F03C1586AE}|src\\Infrastructure\\AppointmentSystem.Persistance\\AppointmentSystem.Persistance.csproj|solutionrelative:src\\infrastructure\\appointmentsystem.persistance\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\appointmentsystem.wepapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A63CC132-5559-4B97-ADCB-B5D2FB2F335F}|AppointmentSystem.WepApi\\AppointmentSystem.WebApi.csproj|solutionrelative:appointmentsystem.wepapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\services\\abstractions\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\services\\abstractions\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -157,14 +273,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{081E5A34-B4E6-4B69-89B7-7B9F409E8B15}|src\\Infrastructure\\AppointmentSystem.Infrastructure\\AppointmentSystem.Infrastructure.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\infrastructure\\appointmentsystem.infrastructure\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{081E5A34-B4E6-4B69-89B7-7B9F409E8B15}|src\\Infrastructure\\AppointmentSystem.Infrastructure\\AppointmentSystem.Infrastructure.csproj|solutionrelative:src\\infrastructure\\appointmentsystem.infrastructure\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.application\\services\\concretes\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA48D2E0-C899-43F6-8568-31B49F77021D}|src\\Core\\AppointmentSystem.Application\\AppointmentSystem.Application.csproj|solutionrelative:src\\core\\appointmentsystem.application\\services\\concretes\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|c:\\users\\zeyna\\onedrive\\desktop\\final\\appointmentsystem\\src\\core\\appointmentsystem.domain\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6AD31F78-2DE5-4A54-8EC6-829669947D6A}|src\\Core\\AppointmentSystem.Domain\\AppointmentSystem.Domain.csproj|solutionrelative:src\\core\\appointmentsystem.domain\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -174,76 +282,593 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DoctorUnavailabilityConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorUnavailabilityConfiguration.cs",
-              "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorUnavailabilityConfiguration.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorUnavailabilityConfiguration.cs*",
-              "RelativeToolTip": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorUnavailabilityConfiguration.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Title": "CreateDoctorUnavailabilityDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Validators\\ScheduleValidator\\CreateDoctorUnavailabilityDtoValidator.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Validators\\ScheduleValidator\\CreateDoctorUnavailabilityDtoValidator.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Validators\\ScheduleValidator\\CreateDoctorUnavailabilityDtoValidator.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Validators\\ScheduleValidator\\CreateDoctorUnavailabilityDtoValidator.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T10:21:44.703Z",
+              "WhenOpened": "2025-11-20T14:34:17.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CreateDoctorBreakDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Validators\\ScheduleValidator\\CreateDoctorBreakDtoValidator.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Validators\\ScheduleValidator\\CreateDoctorBreakDtoValidator.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Validators\\ScheduleValidator\\CreateDoctorBreakDtoValidator.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Validators\\ScheduleValidator\\CreateDoctorBreakDtoValidator.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T14:32:12.965Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "DoctorBreakConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorBreakConfiguration.cs",
-              "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorBreakConfiguration.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorBreakConfiguration.cs*",
-              "RelativeToolTip": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorBreakConfiguration.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
+              "Title": "CreateDoctorWorkScheduleDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Validators\\ScheduleValidator\\CreateDoctorWorkScheduleDtoValidator.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Validators\\ScheduleValidator\\CreateDoctorWorkScheduleDtoValidator.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Validators\\ScheduleValidator\\CreateDoctorWorkScheduleDtoValidator.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Validators\\ScheduleValidator\\CreateDoctorWorkScheduleDtoValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T10:20:39.752Z",
+              "WhenOpened": "2025-11-20T14:23:19.386Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "DoctorWorkScheduleConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorWorkScheduleConfiguration.cs",
-              "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorWorkScheduleConfiguration.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorWorkScheduleConfiguration.cs*",
-              "RelativeToolTip": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorWorkScheduleConfiguration.cs*",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAzwA0AAAAAAAAAAAAAAA==",
+              "Title": "CreateWorkScheduleDto.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\DoctorSchedule\\CreateWorkScheduleDto.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\DoctorSchedule\\CreateWorkScheduleDto.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\DoctorSchedule\\CreateWorkScheduleDto.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\DoctorSchedule\\CreateWorkScheduleDto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAYwAkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T10:19:34.664Z",
+              "WhenOpened": "2025-11-20T13:55:21.065Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Program.cs",
+              "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Program.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Program.cs",
+              "RelativeToolTip": "AppointmentSystem.WepApi\\Program.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T12:03:20.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\DependencyInjection.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\DependencyInjection.cs*",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\DependencyInjection.cs*",
+              "ViewState": "AgIAABIAAAAAAAAAAAAUwBoAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T11:12:32.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DoctorScheduleController.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\DoctorScheduleController.cs",
+              "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Controllers\\DoctorScheduleController.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\DoctorScheduleController.cs",
+              "RelativeToolTip": "AppointmentSystem.WepApi\\Controllers\\DoctorScheduleController.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowDwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T14:00:24.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreateMedicalServiceDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Validators\\MedicalServiceValidators\\CreateMedicalServiceDtoValidator.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Validators\\MedicalServiceValidators\\CreateMedicalServiceDtoValidator.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Validators\\MedicalServiceValidators\\CreateMedicalServiceDtoValidator.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Validators\\MedicalServiceValidators\\CreateMedicalServiceDtoValidator.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA0wBEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T14:20:23.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DoctorWorkSchedule.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\DoctorWorkSchedule.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Models\\DoctorWorkSchedule.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\DoctorWorkSchedule.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Models\\DoctorWorkSchedule.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwBEAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T19:26:33.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AddBasketItemDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Validators\\Basket\\AddBasketItemDtoValidator.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Validators\\Basket\\AddBasketItemDtoValidator.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Validators\\Basket\\AddBasketItemDtoValidator.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Validators\\Basket\\AddBasketItemDtoValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T14:20:10.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SlotController.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\SlotController.cs",
+              "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Controllers\\SlotController.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\SlotController.cs",
+              "RelativeToolTip": "AppointmentSystem.WepApi\\Controllers\\SlotController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T14:07:19.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DoctorScheduleService.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\DoctorScheduleService.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\DoctorScheduleService.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\DoctorScheduleService.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\DoctorScheduleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T13:58:45.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IDoctorScheduleService.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\IDoctorScheduleService.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\IDoctorScheduleService.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\IDoctorScheduleService.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\IDoctorScheduleService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T13:56:31.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Patient.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Patient.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Models\\Patient.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Patient.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Models\\Patient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T13:47:26.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Doctor.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Doctor.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Models\\Doctor.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Doctor.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Models\\Doctor.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAA/wDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T19:26:36.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AppointmentController.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\AppointmentController.cs",
+              "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Controllers\\AppointmentController.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\AppointmentController.cs",
+              "RelativeToolTip": "AppointmentSystem.WepApi\\Controllers\\AppointmentController.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAADwvzcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T19:27:11.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "DoctorConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorConfiguration.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorConfiguration.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorConfiguration.cs*",
-              "RelativeToolTip": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorConfiguration.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAZAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorConfiguration.cs",
+              "RelativeToolTip": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorConfiguration.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAUwCEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-16T12:02:23.533Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AvailabilityConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\AvailabilityConfiguration.cs",
-              "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\AvailabilityConfiguration.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\AvailabilityConfiguration.cs*",
-              "RelativeToolTip": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\AvailabilityConfiguration.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
+              "DocumentIndex": 21,
+              "Title": "AppUser.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\AppUser.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Models\\AppUser.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\AppUser.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Models\\AppUser.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA9wBoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T18:45:54.873Z",
+              "WhenOpened": "2025-11-16T11:22:41.972Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
+              "Title": "ISlotService.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\ISlotService.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\ISlotService.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\ISlotService.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\ISlotService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T07:21:53.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SlotService.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\SlotService.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\SlotService.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\SlotService.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\SlotService.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAUwG8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T11:15:34.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Availability.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Availability.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Models\\Availability.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Availability.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Models\\Availability.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA7wAwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T18:15:35.137Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AvailabilityController.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\AvailabilityController.cs",
+              "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Controllers\\AvailabilityController.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\AvailabilityController.cs",
+              "RelativeToolTip": "AppointmentSystem.WepApi\\Controllers\\AvailabilityController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAmwCoAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T19:27:33.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "DoctorService.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\DoctorService.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\DoctorService.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\DoctorService.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\DoctorService.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAowHoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:03:41.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SlotDto.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\Slots\\SlotDto.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\Slots\\SlotDto.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\Slots\\SlotDto.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\Slots\\SlotDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:39:08.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "20251120122534_mig_4.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Migrations\\20251120122534_mig_4.cs",
+              "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Persistance\\Migrations\\20251120122534_mig_4.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Migrations\\20251120122534_mig_4.cs",
+              "RelativeToolTip": "src\\Infrastructure\\AppointmentSystem.Persistance\\Migrations\\20251120122534_mig_4.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T12:25:34.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "SlotService.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Services\\SlotService.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Services\\SlotService.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Services\\SlotService.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Services\\SlotService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:35:12.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IntervalHelper.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Helpers\\IntervalHelper.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Helpers\\IntervalHelper.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Helpers\\IntervalHelper.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Helpers\\IntervalHelper.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAgwDMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:13:45.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AvailabilityService.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\AvailabilityService.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\AvailabilityService.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\AvailabilityService.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\AvailabilityService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T12:18:06.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AvailabilityProfile.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Mappers\\AvailabilityProfile.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Mappers\\AvailabilityProfile.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Mappers\\AvailabilityProfile.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Mappers\\AvailabilityProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T11:11:03.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "AvailabilityDto.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\Availability\\AvailabilityDto.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\Availability\\AvailabilityDto.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\Availability\\AvailabilityDto.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\Availability\\AvailabilityDto.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAUwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T11:11:52.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "GlobalUsings.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\GlobalUsings.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\GlobalUsings.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\GlobalUsings.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\GlobalUsings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T11:09:27.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "AppointmentService.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\AppointmentService.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\AppointmentService.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\AppointmentService.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\AppointmentService.cs",
+              "ViewState": "AgIAAKEAAAAAAAAAAAAcwLMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T17:58:48.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "MedicalServiceDto.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\MedicalService\\MedicalServiceDto.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\MedicalService\\MedicalServiceDto.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\MedicalService\\MedicalServiceDto.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\MedicalService\\MedicalServiceDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T19:28:54.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "PatientService.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\PatientService.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\PatientService.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\PatientService.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\PatientService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T11:06:47.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "MedicalService.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\MedicalService.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Models\\MedicalService.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\MedicalService.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Models\\MedicalService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAkwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T11:42:55.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Basket.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Basket.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Models\\Basket.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Basket.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Models\\Basket.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAEwCMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T18:54:24.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "MedicalServiceProfile.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Mappers\\MedicalServiceProfile.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Mappers\\MedicalServiceProfile.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Mappers\\MedicalServiceProfile.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Mappers\\MedicalServiceProfile.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAIwAsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T07:13:16.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Appointment.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Models\\Appointment.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Appointment.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Models\\Appointment.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAYwBsAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T19:44:19.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "AppointmentStatus.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Enums\\AppointmentStatus.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Enums\\AppointmentStatus.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Enums\\AppointmentStatus.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Enums\\AppointmentStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T08:34:11.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "IAppointmentService.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\IAppointmentService.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\IAppointmentService.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\IAppointmentService.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\IAppointmentService.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA/wAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T07:12:22.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "AppointmentDto.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\Appointment\\AppointmentDto.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\Appointment\\AppointmentDto.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\Appointment\\AppointmentDto.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\Appointment\\AppointmentDto.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAIwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T08:18:13.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "PatientDto.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\Patient\\PatientDto.cs",
+              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\Patient\\PatientDto.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\Patient\\PatientDto.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\Patient\\PatientDto.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T07:26:24.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "DoctorWorkScheduleConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorWorkScheduleConfiguration.cs",
+              "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorWorkScheduleConfiguration.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorWorkScheduleConfiguration.cs",
+              "RelativeToolTip": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorWorkScheduleConfiguration.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T10:19:34.664Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "DoctorBreakConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorBreakConfiguration.cs",
+              "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorBreakConfiguration.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorBreakConfiguration.cs",
+              "RelativeToolTip": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorBreakConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T10:20:39.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "DoctorUnavailabilityConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorUnavailabilityConfiguration.cs",
+              "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorUnavailabilityConfiguration.cs",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorUnavailabilityConfiguration.cs",
+              "RelativeToolTip": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\DoctorUnavailabilityConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T10:21:44.703Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
               "Title": "AppointmentConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\AppointmentConfiguration.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\AppointmentConfiguration.cs",
@@ -251,116 +876,35 @@
               "RelativeToolTip": "src\\Infrastructure\\AppointmentSystem.Persistance\\Configurations\\AppointmentConfiguration.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAQwBsAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T19:46:25.661Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T19:46:25.661Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Appointment.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Appointment.cs",
-              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Models\\Appointment.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Appointment.cs",
-              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Models\\Appointment.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAswDgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T19:44:19.058Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Doctor.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Doctor.cs",
-              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Models\\Doctor.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Doctor.cs*",
-              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Models\\Doctor.cs*",
-              "ViewState": "AgIAACUAAAAAAAAAAAAIwDoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T19:26:36.34Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DoctorWorkSchedule.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\DoctorWorkSchedule.cs",
-              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Models\\DoctorWorkSchedule.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\DoctorWorkSchedule.cs",
-              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Models\\DoctorWorkSchedule.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAQwEUAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T19:26:33.261Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Availability.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Availability.cs",
-              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Models\\Availability.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Availability.cs",
-              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Models\\Availability.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAIwBQAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T18:15:35.137Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 46,
               "Title": "IAppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Interfaces\\IAppDbContext.cs",
               "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Interfaces\\IAppDbContext.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Interfaces\\IAppDbContext.cs*",
-              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Interfaces\\IAppDbContext.cs*",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Interfaces\\IAppDbContext.cs",
+              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Interfaces\\IAppDbContext.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAzwBAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T12:10:02.009Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-16T12:10:02.009Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 44,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Persistance\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Data\\AppDbContext.cs*",
-              "RelativeToolTip": "src\\Infrastructure\\AppointmentSystem.Persistance\\Data\\AppDbContext.cs*",
+              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "src\\Infrastructure\\AppointmentSystem.Persistance\\Data\\AppDbContext.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAA3wBMAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T12:02:34.491Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-16T12:02:34.491Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Basket.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Basket.cs",
-              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Models\\Basket.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\Basket.cs",
-              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Models\\Basket.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T18:54:24.917Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AppointmentService.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\AppointmentService.cs",
-              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\AppointmentService.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\AppointmentService.cs",
-              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\AppointmentService.cs",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAuwKkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T17:58:48.973Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 48,
               "Title": "PromoCodeProfile.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Mappers\\PromoCodeProfile.cs",
               "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Mappers\\PromoCodeProfile.cs",
@@ -368,24 +912,11 @@
               "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Mappers\\PromoCodeProfile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T20:48:08Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T20:48:08Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "MedicalServiceDto.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\MedicalService\\MedicalServiceDto.cs",
-              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\MedicalService\\MedicalServiceDto.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\MedicalService\\MedicalServiceDto.cs",
-              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\MedicalService\\MedicalServiceDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T19:28:54.298Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 50,
               "Title": "PatientController.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\PatientController.cs",
               "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Controllers\\PatientController.cs",
@@ -397,7 +928,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 54,
               "Title": "BasketController.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\BasketController.cs",
               "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Controllers\\BasketController.cs",
@@ -409,19 +940,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "AvailabilityController.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\AvailabilityController.cs",
-              "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Controllers\\AvailabilityController.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\AvailabilityController.cs",
-              "RelativeToolTip": "AppointmentSystem.WepApi\\Controllers\\AvailabilityController.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T19:27:33.623Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 53,
               "Title": "DoctorController.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\DoctorController.cs",
               "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Controllers\\DoctorController.cs",
@@ -433,7 +952,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 52,
               "Title": "IdentityController.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\IdentityController.cs",
               "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Controllers\\IdentityController.cs",
@@ -445,7 +964,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 49,
               "Title": "DoctorDto.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\Doctor\\DoctorDto.cs",
               "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\Doctor\\DoctorDto.cs",
@@ -457,19 +976,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "AppointmentController.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\AppointmentController.cs",
-              "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Controllers\\AppointmentController.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\AppointmentController.cs",
-              "RelativeToolTip": "AppointmentSystem.WepApi\\Controllers\\AppointmentController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T19:27:11.443Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 51,
               "Title": "MedicalServiceController.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\MedicalServiceController.cs",
               "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Controllers\\MedicalServiceController.cs",
@@ -481,7 +988,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 55,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Controllers\\AdminController.cs",
@@ -493,7 +1000,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 56,
               "Title": "CreateDoctorRequest.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Requests\\Doctor\\CreateDoctorRequest.cs",
               "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Requests\\Doctor\\CreateDoctorRequest.cs",
@@ -505,7 +1012,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 57,
               "Title": "EmailService.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Infrastructure\\Services\\EmailService.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Infrastructure\\Services\\EmailService.cs",
@@ -517,7 +1024,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 59,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Persistance\\DependencyInjection.cs",
@@ -529,7 +1036,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 58,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Infrastructure\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Infrastructure\\DependencyInjection.cs",
@@ -541,7 +1048,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 60,
               "Title": "20251116121144_mig_3.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Migrations\\20251116121144_mig_3.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Persistance\\Migrations\\20251116121144_mig_3.cs",
@@ -553,7 +1060,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 62,
               "Title": "AppDbContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Persistance\\Migrations\\AppDbContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Persistance\\Migrations\\AppDbContextModelSnapshot.cs",
@@ -565,7 +1072,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 61,
               "Title": "IdentityService.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Infrastructure\\Services\\IdentityService.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Infrastructure\\Services\\IdentityService.cs",
@@ -577,31 +1084,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\DependencyInjection.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\DependencyInjection.cs",
-              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\DependencyInjection.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwAgAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T11:12:32.817Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Program.cs",
-              "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\Program.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\Program.cs",
-              "RelativeToolTip": "AppointmentSystem.WepApi\\Program.cs",
-              "ViewState": "AgIAAJkAAAAAAAAAAAAAAKIAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T12:03:20.039Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 63,
               "Title": "IEmailService.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\IEmailService.cs",
               "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\IEmailService.cs",
@@ -613,7 +1096,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 65,
               "Title": "ChangeTemporaryPasswordDto.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Common\\Models\\Identity\\ChangeTemporaryPasswordDto.cs",
               "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Common\\Models\\Identity\\ChangeTemporaryPasswordDto.cs",
@@ -625,7 +1108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 64,
               "Title": "GlobalUsings.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\AppointmentSystem.WepApi\\GlobalUsings.cs",
               "RelativeDocumentMoniker": "AppointmentSystem.WepApi\\GlobalUsings.cs",
@@ -637,7 +1120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 66,
               "Title": "IIdentityService.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\IIdentityService.cs",
               "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Services\\Abstractions\\IIdentityService.cs",
@@ -649,7 +1132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 67,
               "Title": "GlobalUsings.cs",
               "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Infrastructure\\AppointmentSystem.Infrastructure\\GlobalUsings.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\AppointmentSystem.Infrastructure\\GlobalUsings.cs",
@@ -658,30 +1141,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-16T11:37:14.099Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "AppUser.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\AppUser.cs",
-              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Domain\\Models\\AppUser.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Domain\\Models\\AppUser.cs",
-              "RelativeToolTip": "src\\Core\\AppointmentSystem.Domain\\Models\\AppUser.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAIwAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T11:22:41.972Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "DoctorService.cs",
-              "DocumentMoniker": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\DoctorService.cs",
-              "RelativeDocumentMoniker": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\DoctorService.cs",
-              "ToolTip": "C:\\Users\\zeyna\\OneDrive\\Desktop\\Final\\AppointmentSystem\\src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\DoctorService.cs",
-              "RelativeToolTip": "src\\Core\\AppointmentSystem.Application\\Services\\Concretes\\DoctorService.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAQwCwAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T18:03:41.567Z"
             }
           ]
         }

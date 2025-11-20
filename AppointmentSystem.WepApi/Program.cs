@@ -1,5 +1,6 @@
 ﻿
 using AppointmentSystem.Application.Common.Validators.Basket;
+using AppointmentSystem.Application.Common.Validators.ScheduleValidator;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,9 +26,9 @@ builder.Services.AddValidatorsFromAssemblyContaining<ForgotPasswordDtoValidator>
 builder.Services.AddValidatorsFromAssemblyContaining<ResetPasswordDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreatePromoCodeDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<AddBasketItemDtoValidator>();
-
-
-
+builder.Services.AddValidatorsFromAssemblyContaining <CreateDoctorWorkScheduleDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining <CreateDoctorUnavailabilityDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateDoctorBreakDtoValidator>();
 //  Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

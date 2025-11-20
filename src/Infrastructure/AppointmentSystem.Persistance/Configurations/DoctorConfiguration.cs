@@ -31,9 +31,10 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
 
 
         builder.HasOne(d => d.AppUser)
-            .WithOne()
-            .HasForeignKey<Doctor>(d => d.AppUserId)
-            .OnDelete(DeleteBehavior.Restrict);
+         .WithOne(u => u.Doctor)  
+         .HasForeignKey<Doctor>(d => d.AppUserId)
+         .OnDelete(DeleteBehavior.Restrict);
+
 
         builder.HasMany(d => d.Appointments)
             .WithOne(a => a.Doctor)

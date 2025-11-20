@@ -31,6 +31,9 @@ namespace AppointmentSystem.Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("AvailabilityId1")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -70,6 +73,8 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AvailabilityId");
+
+                    b.HasIndex("AvailabilityId1");
 
                     b.HasIndex("DoctorId");
 
@@ -150,6 +155,129 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.ToTable("Doctors");
                 });
 
+            modelBuilder.Entity("AppointmentSystem.Domain.Entities.DoctorBreak", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DoctorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<bool>("IsRecurringWeekly")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
+
+                    b.ToTable("DoctorBreaks");
+                });
+
+            modelBuilder.Entity("AppointmentSystem.Domain.Entities.DoctorUnavailability", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DoctorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
+
+                    b.ToTable("DoctorUnavailabilities");
+                });
+
+            modelBuilder.Entity("AppointmentSystem.Domain.Entities.DoctorWorkSchedule", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DayOfWeek")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DoctorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<TimeSpan>("EndTime")
+                        .HasColumnType("time");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<TimeSpan>("StartTime")
+                        .HasColumnType("time");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
+
+                    b.ToTable("DoctorWorkSchedules");
+                });
+
             modelBuilder.Entity("AppointmentSystem.Domain.Entities.MedicalService", b =>
                 {
                     b.Property<string>("Id")
@@ -172,6 +300,9 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.Property<string>("DoctorId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("DurationMinutes")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -422,6 +553,10 @@ namespace AppointmentSystem.Persistance.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
+                    b.Property<string>("MedicalServiceId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
@@ -431,6 +566,8 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DoctorId");
+
+                    b.HasIndex("MedicalServiceId");
 
                     b.ToTable("Availabilities");
                 });
@@ -659,6 +796,10 @@ namespace AppointmentSystem.Persistance.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("AppointmentSystem.Domain.Models.Availability", null)
+                        .WithMany("Appointments")
+                        .HasForeignKey("AvailabilityId1");
+
                     b.HasOne("AppointmentSystem.Domain.Entities.Doctor", "Doctor")
                         .WithMany("Appointments")
                         .HasForeignKey("DoctorId")
@@ -701,6 +842,39 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.Navigation("AppUser");
                 });
 
+            modelBuilder.Entity("AppointmentSystem.Domain.Entities.DoctorBreak", b =>
+                {
+                    b.HasOne("AppointmentSystem.Domain.Entities.Doctor", "Doctor")
+                        .WithMany("Breaks")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Doctor");
+                });
+
+            modelBuilder.Entity("AppointmentSystem.Domain.Entities.DoctorUnavailability", b =>
+                {
+                    b.HasOne("AppointmentSystem.Domain.Entities.Doctor", "Doctor")
+                        .WithMany("Unavailabilities")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Doctor");
+                });
+
+            modelBuilder.Entity("AppointmentSystem.Domain.Entities.DoctorWorkSchedule", b =>
+                {
+                    b.HasOne("AppointmentSystem.Domain.Entities.Doctor", "Doctor")
+                        .WithMany("WorkSchedules")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Doctor");
+                });
+
             modelBuilder.Entity("AppointmentSystem.Domain.Entities.MedicalService", b =>
                 {
                     b.HasOne("AppointmentSystem.Domain.Entities.Doctor", "Doctor")
@@ -730,12 +904,20 @@ namespace AppointmentSystem.Persistance.Migrations
             modelBuilder.Entity("AppointmentSystem.Domain.Models.Availability", b =>
                 {
                     b.HasOne("AppointmentSystem.Domain.Entities.Doctor", "Doctor")
-                        .WithMany("Availabilities")
+                        .WithMany()
                         .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("AppointmentSystem.Domain.Entities.MedicalService", "MedicalService")
+                        .WithMany("Availabilities")
+                        .HasForeignKey("MedicalServiceId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Doctor");
+
+                    b.Navigation("MedicalService");
                 });
 
             modelBuilder.Entity("AppointmentSystem.Domain.Models.Basket", b =>
@@ -815,14 +997,20 @@ namespace AppointmentSystem.Persistance.Migrations
                 {
                     b.Navigation("Appointments");
 
-                    b.Navigation("Availabilities");
+                    b.Navigation("Breaks");
 
                     b.Navigation("MedicalServices");
+
+                    b.Navigation("Unavailabilities");
+
+                    b.Navigation("WorkSchedules");
                 });
 
             modelBuilder.Entity("AppointmentSystem.Domain.Entities.MedicalService", b =>
                 {
                     b.Navigation("Appointments");
+
+                    b.Navigation("Availabilities");
                 });
 
             modelBuilder.Entity("AppointmentSystem.Domain.Entities.Patient", b =>
@@ -835,6 +1023,11 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.Navigation("Doctor");
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("AppointmentSystem.Domain.Models.Availability", b =>
+                {
+                    b.Navigation("Appointments");
                 });
 
             modelBuilder.Entity("AppointmentSystem.Domain.Models.Basket", b =>

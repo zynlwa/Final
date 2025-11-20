@@ -23,6 +23,11 @@ public static class DependencyInjection
         services.AddScoped<IAvailabilityService, AvailabilityService>();
         services.AddScoped<IMedicalServiceService, MedicalServiceService>();
         services.AddScoped<IBasketService, BasketService>();
+        services.AddScoped<ISlotService, SlotService>();
+        services.AddScoped<IDoctorScheduleService, DoctorScheduleService>();
+
+        // Domain layer services
+        services.AddScoped<Domain.Services.ISlotService, Domain.Services.SlotService>();
         return services;
     }
 }

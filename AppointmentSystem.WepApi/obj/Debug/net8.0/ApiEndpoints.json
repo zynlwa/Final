@@ -175,6 +175,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.AvailabilityController",
+    "Method": "GetAvailableSlots",
+    "RelativePath": "api/Availability/doctor/{doctorId}/slots",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "date",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "serviceId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppointmentSystem.WebApi.Controllers.BasketController",
     "Method": "GetBasket",
     "RelativePath": "api/Basket/{patientId}",
@@ -383,6 +409,123 @@
         "Name": "deletedBy",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorScheduleController",
+    "Method": "CreateBreak",
+    "RelativePath": "api/DoctorSchedule/breaks",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AppointmentSystem.Application.Common.Models.DoctorSchedule.CreateDoctorBreakDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorScheduleController",
+    "Method": "GetBreakById",
+    "RelativePath": "api/DoctorSchedule/breaks/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorScheduleController",
+    "Method": "CreateUnavailability",
+    "RelativePath": "api/DoctorSchedule/unavailabilities",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AppointmentSystem.Application.Common.Models.DoctorSchedule.CreateUnavailabilityDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorScheduleController",
+    "Method": "GetUnavailabilityById",
+    "RelativePath": "api/DoctorSchedule/unavailabilities/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorScheduleController",
+    "Method": "CreateWorkSchedule",
+    "RelativePath": "api/DoctorSchedule/work-schedules",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AppointmentSystem.Application.Common.Models.DoctorSchedule.CreateWorkScheduleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorScheduleController",
+    "Method": "GetWorkScheduleById",
+    "RelativePath": "api/DoctorSchedule/work-schedules/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorScheduleController",
+    "Method": "UpdateWorkSchedule",
+    "RelativePath": "api/DoctorSchedule/work-schedules/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "AppointmentSystem.Application.Common.Models.DoctorSchedule.UpdateWorkScheduleDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -683,6 +826,32 @@
         "Name": "id",
         "Type": "System.String",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.SlotController",
+    "Method": "GetAvailableSlots",
+    "RelativePath": "api/Slot/doctor/{doctorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "date",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "serviceId",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

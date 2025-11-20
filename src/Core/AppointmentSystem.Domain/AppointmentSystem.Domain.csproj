@@ -11,8 +11,4 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.20" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Helpers\" />
-	</ItemGroup>
-
 </Project>

@@ -4,7 +4,8 @@ public record CreateMedicalServiceDto(
 string Name,
 string Description,
 decimal Price,
-string DoctorId
+string DoctorId,
+int DurationMinutes
 );
 
 public record UpdateMedicalServiceDto(

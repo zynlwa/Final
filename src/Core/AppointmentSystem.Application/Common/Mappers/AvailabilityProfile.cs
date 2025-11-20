@@ -5,7 +5,7 @@ public class AvailabilityProfile:Profile
     public AvailabilityProfile()
     {
         CreateMap<CreateAvailabilityDto, Availability>()
-            .ConstructUsing(dto => new Availability(dto.DoctorId, dto.StartTime, dto.EndTime));
+            .ConstructUsing(dto => new Availability(dto.DoctorId,dto.MedicalServiceId, dto.StartTime, dto.EndTime));
 
         CreateMap<Availability, AvailabilityDto>();
     }

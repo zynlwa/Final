@@ -1,18 +1,17 @@
-﻿namespace AppointmentSystem.Application.Services.Abstractions;
-
-public interface IAppointmentService
+﻿namespace AppointmentSystem.Application.Services.Abstractions
 {
-    Task<AppointmentDto> CreateAppointmentAsync(CreateAppointmentDto dto);
+    public interface IAppointmentService
+    {
+        Task<AppointmentDto> CreateAppointmentAsync(CreateAppointmentDto dto);
 
-    Task<AppointmentDto> ApproveAppointmentAsync(string appointmentId);
+        Task<AppointmentDto> ApproveAppointmentAsync(string appointmentId);
 
-    Task<AppointmentDto> CancelAppointmentAsync(string appointmentId);
+        Task<AppointmentDto> CancelAppointmentAsync(string appointmentId);
 
-    Task<IEnumerable<AvailabilityDto>> GetAvailableSlotsAsync(string doctorId, DateTime date);
+        Task<AppointmentDto?> GetAppointmentByIdAsync(string appointmentId);
 
-    Task<AppointmentDto?> GetAppointmentByIdAsync(string appointmentId);
+        Task<IEnumerable<AppointmentDto>> GetAppointmentsForDoctorAsync(string doctorId, int page = 1, int pageSize = 20);
 
-    Task<IEnumerable<AppointmentDto>> GetAppointmentsForDoctorAsync(string doctorId);
-
-    Task<IEnumerable<AppointmentDto>> GetAppointmentsForPatientAsync(string patientId);
+        Task<IEnumerable<AppointmentDto>> GetAppointmentsForPatientAsync(string patientId, int page = 1, int pageSize = 20);
+    }
 }

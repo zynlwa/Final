@@ -100,7 +100,7 @@ public class DoctorService(
 
     public async Task<IEnumerable<DoctorDto>> GetAllDoctorsAsync()
     {
-        var doctors = await context.Doctors.Where(d => !d.IsDeleted).ToListAsync();
+        var doctors = await context.Doctors.Include(d => d.AppUser).Where(d => !d.IsDeleted).ToListAsync();
         return mapper.Map<List<DoctorDto>>(doctors);
     }
 
@@ -113,7 +113,7 @@ public class DoctorService(
 
     public async Task SoftDeleteDoctorAsync(string id, string deletedBy)
     {
-        var doctor = await context.Doctors.FirstOrDefaultAsync(d => d.Id == id && !d.IsDeleted);
+        var doctor = await context.Doctors.Include(d => d.AppUser).FirstOrDefaultAsync(d => d.Id == id && !d.IsDeleted);
         if (doctor == null) throw new NotFoundException("Doctor not found.");
 
         doctor.SoftDelete(deletedBy);
