@@ -13,6 +13,7 @@ public class DoctorProfile:Profile
                    d.Email,
                    d.ImageUrl,
                    d.PhoneNumber,
+                   d.ExperienceYears,
                    d.IsDeleted,
                    d.DeletedAt,
                    d.DeletedBy
@@ -28,6 +29,7 @@ public class DoctorProfile:Profile
                 dto.ImageUrl,
                 dto.Specialty,
                 dto.PhoneNumber,
+                dto.ExperienceYears,
                 null! 
             ));
 

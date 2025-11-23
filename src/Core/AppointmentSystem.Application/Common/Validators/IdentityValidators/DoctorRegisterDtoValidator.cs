@@ -1,8 +1,8 @@
 ﻿namespace AppointmentSystem.Application.Common.Validators.IdentityValidators;
 
-public class RegisterDtoValidator : AbstractValidator<RegisterDto>
+public class DoctorRegisterDtoValidator : AbstractValidator<DoctorRegisterDto>
 {
-    public RegisterDtoValidator()
+    public DoctorRegisterDtoValidator()
     {
         RuleFor(x => x.FirstName)
             .NotEmpty().WithMessage("First name is required.")
@@ -33,5 +33,9 @@ public class RegisterDtoValidator : AbstractValidator<RegisterDto>
         RuleFor(x => x.PhoneNumber)
             .Matches(@"^\+?\d{7,15}$").When(x => !string.IsNullOrWhiteSpace(x.PhoneNumber))
             .WithMessage("Invalid phone number format.");
+
+        RuleFor(x => x.ExperienceYears)
+            .InclusiveBetween(0, 50)
+            .WithMessage("Experience years must be between 0 and 50.");
     }
 }

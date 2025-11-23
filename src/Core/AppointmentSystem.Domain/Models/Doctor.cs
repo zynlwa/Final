@@ -11,6 +11,7 @@ public class Doctor : BaseEntity
         string specialty,
         string? phoneNumber,
         string appUserId,
+        int experienceYears,
         string? imageUrl = null)
     {
         FirstName = firstName;
@@ -19,6 +20,7 @@ public class Doctor : BaseEntity
         Specialty = specialty;
         PhoneNumber = phoneNumber;
         AppUserId = appUserId;
+        ExperienceYears = experienceYears;
         ImageUrl = imageUrl;
     }
 
@@ -28,6 +30,7 @@ public class Doctor : BaseEntity
     public string Specialty { get; private set; }
     public string? PhoneNumber { get; private set; }
     public string? ImageUrl { get; private set; }
+    public int ExperienceYears { get; private set; }    
 
     public string AppUserId { get; private set; } = null!;
     public AppUser AppUser { get; private set; } = null!;
@@ -38,15 +41,17 @@ public class Doctor : BaseEntity
     public ICollection<DoctorWorkSchedule> WorkSchedules { get; private set; } = new List<DoctorWorkSchedule>();
     public ICollection<DoctorBreak> Breaks { get; private set; } = new List<DoctorBreak>();
     public ICollection<DoctorUnavailability> Unavailabilities { get; private set; } = new List<DoctorUnavailability>();
+    public ICollection<Review> Reviews { get; private set; } = new List<Review>();
 
 
     // Update
-    public void Update(string firstName, string lastName, string email, string? phoneNumber, string specialty, string? imageUrl = null)
+    public void Update(string firstName, string lastName, string email, string? phoneNumber,int experienceYears, string specialty, string? imageUrl = null)
     {
         FirstName = firstName;
         LastName = lastName;
         Email = email;
         PhoneNumber = phoneNumber;
+        ExperienceYears = experienceYears;
         Specialty = specialty;
         ImageUrl = imageUrl;
     }

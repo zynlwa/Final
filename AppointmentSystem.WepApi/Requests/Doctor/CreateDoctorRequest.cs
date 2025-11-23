@@ -17,6 +17,8 @@ public class CreateDoctorRequest
 
     public string Email { get; set; }
     public string? PhoneNumber { get; set; }
+    [Required]
+    public int ExperienceYears { get; set; }
 }
 
 

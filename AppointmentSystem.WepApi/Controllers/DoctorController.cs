@@ -51,7 +51,8 @@ public class DoctorController : ControllerBase
             request.Specialty,
             request.Email,
             imageUrl,
-            request.PhoneNumber
+            request.PhoneNumber,
+            request.ExperienceYears
         );
 
         var doctor = await _doctorService.CreateDoctorAsync(dto);
@@ -60,7 +61,7 @@ public class DoctorController : ControllerBase
         var tempPassword = Guid.NewGuid().ToString().Substring(0, 8) + "1!";
 
         // Identity user yarat
-        await _identityService.RegisterAsync(new RegisterDto
+        await _identityService.RegisterDoctorAsync(new DoctorRegisterDto
         {
             FirstName = doctor.FirstName,
             LastName = doctor.LastName,
@@ -69,6 +70,7 @@ public class DoctorController : ControllerBase
             Password = tempPassword,
             ConfirmPassword = tempPassword,
             PhoneNumber = doctor.PhoneNumber,
+            ExperienceYears = doctor.ExperienceYears,
             Role = "Doctor"
         });
 
@@ -95,9 +97,10 @@ public class DoctorController : ControllerBase
             request.FirstName,
             request.LastName,
             request.Specialty,
-            request.Email,      
+            request.Email,   
             imageUrl,
-            request.PhoneNumber
+            request.PhoneNumber,
+            request.ExperienceYears
         );
 
         await _doctorService.UpdateDoctorAsync(id, dto);

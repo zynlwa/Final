@@ -52,6 +52,7 @@ public class DoctorService(
             createDoctorDto.Specialty,
             createDoctorDto.PhoneNumber,
             appUser.Id,
+            createDoctorDto.ExperienceYears,
             createDoctorDto.ImageUrl
         );
 
@@ -79,6 +80,7 @@ public class DoctorService(
             updateDoctorDto.LastName,
             updateDoctorDto.Email,
             updateDoctorDto.PhoneNumber,
+            updateDoctorDto.ExperienceYears,
             updateDoctorDto.Specialty,
             updateDoctorDto.ImageUrl
         );

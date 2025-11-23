@@ -19,3 +19,4 @@ global using AppointmentSystem.Application.Common.Models.Response;
 global using System.Text.RegularExpressions;
 global using AppointmentSystem.Application.Common.Models.Basket;
 global using AppointmentSystem.Application.Common.Models.PromoCode;
+global using AppointmentSystem.Application.Common.Models.Review;

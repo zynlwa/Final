@@ -442,6 +442,7 @@
             "multipart/form-data": {
               "schema": {
                 "required": [
+                  "ExperienceYears",
                   "FirstName",
                   "LastName",
                   "Specialty"
@@ -466,6 +467,10 @@
                   },
                   "PhoneNumber": {
                     "type": "string"
+                  },
+                  "ExperienceYears": {
+                    "type": "integer",
+                    "format": "int32"
                   }
                 }
               },
@@ -486,6 +491,9 @@
                   "style": "form"
                 },
                 "PhoneNumber": {
+                  "style": "form"
+                },
+                "ExperienceYears": {
                   "style": "form"
                 }
               }
@@ -539,6 +547,7 @@
             "multipart/form-data": {
               "schema": {
                 "required": [
+                  "ExperienceYears",
                   "Email",
                   "FirstName",
                   "LastName",
@@ -565,6 +574,10 @@
                   },
                   "PhoneNumber": {
                     "type": "string"
+                  },
+                  "ExperienceYears": {
+                    "type": "integer",
+                    "format": "int32"
                   }
                 }
               },
@@ -585,6 +598,9 @@
                   "style": "form"
                 },
                 "PhoneNumber": {
+                  "style": "form"
+                },
+                "ExperienceYears": {
                   "style": "form"
                 }
               }
@@ -823,7 +839,7 @@
         }
       }
     },
-    "/api/Identity/register": {
+    "/api/Identity/register/patient": {
       "post": {
         "tags": [
           "Identity"
@@ -832,17 +848,48 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RegisterDto"
+                "$ref": "#/components/schemas/PatientRegisterDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/RegisterDto"
+                "$ref": "#/components/schemas/PatientRegisterDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/RegisterDto"
+                "$ref": "#/components/schemas/PatientRegisterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Identity/register/doctor": {
+      "post": {
+        "tags": [
+          "Identity"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DoctorRegisterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DoctorRegisterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DoctorRegisterDto"
               }
             }
           }
@@ -1307,6 +1354,81 @@
         }
       }
     },
+    "/api/Review": {
+      "post": {
+        "tags": [
+          "Review"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReviewDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReviewDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReviewDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Review/doctor/{doctorId}": {
+      "get": {
+        "tags": [
+          "Review"
+        ],
+        "parameters": [
+          {
+            "name": "doctorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Review/doctor/{doctorId}/rating": {
+      "get": {
+        "tags": [
+          "Review"
+        ],
+        "parameters": [
+          {
+            "name": "doctorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Slot/doctor/{doctorId}": {
       "get": {
         "tags": [
@@ -1508,6 +1630,28 @@
         },
         "additionalProperties": false
       },
+      "CreateReviewDto": {
+        "type": "object",
+        "properties": {
+          "patientId": {
+            "type": "string",
+            "nullable": true
+          },
+          "doctorId": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateUnavailabilityDto": {
         "type": "object",
         "properties": {
@@ -1560,6 +1704,48 @@
         "type": "integer",
         "format": "int32"
       },
+      "DoctorRegisterDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "confirmPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "experienceYears": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "ForgotPasswordDto": {
         "type": "object",
         "properties": {
@@ -1587,7 +1773,7 @@
         },
         "additionalProperties": false
       },
-      "RegisterDto": {
+      "PatientRegisterDto": {
         "type": "object",
         "properties": {
           "firstName": {

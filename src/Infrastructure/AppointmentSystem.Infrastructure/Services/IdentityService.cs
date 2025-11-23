@@ -11,83 +11,77 @@ public class IdentityService(
 {
     private readonly JwtSettings jwtSettings = jwtSettings.Value;
 
-    public async Task<Response<string>> RegisterAsync(RegisterDto registerDto)
+    public async Task<Response<string>> RegisterPatientAsync(PatientRegisterDto dto)
     {
-        try
+        var user = new AppUser
         {
-            
-            var existingUserByEmail = await userManager.FindByEmailAsync(registerDto.Email);
-            if (existingUserByEmail != null)
-                return Response<string>.Fail("User with this email already exists", 400);
+            FirstName = dto.FirstName,
+            LastName = dto.LastName,
+            Email = dto.Email,
+            UserName = dto.UserName,
+            PhoneNumber = dto.PhoneNumber,
+            CreatedAt = DateTime.UtcNow
+        };
 
-            var existingUserByUsername = await userManager.FindByNameAsync(registerDto.UserName);
-            if (existingUserByUsername != null)
-                return Response<string>.Fail("User with this username already exists", 400);
+        var result = await userManager.CreateAsync(user, dto.Password);
+        if (!result.Succeeded)
+            return Response<string>.Fail(result.Errors.Select(e => e.Description), 400);
 
-            
-            var user = new AppUser
-            {
-                FirstName = registerDto.FirstName,
-                LastName = registerDto.LastName,
-                Email = registerDto.Email,
-                UserName = registerDto.UserName,
-                PhoneNumber = registerDto.PhoneNumber,
-                CreatedAt = DateTime.UtcNow
-            };
+        if (!await roleManager.RoleExistsAsync(dto.Role))
+            await roleManager.CreateAsync(new IdentityRole(dto.Role));
 
-            var result = await userManager.CreateAsync(user, registerDto.Password);
-            if (!result.Succeeded)
-            {
-                var errors = result.Errors.Select(e => e.Description);
-                return Response<string>.Fail(errors, 400);
-            }
+        await userManager.AddToRoleAsync(user, dto.Role);
 
-            
-            if (!await roleManager.RoleExistsAsync(registerDto.Role))
-                await roleManager.CreateAsync(new IdentityRole(registerDto.Role));
+        var patient = new Patient(
+            firstName: user.FirstName,
+            lastName: user.LastName,
+            email: user.Email,
+            phoneNumber: user.PhoneNumber,
+            dateOfBirth: DateTime.UtcNow,
+            appUserId: user.Id
+        );
+        context.Patients.Add(patient);
+        await context.SaveChangesAsync();
 
-            await userManager.AddToRoleAsync(user, registerDto.Role);
-
-            switch (registerDto.Role)
-            {
-                case "Doctor":
-                    var doctor = new Doctor(
-                        firstName: user.FirstName,
-                        lastName: user.LastName,
-                        email: user.Email,
-                        specialty: "Default Specialty", 
-                        phoneNumber: user.PhoneNumber,
-                        appUserId: user.Id
-                    );
-                    context.Doctors.Add(doctor);
-                    break;
-
-                case "Patient":
-                    var patient = new Patient(
-                        firstName: user.FirstName,
-                        lastName: user.LastName,
-                        email: user.Email,
-                        phoneNumber: user.PhoneNumber,
-                        dateOfBirth: DateTime.UtcNow,
-                        appUserId: user.Id
-                    );
-                    context.Patients.Add(patient);
-                    break;
-
-                case "Admin":
-                   
-                    break;
-            }
-
-            await context.SaveChangesAsync();
-
-            return Response<string>.Success(user.Id, 201);
-        }
-        catch (Exception ex)
-        {
-            return Response<string>.Fail($"An error occurred during registration: {ex.Message}", 500);
-        }
+        return Response<string>.Success(user.Id, 201);
     }
+
+    public async Task<Response<string>> RegisterDoctorAsync(DoctorRegisterDto dto)
+    {
+        var user = new AppUser
+        {
+            FirstName = dto.FirstName,
+            LastName = dto.LastName,
+            Email = dto.Email,
+            UserName = dto.UserName,
+            PhoneNumber = dto.PhoneNumber,
+            CreatedAt = DateTime.UtcNow
+        };
+
+        var result = await userManager.CreateAsync(user, dto.Password);
+        if (!result.Succeeded)
+            return Response<string>.Fail(result.Errors.Select(e => e.Description), 400);
+
+        if (!await roleManager.RoleExistsAsync(dto.Role))
+            await roleManager.CreateAsync(new IdentityRole(dto.Role));
+
+        await userManager.AddToRoleAsync(user, dto.Role);
+
+        var doctor = new Doctor(
+            firstName: user.FirstName,
+            lastName: user.LastName,
+            email: user.Email,
+            specialty: "Default Specialty",
+            phoneNumber: user.PhoneNumber,
+            experienceYears: dto.ExperienceYears,
+            appUserId: user.Id
+        );
+        context.Doctors.Add(doctor);
+        await context.SaveChangesAsync();
+
+        return Response<string>.Success(user.Id, 201);
+    }
+
 
 
 

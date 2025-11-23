@@ -30,3 +30,9 @@ global using AppointmentSystem.Application.Common.Models.Identity;
 global using AppointmentSystem.Infrastructure.Helpers;
 global using AppointmentSystem.WebApi.Requests.Doctor;
 global using Microsoft.AspNetCore.Authorization;
+global using AppointmentSystem.Application.Common.Models.Review;
+global using AppointmentSystem.Application.Common.Validators.Basket;
+global using AppointmentSystem.Application.Common.Validators.ReviewValidators;
+global using AppointmentSystem.Application.Common.Validators.ScheduleValidator;
+
+

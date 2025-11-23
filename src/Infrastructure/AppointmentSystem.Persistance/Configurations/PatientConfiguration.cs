@@ -19,6 +19,14 @@ public class PatientConfiguration : IEntityTypeConfiguration<Patient>
             .IsRequired()
             .HasMaxLength(150);
 
+       builder.Property (x => x.Email)
+              .IsRequired()
+              .HasMaxLength(150);
+    builder.HasMany(builder => builder.Reviews)
+            .WithOne(r => r.Patient)
+            .HasForeignKey(r => r.PatientId)
+            .OnDelete(DeleteBehavior.Cascade);
+
         builder.HasMany(p => p.Appointments)
             .WithOne(a => a.Patient)
             .HasForeignKey(a => a.PatientId)

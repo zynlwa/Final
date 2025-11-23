@@ -19,6 +19,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbCo
     public DbSet<DoctorWorkSchedule> DoctorWorkSchedules { get; set; }
     public DbSet<DoctorBreak> DoctorBreaks { get; set; }
     public DbSet<DoctorUnavailability> DoctorUnavailabilities { get; set; }
+    public DbSet<Review> Reviews { get; set; }
 
 
 

@@ -28,7 +28,8 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
 
         builder.Property(x => x.PhoneNumber)
             .HasMaxLength(20);
-
+        builder.Property(x => x.ExperienceYears)
+            .IsRequired();
 
         builder.HasOne(d => d.AppUser)
          .WithOne(u => u.Doctor)  
@@ -41,7 +42,6 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
             .HasForeignKey(a => a.DoctorId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // ----- 1:N Work Schedules -----
         builder.HasMany(d => d.WorkSchedules)
             .WithOne(ws => ws.Doctor)
             .HasForeignKey(ws => ws.DoctorId)
@@ -56,6 +56,11 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
             .WithOne(u => u.Doctor)
             .HasForeignKey(u => u.DoctorId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(d => d.Reviews)
+               .WithOne(r => r.Doctor)
+               .HasForeignKey(r => r.DoctorId)
+               .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasQueryFilter(p => !p.IsDeleted);
     }

@@ -21,4 +21,6 @@ public class UpdateDoctorRequest
     public IFormFile? File { get; set; } 
 
     public string? PhoneNumber { get; set; }
+    [Required]
+    public int ExperienceYears { get; set; }
 }

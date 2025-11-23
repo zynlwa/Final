@@ -326,6 +326,11 @@
         "Name": "PhoneNumber",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "ExperienceYears",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -387,6 +392,11 @@
       {
         "Name": "PhoneNumber",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ExperienceYears",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],
@@ -642,15 +652,31 @@
   },
   {
     "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
-    "Method": "Register",
-    "RelativePath": "api/Identity/register",
+    "Method": "RegisterDoctor",
+    "RelativePath": "api/Identity/register/doctor",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "registerDto",
-        "Type": "AppointmentSystem.Application.Common.Models.Identity.RegisterDto",
+        "Name": "dto",
+        "Type": "AppointmentSystem.Application.Common.Models.Identity.DoctorRegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
+    "Method": "RegisterPatient",
+    "RelativePath": "api/Identity/register/patient",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AppointmentSystem.Application.Common.Models.Identity.PatientRegisterDto",
         "IsRequired": true
       }
     ],
@@ -824,6 +850,54 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.ReviewController",
+    "Method": "CreateReview",
+    "RelativePath": "api/Review",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AppointmentSystem.Application.Common.Models.Review.CreateReviewDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.ReviewController",
+    "Method": "GetDoctorReviews",
+    "RelativePath": "api/Review/doctor/{doctorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.ReviewController",
+    "Method": "GetDoctorRating",
+    "RelativePath": "api/Review/doctor/{doctorId}/rating",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
         "Type": "System.String",
         "IsRequired": true
       }

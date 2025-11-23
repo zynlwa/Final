@@ -24,6 +24,8 @@ public class Patient : BaseEntity
     public AppUser AppUser { get; private set; } = null!;
 
     public ICollection<Appointment> Appointments { get; private set; } = new List<Appointment>();
+    public ICollection<Review> Reviews { get; private set; } = new List<Review>();
+
 
     public void Update(string firstName, string lastName, string email, string? phoneNumber, DateTime dateOfBirth)
     {

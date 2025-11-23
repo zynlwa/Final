@@ -1,6 +1,4 @@
-﻿
-using AppointmentSystem.Application.Common.Validators.Basket;
-using AppointmentSystem.Application.Common.Validators.ScheduleValidator;
+﻿using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +9,8 @@ builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 
 // Register validators
-builder.Services.AddValidatorsFromAssemblyContaining<RegisterDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<PatientRegisterDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<DoctorRegisterDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<LoginDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<UpdateUserDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateDoctorDtoValidator>();
@@ -29,6 +28,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<AddBasketItemDtoValidator>(
 builder.Services.AddValidatorsFromAssemblyContaining <CreateDoctorWorkScheduleDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining <CreateDoctorUnavailabilityDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateDoctorBreakDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateReviewDtoValidator>();
 //  Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -162,6 +162,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowFrontend");
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
+    RequestPath = ""
+});
+
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseAuthentication();

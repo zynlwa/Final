@@ -14,6 +14,7 @@ public interface IAppDbContext
     DbSet<DoctorWorkSchedule> DoctorWorkSchedules { get; set; }
     DbSet<DoctorBreak> DoctorBreaks { get; set; }
     DbSet<DoctorUnavailability> DoctorUnavailabilities { get; set; }
+    DbSet<Review> Reviews { get; set; }
 
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);

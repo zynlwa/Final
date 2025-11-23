@@ -13,19 +13,34 @@ public class IdentityController : ControllerBase
         _identityService = identityService;
     }
 
-    [HttpPost("register")]
+    [HttpPost("register/patient")]
     [AllowAnonymous]
-    public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
+    public async Task<IActionResult> RegisterPatient([FromBody] PatientRegisterDto dto)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var result = await _identityService.RegisterAsync(registerDto);
+        var result = await _identityService.RegisterPatientAsync(dto);
 
         if (result.IsSuccess)
-            return StatusCode(201, result); // Created status
+            return StatusCode(201, result);
         return BadRequest(result);
     }
+
+    [HttpPost("register/doctor")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> RegisterDoctor([FromBody] DoctorRegisterDto dto)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        var result = await _identityService.RegisterDoctorAsync(dto);
+
+        if (result.IsSuccess)
+            return StatusCode(201, result);
+        return BadRequest(result);
+    }
+
 
  
     [HttpPost("login")]

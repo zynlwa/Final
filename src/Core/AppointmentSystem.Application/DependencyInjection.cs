@@ -14,6 +14,8 @@ public static class DependencyInjection
         services.AddAutoMapper(cfg => cfg.AddProfile<MedicalServiceProfile>());
         services.AddAutoMapper(cfg => cfg.AddProfile<BasketProfile>());
         services.AddAutoMapper(cfg => cfg.AddProfile<PromoCodeProfile>());
+        services.AddAutoMapper(cfg => cfg.AddProfile<DoctorScheduleProfile>());
+        services.AddAutoMapper(cfg => cfg.AddProfile<ReviewProfile>());
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
@@ -25,6 +27,7 @@ public static class DependencyInjection
         services.AddScoped<IBasketService, BasketService>();
         services.AddScoped<ISlotService, SlotService>();
         services.AddScoped<IDoctorScheduleService, DoctorScheduleService>();
+        services.AddScoped<IReviewService, ReviewService>();
 
         // Domain layer services
         services.AddScoped<Domain.Services.ISlotService, Domain.Services.SlotService>();

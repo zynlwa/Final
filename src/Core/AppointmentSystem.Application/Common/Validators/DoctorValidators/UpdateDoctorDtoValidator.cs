@@ -24,5 +24,12 @@ public class UpdateDoctorDtoValidator : AbstractValidator<UpdateDoctorDto>
             .Matches(@"^\+?\d{10,15}$")
             .When(x => !string.IsNullOrWhiteSpace(x.PhoneNumber))
             .WithMessage("Invalid phone number format.");
+
+        RuleFor(x => x.ExperienceYears)
+    .GreaterThanOrEqualTo(0)
+    .When(x => x.ExperienceYears != null)
+    .WithMessage("Experience years must be a non-negative integer.");
+
+
     }
 }

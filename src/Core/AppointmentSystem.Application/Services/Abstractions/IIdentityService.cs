@@ -1,7 +1,8 @@
 ﻿namespace AppointmentSystem.Application.Services.Abstractions;
 public interface IIdentityService
 {
-    Task<Response<string>> RegisterAsync(RegisterDto registerDto);
+    Task<Response<string>> RegisterPatientAsync(PatientRegisterDto dto);
+    Task<Response<string>> RegisterDoctorAsync(DoctorRegisterDto dto);
     Task<Response<LoginResponseDto>> LoginAsync(LoginDto loginDto);
     Task<Response<string>> LogoutAsync();
     Task<Response<UserDto>> GetUserAsync(string userId);

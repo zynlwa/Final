@@ -94,9 +94,6 @@ namespace AppointmentSystem.Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("AppUserId1")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -110,6 +107,9 @@ namespace AppointmentSystem.Persistance.Migrations
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
+
+                    b.Property<int>("ExperienceYears")
+                        .HasColumnType("int");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -147,10 +147,6 @@ namespace AppointmentSystem.Persistance.Migrations
 
                     b.HasIndex("AppUserId")
                         .IsUnique();
-
-                    b.HasIndex("AppUserId1")
-                        .IsUnique()
-                        .HasFilter("[AppUserId1] IS NOT NULL");
 
                     b.ToTable("Doctors");
                 });
@@ -353,7 +349,8 @@ namespace AppointmentSystem.Persistance.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -655,6 +652,55 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.ToTable("BasketItems");
                 });
 
+            modelBuilder.Entity("AppointmentSystem.Domain.Models.Review", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DoctorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("PatientId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("Reviews", (string)null);
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -830,14 +876,10 @@ namespace AppointmentSystem.Persistance.Migrations
             modelBuilder.Entity("AppointmentSystem.Domain.Entities.Doctor", b =>
                 {
                     b.HasOne("AppointmentSystem.Domain.Models.AppUser", "AppUser")
-                        .WithOne()
+                        .WithOne("Doctor")
                         .HasForeignKey("AppointmentSystem.Domain.Entities.Doctor", "AppUserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.HasOne("AppointmentSystem.Domain.Models.AppUser", null)
-                        .WithOne("Doctor")
-                        .HasForeignKey("AppointmentSystem.Domain.Entities.Doctor", "AppUserId1");
 
                     b.Navigation("AppUser");
                 });
@@ -942,6 +984,25 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.Navigation("Basket");
                 });
 
+            modelBuilder.Entity("AppointmentSystem.Domain.Models.Review", b =>
+                {
+                    b.HasOne("AppointmentSystem.Domain.Entities.Doctor", "Doctor")
+                        .WithMany("Reviews")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AppointmentSystem.Domain.Entities.Patient", "Patient")
+                        .WithMany("Reviews")
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Doctor");
+
+                    b.Navigation("Patient");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -1001,6 +1062,8 @@ namespace AppointmentSystem.Persistance.Migrations
 
                     b.Navigation("MedicalServices");
 
+                    b.Navigation("Reviews");
+
                     b.Navigation("Unavailabilities");
 
                     b.Navigation("WorkSchedules");
@@ -1016,6 +1079,8 @@ namespace AppointmentSystem.Persistance.Migrations
             modelBuilder.Entity("AppointmentSystem.Domain.Entities.Patient", b =>
                 {
                     b.Navigation("Appointments");
+
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("AppointmentSystem.Domain.Models.AppUser", b =>
