@@ -211,7 +211,7 @@
         }
       }
     },
-    "/api/Availability/doctor/{doctorId}": {
+    "/api/Availability/doctor/{doctorId}/slots": {
       "get": {
         "tags": [
           "Availability"
@@ -263,7 +263,37 @@
         }
       }
     },
-    "/api/Availability/doctor/{doctorId}/slots": {
+    "/api/Availability/doctor/{doctorId}/availability": {
+      "get": {
+        "tags": [
+          "Availability"
+        ],
+        "parameters": [
+          {
+            "name": "doctorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Availability/doctor/{doctorId}/service-slots": {
       "get": {
         "tags": [
           "Availability"
@@ -629,6 +659,28 @@
           {
             "name": "deletedBy",
             "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DoctorSchedule/doctor/{doctorId}/work-schedules": {
+      "get": {
+        "tags": [
+          "DoctorSchedule"
+        ],
+        "parameters": [
+          {
+            "name": "doctorId",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }

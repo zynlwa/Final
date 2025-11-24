@@ -5,7 +5,15 @@ namespace AppointmentSystem.Application.Services.Concretes;
 public class DoctorScheduleService(IAppDbContext context, IMapper mapper) : IDoctorScheduleService
 {
 
-    // WorkSchedule
+    public async Task<IEnumerable<WorkScheduleDto>> GetWorkSchedulesForDoctorAsync(string doctorId)
+    {
+        var schedules = await context.DoctorWorkSchedules
+            .Where(s => s.DoctorId == doctorId)
+            .ToListAsync();
+
+        return mapper.Map<IEnumerable<WorkScheduleDto>>(schedules);
+    }
+
     public async Task<WorkScheduleDto> CreateWorkScheduleAsync(CreateWorkScheduleDto dto)
     {
         var entity = new DoctorWorkSchedule(dto.DoctorId, dto.DayOfWeek, dto.StartTime, dto.EndTime);

@@ -155,8 +155,29 @@
   },
   {
     "ContainingType": "AppointmentSystem.WebApi.Controllers.AvailabilityController",
-    "Method": "GetAvailableSlots",
-    "RelativePath": "api/Availability/doctor/{doctorId}",
+    "Method": "GetAvailabilityForDoctor",
+    "RelativePath": "api/Availability/doctor/{doctorId}/availability",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "date",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.AvailabilityController",
+    "Method": "GetAvailableSlotsForService",
+    "RelativePath": "api/Availability/doctor/{doctorId}/service-slots",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -169,6 +190,11 @@
       {
         "Name": "date",
         "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "serviceId",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -190,11 +216,6 @@
       {
         "Name": "date",
         "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "serviceId",
-        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -449,6 +470,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorScheduleController",
+    "Method": "GetWorkSchedulesForDoctor",
+    "RelativePath": "api/DoctorSchedule/doctor/{doctorId}/work-schedules",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
         "Type": "System.String",
         "IsRequired": true
       }

@@ -8,6 +8,12 @@ namespace AppointmentSystem.WebApi.Controllers;
 [ApiController]
 public class DoctorScheduleController(IDoctorScheduleService service) : ControllerBase
 {
+    [HttpGet("doctor/{doctorId}/work-schedules")]
+    public async Task<IActionResult> GetWorkSchedulesForDoctor(string doctorId)
+    {
+        var schedules = await service.GetWorkSchedulesForDoctorAsync(doctorId);
+        return Ok(new { data = schedules, isSuccess = true, statusCode = 200 });
+    }
 
     [HttpPost("work-schedules")]
     public async Task<IActionResult> CreateWorkSchedule([FromBody] CreateWorkScheduleDto dto)
@@ -57,4 +63,5 @@ public class DoctorScheduleController(IDoctorScheduleService service) : Controll
         var result = await service.GetUnavailabilityByIdAsync(id);
         return Ok(result);
     }
+
 }

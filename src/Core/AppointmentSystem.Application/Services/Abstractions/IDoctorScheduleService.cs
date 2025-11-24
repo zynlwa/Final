@@ -5,6 +5,7 @@ namespace AppointmentSystem.Application.Services.Abstractions;
 public interface IDoctorScheduleService
 {
     // WorkSchedule
+    Task<IEnumerable<WorkScheduleDto>> GetWorkSchedulesForDoctorAsync(string doctorId);
     Task<WorkScheduleDto> CreateWorkScheduleAsync(CreateWorkScheduleDto dto);
     Task<WorkScheduleDto> GetWorkScheduleByIdAsync(string id);
     Task<WorkScheduleDto> UpdateWorkScheduleAsync(string id, UpdateWorkScheduleDto dto);

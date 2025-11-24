@@ -5,5 +5,6 @@ public interface IAvailabilityService
         Task<IEnumerable<AvailabilityDto>> GetAvailableSlotsAsync(string doctorId, DateTime date);
         Task<AvailabilityDto?> GetAvailabilityByIdAsync(string availabilityId);
         Task CancelAvailabilityAsync(string availabilityId);
+        Task<IEnumerable<AvailabilityDto>> GetAvailabilityForDoctorAsync(string doctorId, DateTime? date = null);
 }
 

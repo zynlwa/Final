@@ -79,4 +79,16 @@ public class AvailabilityService(IAppDbContext context, IMapper mapper) : IAvail
 
         await context.SaveChangesAsync();
     }
+    public async Task<IEnumerable<AvailabilityDto>> GetAvailabilityForDoctorAsync(string doctorId, DateTime? date = null)
+    {
+        var query = context.Availabilities.AsQueryable()
+            .Where(a => a.DoctorId == doctorId);
+
+        if (date.HasValue)
+            query = query.Where(a => a.StartTime.Date == date.Value.Date);
+
+        var availabilities = await query.ToListAsync();
+        return mapper.Map<IEnumerable<AvailabilityDto>>(availabilities);
+    }
+
 }
