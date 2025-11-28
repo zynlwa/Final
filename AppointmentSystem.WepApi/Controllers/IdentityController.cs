@@ -85,7 +85,7 @@ public class IdentityController : ControllerBase
 
     
     [HttpPut("profile")]
-    [Authorize]
+
     public async Task<IActionResult> UpdateProfile([FromBody] UpdateUserDto updateUserDto)
     {
         if (!ModelState.IsValid)

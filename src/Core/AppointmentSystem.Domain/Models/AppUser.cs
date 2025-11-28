@@ -21,6 +21,7 @@ public class AppUser : IdentityUser, ISoftDeletable
 
     public Doctor? Doctor { get; set; }
     public Patient? Patient { get; set; }
+    public MedicalService? MedicalService { get; set; }
 
     public bool MustChangePassword { get; set; } = false;
 }

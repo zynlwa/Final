@@ -43,7 +43,6 @@ C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\obj\Debug\net8.0\Appointm.1991B779.Up2Date
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\obj\Debug\net8.0\AppointmentSystem.WebApi.dll
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\obj\Debug\net8.0\refint\AppointmentSystem.WebApi.dll

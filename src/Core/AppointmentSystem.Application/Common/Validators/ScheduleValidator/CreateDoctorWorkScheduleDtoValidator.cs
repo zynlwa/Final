@@ -20,6 +20,10 @@ public class CreateDoctorWorkScheduleDtoValidator : AbstractValidator<CreateWork
         RuleFor(x => x.EndTime)
             .NotEmpty().WithMessage("End time is required.")
             .GreaterThan(x => x.StartTime).WithMessage("End time must be after start time.");
+
+        RuleFor(x => x)
+              .Must(x => x.StartTime.DayOfWeek == x.DayOfWeek)
+              .WithMessage("StartTime day of week must match DayOfWeek.");
     }
 }
 

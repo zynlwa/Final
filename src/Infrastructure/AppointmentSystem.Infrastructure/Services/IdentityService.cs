@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
+
 namespace AppointmentSystem.Infrastructure.Services;
 
 public class IdentityService(
@@ -89,18 +91,21 @@ public class IdentityService(
     {
         try
         {
-
             AppUser? user = null;
 
+            // Email və ya username ilə tapırıq
             if (loginDto.EmailOrUsername!.Contains("@"))
-                user = await userManager.FindByEmailAsync(loginDto.EmailOrUsername);
+                user = await userManager.Users
+                            .Include(u => u.Doctor)
+                            .Include(u => u.Patient)
+                            .FirstOrDefaultAsync(u => u.Email == loginDto.EmailOrUsername);
             else
-                user = await userManager.FindByNameAsync(loginDto.EmailOrUsername);
+                user = await userManager.Users
+                            .Include(u => u.Doctor)
+                            .Include(u => u.Patient)
+                            .FirstOrDefaultAsync(u => u.UserName == loginDto.EmailOrUsername);
 
-            if (user == null || user.IsDeleted) 
-                return Response<LoginResponseDto>.Fail("Invalid email/username or password", 401);
-
-            if (user == null)
+            if (user == null || user.IsDeleted)
                 return Response<LoginResponseDto>.Fail("Invalid email/username or password", 401);
 
             var result = await signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
@@ -110,9 +115,14 @@ public class IdentityService(
             if (user.Doctor != null && user.MustChangePassword)
                 return Response<LoginResponseDto>.Fail("You must change your temporary password", 403);
 
+            // JWT token üçün
+            var roles = await userManager.GetRolesAsync(user);
+            var role = roles.FirstOrDefault() ?? "Patient";
 
-            var token = await GenerateJwtToken(user);
-            var userDto = MapToUserDto(user);
+            var token = await GenerateJwtToken(user, role);
+
+            // UserDto üçün async map
+            var userDto = await MapToUserDtoAsync(user);
 
             var loginResponse = new LoginResponseDto
             {
@@ -128,6 +138,7 @@ public class IdentityService(
             return Response<LoginResponseDto>.Fail($"An error occurred during login: {ex.Message}", 500);
         }
     }
+
 
 
     public async Task<Response<string>> LogoutAsync()
@@ -151,7 +162,31 @@ public class IdentityService(
             if (user == null)
                 return Response<UserDto>.Fail("User not found", 404);
 
-            var userDto = MapToUserDto(user);
+            // User rolunu alırıq
+            var roles = await userManager.GetRolesAsync(user);
+            var role = roles.FirstOrDefault() ?? "User"; // default "User"
+
+            // Doctor və Patient əlaqəsini tapırıq
+            var doctor = await context.Doctors
+                .FirstOrDefaultAsync(d => d.AppUserId == user.Id);
+
+            var patient = await context.Patients
+                .FirstOrDefaultAsync(p => p.AppUserId == user.Id);
+
+            var userDto = new UserDto
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                UserName = user.UserName,
+                Role = role, // burda artıq role var
+                CreatedAt = user.CreatedAt,
+                UpdatedAt = user.UpdatedAt,
+                DoctorId = doctor?.Id,
+                PatientId = patient?.Id
+            };
+
             return Response<UserDto>.Success(userDto, 200);
         }
         catch (Exception ex)
@@ -159,6 +194,8 @@ public class IdentityService(
             return Response<UserDto>.Fail($"An error occurred while retrieving user: {ex.Message}", 500);
         }
     }
+
+
 
     public async Task<Response<UserDto>> UpdateUserAsync(string userId, UpdateUserDto updateUserDto)
     {
@@ -180,7 +217,7 @@ public class IdentityService(
                 return Response<UserDto>.Fail(errors, 400);
             }
 
-            var userDto = MapToUserDto(user);
+            var userDto = await MapToUserDtoAsync(user);
             return Response<UserDto>.Success(userDto, 200);
         }
         catch (Exception ex)
@@ -224,7 +261,8 @@ public class IdentityService(
 
             var token = await userManager.GeneratePasswordResetTokenAsync(user);
 
-            var resetLink = $"http://localhost:5194/api/identity/reset-password?email={Uri.EscapeDataString(user.Email)}&token={Uri.EscapeDataString(token)}";
+            var resetLink = $"http://127.0.0.1:5500/pages/reset-password.html?email={Uri.EscapeDataString(user.Email)}&token={Uri.EscapeDataString(token)}";
+
 
             var templatePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "templates", "emailResetTemplate.html");
             string html = await File.ReadAllTextAsync(templatePath);
@@ -305,15 +343,12 @@ public class IdentityService(
 
 
     // IdentityService.cs
-    private async Task<string> GenerateJwtToken(AppUser user)
+    private async Task<string> GenerateJwtToken(AppUser user, string role)
     {
-        var roles = await userManager.GetRolesAsync(user);
-        var role = roles.FirstOrDefault() ?? string.Empty;
-
         var claims = new[]
         {
         new Claim(JwtRegisteredClaimNames.Sub, user.Id),
-        new Claim(ClaimTypes.NameIdentifier, user.Id), // <-- Əlavə edildi
+        new Claim(ClaimTypes.NameIdentifier, user.Id),
         new Claim(JwtRegisteredClaimNames.Email, user.Email ?? string.Empty),
         new Claim(ClaimTypes.Name, user.UserName ?? string.Empty),
         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
@@ -334,9 +369,17 @@ public class IdentityService(
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
-
-    private static UserDto MapToUserDto(AppUser user)
+    private async Task<UserDto> MapToUserDtoAsync(AppUser user)
     {
+        var roles = await userManager.GetRolesAsync(user);
+        var role = roles.FirstOrDefault() ?? "Patient";
+
+        var doctor = await context.Doctors
+            .FirstOrDefaultAsync(x => x.AppUserId == user.Id);
+
+        var patient = await context.Patients
+            .FirstOrDefaultAsync(x => x.AppUserId == user.Id);
+
         return new UserDto
         {
             Id = user.Id,
@@ -345,9 +388,15 @@ public class IdentityService(
             Email = user.Email ?? string.Empty,
             UserName = user.UserName ?? string.Empty,
             CreatedAt = user.CreatedAt,
-            UpdatedAt = user.UpdatedAt
+            UpdatedAt = user.UpdatedAt,
+            Role = role,
+            DoctorId = doctor?.Id,   // ✔ doğru
+            PatientId = patient?.Id  // ✔ doğru
         };
     }
+
+
+
 }
 public class JwtSettings
 {

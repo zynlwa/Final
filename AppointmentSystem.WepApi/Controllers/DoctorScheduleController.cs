@@ -1,19 +1,26 @@
 ﻿using AppointmentSystem.Application.Common.Models.DoctorSchedule;
-using AppointmentSystem.Application.Services.Abstractions;
-using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace AppointmentSystem.WebApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class DoctorScheduleController(IDoctorScheduleService service) : ControllerBase
 {
-    [HttpGet("doctor/{doctorId}/work-schedules")]
-    public async Task<IActionResult> GetWorkSchedulesForDoctor(string doctorId)
+    [HttpGet("me/work-schedules")]
+    public async Task<IActionResult> GetMyWorkSchedules()
     {
-        var schedules = await service.GetWorkSchedulesForDoctorAsync(doctorId);
+        // Current user ID-ni token-dən alırıq
+        var appUserId = User.FindFirst("sub")?.Value; // və ya "id" claim-dən asılı olaraq
+
+        if (string.IsNullOrEmpty(appUserId))
+            return BadRequest(new { data = (object)null, isSuccess = false, statusCode = 400, errors = new[] { "User ID not found" } });
+
+        var schedules = await service.GetWorkSchedulesForDoctorAsync(appUserId);
         return Ok(new { data = schedules, isSuccess = true, statusCode = 200 });
     }
+
 
     [HttpPost("work-schedules")]
     public async Task<IActionResult> CreateWorkSchedule([FromBody] CreateWorkScheduleDto dto)
@@ -63,5 +70,73 @@ public class DoctorScheduleController(IDoctorScheduleService service) : Controll
         var result = await service.GetUnavailabilityByIdAsync(id);
         return Ok(result);
     }
+    [HttpGet("me/calendar")]
+    public async Task<IActionResult> GetMyCalendar()
+    {
+        var appUserId =
+            User.FindFirst("sub")?.Value ??
+            User.FindFirst("id")?.Value ??
+            User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        if (string.IsNullOrEmpty(appUserId))
+            return BadRequest(new
+            {
+                data = (object)null,
+                isSuccess = false,
+                statusCode = 400,
+                errors = new[] { "User ID not found in token" }
+            });
+
+        var result = await service.GetDoctorCalendarAsync(appUserId);
+
+        return Ok(new
+        {
+            data = result,
+            isSuccess = true,
+            statusCode = 200
+        });
+    }
+
+    // DELETE break
+
+    [HttpDelete("work-schedules/{id}")]
+    public async Task<IActionResult> DeleteWorkSchedule(string id)
+    {
+        var currentUserId = User.FindFirst("sub")?.Value; // JWT token-dan AppUserId
+        if (currentUserId == null) return Unauthorized();
+
+        await service.DeleteWorkScheduleAsync(id, currentUserId);
+        return NoContent();
+    }
+
+    [HttpDelete("breaks/{id}")]
+    public async Task<IActionResult> DeleteBreak(string id)
+    {
+        var currentUserId = User.FindFirst("sub")?.Value;
+        if (currentUserId == null) return Unauthorized();
+
+        await service.DeleteBreakAsync(id, currentUserId);
+        return NoContent();
+    }
+
+    [HttpDelete("unavailabilities/{id}")]
+    public async Task<IActionResult> DeleteUnavailability(string id)
+    {
+        var currentUserId = User.FindFirst("sub")?.Value;
+        if (currentUserId == null) return Unauthorized();
+
+        await service.DeleteUnavailabilityAsync(id, currentUserId);
+        return NoContent();
+    }
+    [HttpGet("doctor/{doctorId}/work-schedules")]
+    [AllowAnonymous]
+    public async Task<IActionResult> GetWorkSchedulesForDoctor(string doctorId)
+    {
+        var schedules = await service.GetWorkSchedulesForDoctorAsync(doctorId);
+        return Ok(new { data = schedules, isSuccess = true, statusCode = 200 });
+    }
+
 
 }
+
+

@@ -1,7 +1,5 @@
 ﻿using AppointmentSystem.Application.Common.Models.Slots;
-using AppointmentSystem.Application.Services.Abstractions;
 using AppointmentSystem.Domain.ValueObjects;
-using Microsoft.EntityFrameworkCore;
 
 namespace AppointmentSystem.Application.Services.Concretes
 {
@@ -28,7 +26,11 @@ namespace AppointmentSystem.Application.Services.Concretes
                 .ToListAsync();
 
             var workHours = workSchedules
-                .Select(ws => new TimeRange(date.Date + ws.StartTime, date.Date + ws.EndTime))
+                .Select(ws => new TimeRange(
+    date.Date + ws.StartTime.TimeOfDay,
+    date.Date + ws.EndTime.TimeOfDay
+)
+)
                 .ToList();
 
             if (!workHours.Any())

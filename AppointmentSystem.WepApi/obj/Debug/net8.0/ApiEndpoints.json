@@ -75,14 +75,14 @@
   },
   {
     "ContainingType": "AppointmentSystem.WebApi.Controllers.AppointmentController",
-    "Method": "GetAppointmentsForDoctor",
-    "RelativePath": "api/Appointment/doctor/{doctorId}",
+    "Method": "GetAppointmentsForDoctorByUserId",
+    "RelativePath": "api/Appointment/doctor-by-user/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "doctorId",
+        "Name": "userId",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -478,6 +478,22 @@
   },
   {
     "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorScheduleController",
+    "Method": "DeleteBreak",
+    "RelativePath": "api/DoctorSchedule/breaks/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorScheduleController",
     "Method": "GetWorkSchedulesForDoctor",
     "RelativePath": "api/DoctorSchedule/doctor/{doctorId}/work-schedules",
     "HttpMethod": "GET",
@@ -490,6 +506,26 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorScheduleController",
+    "Method": "GetMyCalendar",
+    "RelativePath": "api/DoctorSchedule/me/calendar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorScheduleController",
+    "Method": "GetMyWorkSchedules",
+    "RelativePath": "api/DoctorSchedule/me/work-schedules",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -513,6 +549,22 @@
     "Method": "GetUnavailabilityById",
     "RelativePath": "api/DoctorSchedule/unavailabilities/{id}",
     "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorScheduleController",
+    "Method": "DeleteUnavailability",
+    "RelativePath": "api/DoctorSchedule/unavailabilities/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -572,6 +624,22 @@
       {
         "Name": "dto",
         "Type": "AppointmentSystem.Application.Common.Models.DoctorSchedule.UpdateWorkScheduleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebApi.Controllers.DoctorScheduleController",
+    "Method": "DeleteWorkSchedule",
+    "RelativePath": "api/DoctorSchedule/work-schedules/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -887,6 +955,101 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.API.Controllers.PromoCodesController",
+    "Method": "GetAll",
+    "RelativePath": "api/PromoCodes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.API.Controllers.PromoCodesController",
+    "Method": "Create",
+    "RelativePath": "api/PromoCodes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AppointmentSystem.Application.Common.Models.PromoCode.CreatePromoCodeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.API.Controllers.PromoCodesController",
+    "Method": "GetById",
+    "RelativePath": "api/PromoCodes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.API.Controllers.PromoCodesController",
+    "Method": "Update",
+    "RelativePath": "api/PromoCodes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "AppointmentSystem.Application.Common.Models.PromoCode.UpdatePromoCodeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.API.Controllers.PromoCodesController",
+    "Method": "Delete",
+    "RelativePath": "api/PromoCodes/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.API.Controllers.PromoCodesController",
+    "Method": "GetByCode",
+    "RelativePath": "api/PromoCodes/code/{code}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
         "Type": "System.String",
         "IsRequired": true
       }

@@ -1,2 +1,0 @@
-wwwroot\images\doctors\cef1cd19-9a05-42cc-8f46-b8a651de9c7e.jpg
-wwwroot\templates\emailResetTemplate.html

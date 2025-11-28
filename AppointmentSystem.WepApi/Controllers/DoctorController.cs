@@ -1,4 +1,6 @@
 ﻿using AppointmentSystem.Application.Common.Interfaces;
+using AppointmentSystem.Domain.Entities;
+using System.Numerics;
 
 namespace AppointmentSystem.WebApi.Controllers;
 
@@ -82,7 +84,7 @@ public class DoctorController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Doctor")]
     public async Task<IActionResult> UpdateDoctor(string id, [FromForm] UpdateDoctorRequest request)
     {
         string? imageUrl = null;
@@ -104,8 +106,12 @@ public class DoctorController : ControllerBase
         );
 
         await _doctorService.UpdateDoctorAsync(id, dto);
+       
+
 
         return Ok(Response<string>.Success("Doctor updated successfully.", 200));
+        
+
     }
 
 

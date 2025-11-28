@@ -1,31 +1,46 @@
-﻿namespace AppointmentSystem.Application.Common.Mappers;
+﻿using AutoMapper;
+using AppointmentSystem.Domain.Models;
+using AppointmentSystem.Application.Common.Models.Basket;
+using System.Linq;
 
-public class BasketProfile : Profile
+namespace AppointmentSystem.Application.Common.Mappers
 {
-    public BasketProfile()
+    public class BasketProfile : Profile
     {
+        public BasketProfile()
+        {
+            // Basket → BasketDto
+            CreateMap<Basket, BasketDto>()
+    .ConstructUsing(b => new BasketDto(
+        b.Id,
+        b.PatientId,
+        b.Items.Select(i => new BasketItemDto(
+            i.Id,
+            i.DoctorId,
+            i.Doctor != null ? i.Doctor.FirstName + " " + i.Doctor.LastName : string.Empty,
+            i.AvailabilityId,
+            i.MedicalServiceId,
+            i.MedicalService != null ? i.MedicalService.Name : string.Empty,
+            i.Availability != null ? i.Availability.StartTime.Date : DateTime.MinValue,
+            i.Availability != null ? i.Availability.StartTime.ToString("HH:mm") : string.Empty,
+            i.Price
+        )).ToList()
+    ));
 
-        CreateMap<Basket, BasketDto>()
-       .ConstructUsing(b => new BasketDto(
-           b.Id,
-           b.PatientId,
-           b.Items.Select(i => new BasketItemDto(
-               i.Id,
-               i.DoctorId,
-               i.AvailabilityId,
-               i.MedicalServiceId,
-               i.Price
-           )).ToList()
-       ));
+            // BasketItem → BasketItemDto
+            CreateMap<BasketItem, BasketItemDto>()
+    .ConstructUsing(i => new BasketItemDto(
+        i.Id,
+        i.DoctorId,
+        i.Doctor != null ? i.Doctor.FirstName + " " + i.Doctor.LastName : string.Empty,
+        i.AvailabilityId,
+        i.MedicalServiceId,
+        i.MedicalService != null ? i.MedicalService.Name : string.Empty,
+        i.Availability != null ? i.Availability.StartTime.Date : DateTime.MinValue,
+        i.Availability != null ? i.Availability.StartTime.ToString("HH:mm") : string.Empty,
+        i.Price
+    ));
 
-        CreateMap<BasketItem, BasketItemDto>()
-            .ConstructUsing(i => new BasketItemDto(
-                i.Id,
-                i.DoctorId,
-                i.AvailabilityId,
-                i.MedicalServiceId,
-                i.Price
-            ));
-
+        }
     }
 }

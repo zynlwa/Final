@@ -9,7 +9,7 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
         builder.Property(x => x.FirstName)
             .IsRequired()
             .HasMaxLength(100);
-
+        
         builder.Property(x => x.LastName)
             .IsRequired()
             .HasMaxLength(100);
@@ -63,5 +63,11 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
                .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasQueryFilter(p => !p.IsDeleted);
+
+        builder.HasMany(d => d.MedicalServices)
+       .WithOne(m => m.Doctor)
+       .HasForeignKey(m => m.DoctorId)
+       .OnDelete(DeleteBehavior.Cascade);
+
     }
 }

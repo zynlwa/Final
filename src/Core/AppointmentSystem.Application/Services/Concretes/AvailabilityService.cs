@@ -18,7 +18,18 @@ public class AvailabilityService(IAppDbContext context, IMapper mapper) : IAvail
         if (ms.DoctorId != dto.DoctorId)
             throw new ConflictException("Medical service does not belong to the specified doctor.");
 
-        // 3) Overlapping yoxlaması
+        var workSchedule = await context.DoctorWorkSchedules
+            .FirstOrDefaultAsync(ws => ws.DoctorId == dto.DoctorId &&
+                                       ws.DayOfWeek == dto.StartTime.DayOfWeek);
+
+        if (workSchedule == null)
+            throw new ConflictException("Doctor has no work schedule for this day.");
+
+        
+        if (dto.StartTime < workSchedule.StartTime || dto.EndTime > workSchedule.EndTime)
+            throw new ConflictException("The availability must be within the doctor's work schedule.");
+
+
         bool overlap = await context.Availabilities.AnyAsync(a =>
             a.DoctorId == dto.DoctorId &&
             a.StartTime < dto.EndTime &&
@@ -28,7 +39,7 @@ public class AvailabilityService(IAppDbContext context, IMapper mapper) : IAvail
         if (overlap)
             throw new ConflictException("This time range overlaps with an existing availability.");
 
-        // 4) Availability yarat
+      
         var availability = new Availability(
             dto.DoctorId,
             dto.MedicalServiceId,

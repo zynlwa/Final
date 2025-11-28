@@ -8,11 +8,14 @@ public record DoctorDto(
     string Email,
     string? ImageUrl,
     string? PhoneNumber,
-    int ExperienceYears,          
+    int ExperienceYears,
+    double Rating,          // <- əlavə et
+    int Patients,           // <- əlavə et
     bool IsDeleted,
     DateTime? DeletedAt,
     string? DeletedBy
 );
+
 
 public record CreateDoctorDto(
     string FirstName,

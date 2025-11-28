@@ -23,6 +23,7 @@ public class Basket : BaseEntity
         Items.Add(new BasketItem(doctorId, availabilityId, medicalServiceId, Id, price));
     }
 
+
     public void RemoveItem(string itemId)
     {
         var item = Items.FirstOrDefault(x => x.Id == itemId);
@@ -46,8 +47,15 @@ public class BasketItem : BaseEntity
 
     public string BasketId { get; private set; }
     public Basket Basket { get; private set; } = null!;
+
     public string DoctorId { get; private set; }
+    public Doctor Doctor { get; private set; } = null!; // ← əlavə et
+
     public string AvailabilityId { get; private set; }
+    public Availability Availability { get; private set; } = null!; // ← əlavə et
+
     public string MedicalServiceId { get; private set; }
+    public MedicalService MedicalService { get; private set; } = null!; // ← əlavə et
+
     public decimal Price { get; private set; }
 }

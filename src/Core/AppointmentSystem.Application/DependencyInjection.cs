@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using AppointmentSystem.Application.Services.Interfaces;
+using System.Reflection;
 
 namespace AppointmentSystem.Application;
 
@@ -28,6 +29,7 @@ public static class DependencyInjection
         services.AddScoped<ISlotService, SlotService>();
         services.AddScoped<IDoctorScheduleService, DoctorScheduleService>();
         services.AddScoped<IReviewService, ReviewService>();
+        services.AddScoped<IPromoCodeService, PromoCodeService>();
 
         // Domain layer services
         services.AddScoped<Domain.Services.ISlotService, Domain.Services.SlotService>();

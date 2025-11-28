@@ -1,34 +1,35 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
-namespace AppointmentSystem.WebApi.Attributes;
+[AttributeUsage(AttributeTargets.Property)]
 public class FileTypeAttribute : ValidationAttribute
 {
-    private readonly string[] _type;
-    public FileTypeAttribute(params string[] type)
+    private readonly string[] _allowedTypes;
+
+    public FileTypeAttribute(params string[] allowedTypes)
     {
-        _type = type;
-    }
-    protected override ValidationResult IsValid(object value, ValidationContext validationContext)
-    {
-        var list = new List<IFormFile>();
-        var file = value as IFormFile;
-        if (file != null)
-        {
-            list.Add(file);
-        }
-        var files = value as List<IFormFile>;
-        if (files != null)
-        {
-            list.AddRange(files);
-        }
-        foreach (var f in list)
-        {
-            if (!_type.Any(t => f.ContentType.Contains(t)))
-            {
-                return new ValidationResult($"File type must be one of the following: {string.Join(", ", _type)}");
-            }
-        }
-        return ValidationResult.Success;
+        _allowedTypes = allowedTypes;
     }
 
+    protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
+    {
+        var file = value as IFormFile;
+        if (file == null)
+            return ValidationResult.Success;
+
+        // MIME tipini kiçik hərflə yoxlayırıq
+        var fileType = file.ContentType.ToLower();
+
+        // Elastik yoxlama: jpeg həm image/jpeg, həm image/jpg, həm image/pjpeg qəbul edilir
+        bool isValid = _allowedTypes.Any(t =>
+            fileType.Contains(t.Replace("image/", "").ToLower()) // jpeg, png
+        );
+
+        if (!isValid)
+        {
+            return new ValidationResult($"Only the following file types are allowed: {string.Join(", ", _allowedTypes)}");
+        }
+
+        return ValidationResult.Success;
+    }
 }

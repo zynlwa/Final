@@ -45,6 +45,11 @@ public class Appointment : BaseEntity
         Status = AppointmentStatus.Cancelled;
         Availability.Cancel();
     }
+    public void SetMissed()
+    {
+        if (Status == AppointmentStatus.Pending && Availability.StartTime < DateTime.UtcNow)
+            Status = AppointmentStatus.Missed;
+    }
 
     public void AddNotes(string notes)
     {

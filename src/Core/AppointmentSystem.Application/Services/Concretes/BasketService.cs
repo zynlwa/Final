@@ -16,8 +16,15 @@ public class BasketService : IBasketService
     public async Task<BasketDto> GetBasketByPatientIdAsync(string patientId)
     {
         var basket = await _context.Baskets
-            .Include(b => b.Items)
-            .FirstOrDefaultAsync(b => b.PatientId == patientId);
+     .Include(b => b.Items)
+         .ThenInclude(i => i.Doctor)
+     .Include(b => b.Items)
+         .ThenInclude(i => i.MedicalService)
+     .Include(b => b.Items)
+         .ThenInclude(i => i.Availability) // <- mütləq olmalıdır
+     .FirstOrDefaultAsync(b => b.PatientId == patientId);
+
+
 
         if (basket == null)
             return null!;
@@ -29,6 +36,9 @@ public class BasketService : IBasketService
     {
         var basket = await _context.Baskets
             .Include(b => b.Items)
+                .ThenInclude(i => i.MedicalService)
+            .Include(b => b.Items)
+                .ThenInclude(i => i.Availability)
             .FirstOrDefaultAsync(b => b.PatientId == patientId);
 
         if (basket == null)
@@ -37,27 +47,19 @@ public class BasketService : IBasketService
             _context.Baskets.Add(basket);
         }
 
-        var availability = await _context.Availabilities
-            .FirstOrDefaultAsync(a => a.Id == availabilityId);
-
+        var availability = await _context.Availabilities.FirstOrDefaultAsync(a => a.Id == availabilityId);
         if (availability == null)
             throw new InvalidOperationException("Availability not found.");
-
         if (availability.DoctorId != doctorId)
             throw new InvalidOperationException("Availability does not belong to the specified doctor.");
-
         if (availability.IsBooked)
             throw new InvalidOperationException("Availability is already booked.");
-
         if (basket.Items.Any(i => i.AvailabilityId == availabilityId))
             throw new InvalidOperationException("This availability is already in the basket.");
 
-        var medicalService = await _context.MedicalServices
-            .FirstOrDefaultAsync(ms => ms.Id == medicalServiceId);
-
+        var medicalService = await _context.MedicalServices.FirstOrDefaultAsync(ms => ms.Id == medicalServiceId);
         if (medicalService == null)
             throw new InvalidOperationException("Medical service not found.");
-
         if (medicalService.DoctorId != doctorId)
             throw new InvalidOperationException("Medical service does not belong to the specified doctor.");
 
@@ -65,8 +67,31 @@ public class BasketService : IBasketService
 
         await _context.SaveChangesAsync();
 
-        return _mapper.Map<BasketDto>(basket);
+        // Burada mapper yerinə projection istifadə edirik
+        var basketDto = await _context.Baskets
+            .Where(b => b.PatientId == patientId)
+            .Select(b => new BasketDto(
+                b.Id,
+                b.PatientId,
+                b.Items.Select(i => new BasketItemDto(
+                    i.Id,
+                    i.DoctorId,
+                    _context.Doctors.Where(d => d.Id == i.DoctorId)
+                                    .Select(d => d.FirstName + " " + d.LastName)
+                                    .FirstOrDefault() ?? string.Empty,
+                    i.AvailabilityId,
+                    i.MedicalServiceId,
+                    i.MedicalService != null ? i.MedicalService.Name : "",
+                    i.Availability != null ? i.Availability.StartTime.Date : DateTime.MinValue,
+                    i.Availability != null ? i.Availability.StartTime.ToString("HH:mm") : "",
+                    i.Price
+                )).ToList()
+            ))
+            .FirstOrDefaultAsync();
+
+        return basketDto!;
     }
+
 
     public async Task<BasketDto> RemoveItemFromBasketAsync(string patientId, string itemId)
     {
@@ -99,8 +124,13 @@ public class BasketService : IBasketService
         try
         {
             var basket = await _context.Baskets
-                .Include(b => b.Items)
-                .FirstOrDefaultAsync(b => b.PatientId == patientId);
+    .Include(b => b.Items)
+        .ThenInclude(i => i.Doctor)
+    .Include(b => b.Items)
+        .ThenInclude(i => i.MedicalService)
+    .Include(b => b.Items)
+        .ThenInclude(i => i.Availability)
+    .FirstOrDefaultAsync(b => b.PatientId == patientId);
 
             if (basket == null || !basket.Items.Any())
                 throw new InvalidOperationException("Basket is empty.");

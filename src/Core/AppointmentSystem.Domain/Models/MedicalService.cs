@@ -19,7 +19,6 @@ public class MedicalService : BaseEntity
 
     public string DoctorId { get; set; } = null!;
     public Doctor Doctor { get; set; } = null!;
-   
 
     public ICollection<Appointment> Appointments { get; private set; } = new List<Appointment>();
     public ICollection<Availability> Availabilities { get; private set; } = new List<Availability>();

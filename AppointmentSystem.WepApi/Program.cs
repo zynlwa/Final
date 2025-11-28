@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.FileProviders;
+﻿using AppointmentSystem.Application.Validators.PromoCodeValidators;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<CreateAvailabilityDtoValida
 builder.Services.AddValidatorsFromAssemblyContaining<ForgotPasswordDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<ResetPasswordDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreatePromoCodeDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<UpdatePromoCodeDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<AddBasketItemDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining <CreateDoctorWorkScheduleDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining <CreateDoctorUnavailabilityDtoValidator>();

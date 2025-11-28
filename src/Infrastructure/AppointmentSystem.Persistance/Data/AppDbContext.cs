@@ -1,6 +1,5 @@
 ﻿
 using AppointmentSystem.Domain.Common;
-using AppointmentSystem.Domain.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace AppointmentSystem.Persistance.Data;

@@ -2,10 +2,16 @@
 public record BasketItemDto(
     string Id,
     string DoctorId,
+    string DoctorName,
     string AvailabilityId,
     string MedicalServiceId,
-    decimal Price 
+    string ServiceName,
+    DateTime AppointmentDate,   
+    string AppointmentTime,     
+    decimal Price
 );
+
+
 
 
 public record BasketDto(

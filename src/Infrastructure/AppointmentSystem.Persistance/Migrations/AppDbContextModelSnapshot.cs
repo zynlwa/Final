@@ -253,16 +253,16 @@ namespace AppointmentSystem.Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<TimeSpan>("EndTime")
-                        .HasColumnType("time");
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<TimeSpan>("StartTime")
-                        .HasColumnType("time");
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -475,6 +475,9 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
+                    b.Property<string>("MedicalServiceId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<bool>("MustChangePassword")
                         .HasColumnType("bit");
 
@@ -509,6 +512,8 @@ namespace AppointmentSystem.Persistance.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MedicalServiceId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -611,7 +616,7 @@ namespace AppointmentSystem.Persistance.Migrations
 
                     b.Property<string>("AvailabilityId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("BasketId")
                         .IsRequired()
@@ -628,7 +633,7 @@ namespace AppointmentSystem.Persistance.Migrations
 
                     b.Property<string>("DoctorId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -637,7 +642,7 @@ namespace AppointmentSystem.Persistance.Migrations
 
                     b.Property<string>("MedicalServiceId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -647,7 +652,13 @@ namespace AppointmentSystem.Persistance.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AvailabilityId");
+
                     b.HasIndex("BasketId");
+
+                    b.HasIndex("DoctorId");
+
+                    b.HasIndex("MedicalServiceId");
 
                     b.ToTable("BasketItems");
                 });
@@ -943,6 +954,15 @@ namespace AppointmentSystem.Persistance.Migrations
                     b.Navigation("AppUser");
                 });
 
+            modelBuilder.Entity("AppointmentSystem.Domain.Models.AppUser", b =>
+                {
+                    b.HasOne("AppointmentSystem.Domain.Entities.MedicalService", "MedicalService")
+                        .WithMany()
+                        .HasForeignKey("MedicalServiceId");
+
+                    b.Navigation("MedicalService");
+                });
+
             modelBuilder.Entity("AppointmentSystem.Domain.Models.Availability", b =>
                 {
                     b.HasOne("AppointmentSystem.Domain.Entities.Doctor", "Doctor")
@@ -975,13 +995,37 @@ namespace AppointmentSystem.Persistance.Migrations
 
             modelBuilder.Entity("AppointmentSystem.Domain.Models.BasketItem", b =>
                 {
+                    b.HasOne("AppointmentSystem.Domain.Models.Availability", "Availability")
+                        .WithMany()
+                        .HasForeignKey("AvailabilityId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("AppointmentSystem.Domain.Models.Basket", "Basket")
                         .WithMany("Items")
                         .HasForeignKey("BasketId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("AppointmentSystem.Domain.Entities.Doctor", "Doctor")
+                        .WithMany()
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("AppointmentSystem.Domain.Entities.MedicalService", "MedicalService")
+                        .WithMany()
+                        .HasForeignKey("MedicalServiceId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Availability");
+
                     b.Navigation("Basket");
+
+                    b.Navigation("Doctor");
+
+                    b.Navigation("MedicalService");
                 });
 
             modelBuilder.Entity("AppointmentSystem.Domain.Models.Review", b =>

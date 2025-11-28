@@ -4,7 +4,7 @@ public class DoctorWorkSchedule : BaseEntity
 {
     private DoctorWorkSchedule() { } // EF Core üçün
 
-    public DoctorWorkSchedule(string doctorId, DayOfWeek dayOfWeek, TimeSpan startTime, TimeSpan endTime)
+    public DoctorWorkSchedule(string doctorId, DayOfWeek dayOfWeek, DateTime  startTime, DateTime  endTime)
     {
         DoctorId = doctorId;
         DayOfWeek = dayOfWeek;
@@ -14,12 +14,12 @@ public class DoctorWorkSchedule : BaseEntity
 
     public string DoctorId { get; private set; }
     public Doctor Doctor { get; private set; } = null!; // Navigation property
-
+   
     public DayOfWeek DayOfWeek { get; private set; }
-    public TimeSpan StartTime { get; private set; }
-    public TimeSpan EndTime { get; private set; }
+    public DateTime  StartTime { get; private set; }
+    public DateTime  EndTime { get; private set; }
 
-    public void Update(TimeSpan startTime, TimeSpan endTime)
+    public void Update(DateTime  startTime, DateTime  endTime)
     {
         StartTime = startTime;
         EndTime = endTime;

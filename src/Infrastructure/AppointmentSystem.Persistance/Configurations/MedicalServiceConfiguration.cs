@@ -23,5 +23,7 @@ public class MedicalServiceConfiguration : IEntityTypeConfiguration<MedicalServi
             .OnDelete(DeleteBehavior.Restrict);
         builder.HasQueryFilter(p => !p.IsDeleted);
 
+       
+
     }
 }

@@ -8,20 +8,19 @@ public class BasketConfiguration : IEntityTypeConfiguration<Basket>
 {
     public void Configure(EntityTypeBuilder<Basket> builder)
     {
-        // Primary key
+        
         builder.HasKey(b => b.Id);
 
-        // PatientId mütləq olmalıdır
         builder.Property(b => b.PatientId)
                .IsRequired();
 
-        // Basket-ə aid olan item-ları map et
+      
         builder.HasMany(b => b.Items)
                .WithOne(i => i.Basket)
                .HasForeignKey(i => i.BasketId)
                .OnDelete(DeleteBehavior.Cascade);
 
-        // Optional: CreatedAt, UpdatedAt default dəyərlər varsa
+        
         builder.Property(b => b.CreatedAt)
                .HasDefaultValueSql("GETUTCDATE()");
     }
@@ -39,10 +38,32 @@ public class BasketItemConfiguration : IEntityTypeConfiguration<BasketItem>
         builder.Property(i => i.DoctorId)
                .IsRequired();
 
-        builder.Property(i => i.AvailabilityId)
-               .IsRequired();
-
         builder.Property(i => i.MedicalServiceId)
                .IsRequired();
+
+        builder.Property(i => i.Price)
+               .IsRequired()
+               .HasColumnType("decimal(18,2)");
+
+        // Relations
+        builder.HasOne(i => i.Basket)
+               .WithMany(b => b.Items)
+               .HasForeignKey(i => i.BasketId);
+
+        builder.HasOne(i => i.Doctor)
+               .WithMany()
+               .HasForeignKey(i => i.DoctorId)
+               .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasOne(i => i.MedicalService)
+               .WithMany()
+               .HasForeignKey(i => i.MedicalServiceId)
+               .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasOne(i => i.Availability)
+        .WithMany()
+        .HasForeignKey(i => i.AvailabilityId)
+        .OnDelete(DeleteBehavior.Restrict);
+
     }
 }

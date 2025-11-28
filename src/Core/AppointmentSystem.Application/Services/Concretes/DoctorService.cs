@@ -102,8 +102,30 @@ public class DoctorService(
 
     public async Task<IEnumerable<DoctorDto>> GetAllDoctorsAsync()
     {
-        var doctors = await context.Doctors.Include(d => d.AppUser).Where(d => !d.IsDeleted).ToListAsync();
-        return mapper.Map<List<DoctorDto>>(doctors);
+        var doctors = await context.Doctors
+            .Include(d => d.AppUser)
+            .Include(d => d.Reviews)      // review-ları daxil et
+            .Include(d => d.Appointments) // pasiyent sayı üçün
+            .Where(d => !d.IsDeleted)
+            .ToListAsync();
+
+        var doctorDtos = doctors.Select(d => new DoctorDto(
+            Id: d.Id,
+            FirstName: d.FirstName,
+            LastName: d.LastName,
+            Specialty: d.Specialty,
+            Email: d.Email,
+            ImageUrl: d.ImageUrl,
+            PhoneNumber: d.PhoneNumber,
+            ExperienceYears: d.ExperienceYears,
+            Rating: d.Reviews.Any() ? d.Reviews.Average(r => r.Rating) : 0, // ortalama rating
+            Patients: d.Appointments.Count,                                  // pasiyent sayı
+            IsDeleted: d.IsDeleted,
+            DeletedAt: d.DeletedAt,
+            DeletedBy: d.DeletedBy
+        ));
+
+        return doctorDtos;
     }
 
     public async Task<DoctorDto> GetDoctorByIdAsync(string id)

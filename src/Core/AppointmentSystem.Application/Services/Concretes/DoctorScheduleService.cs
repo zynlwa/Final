@@ -5,14 +5,24 @@ namespace AppointmentSystem.Application.Services.Concretes;
 public class DoctorScheduleService(IAppDbContext context, IMapper mapper) : IDoctorScheduleService
 {
 
-    public async Task<IEnumerable<WorkScheduleDto>> GetWorkSchedulesForDoctorAsync(string doctorId)
+    public async Task<IEnumerable<WorkScheduleDto>> GetWorkSchedulesForDoctorAsync(string doctorId, bool byAppUserId = false)
     {
-        var schedules = await context.DoctorWorkSchedules
-            .Where(s => s.DoctorId == doctorId)
-            .ToListAsync();
+        IQueryable<DoctorWorkSchedule> query = context.DoctorWorkSchedules;
 
+        if (byAppUserId)
+        {
+            query = query.Where(s => s.Doctor.AppUserId == doctorId);
+        }
+        else
+        {
+            query = query.Where(s => s.Doctor.Id == doctorId); // burda frontend-dən gələn Doctor.Id istifadə olunur
+        }
+
+        var schedules = await query.ToListAsync();
         return mapper.Map<IEnumerable<WorkScheduleDto>>(schedules);
     }
+
+
 
     public async Task<WorkScheduleDto> CreateWorkScheduleAsync(CreateWorkScheduleDto dto)
     {
@@ -69,4 +79,73 @@ public class DoctorScheduleService(IAppDbContext context, IMapper mapper) : IDoc
                      ?? throw new KeyNotFoundException("Unavailability not found");
         return mapper.Map<UnavailabilityDto>(entity);
     }
+
+    public async Task<DoctorCalendarDto> GetDoctorCalendarAsync(string appUserId)
+    {
+        var workSchedules = await context.DoctorWorkSchedules
+            .Where(s => s.Doctor.AppUserId == appUserId)
+            .ToListAsync();
+
+        var breaks = await context.DoctorBreaks
+            .Where(b => b.Doctor.AppUserId == appUserId)
+            .ToListAsync();
+
+        var unavailabilities = await context.DoctorUnavailabilities
+            .Where(u => u.Doctor.AppUserId == appUserId)
+            .ToListAsync();
+
+        return new DoctorCalendarDto
+        {
+            WorkSchedules = mapper.Map<IEnumerable<WorkScheduleDto>>(workSchedules),
+            Breaks = mapper.Map<IEnumerable<BreakDto>>(breaks),
+            Unavailabilities = mapper.Map<IEnumerable<UnavailabilityDto>>(unavailabilities)
+        };
+
+    }
+
+    public async Task DeleteWorkScheduleAsync(string id, string currentUserId)
+    {
+        var entity = await context.DoctorWorkSchedules
+            .Include(e => e.Doctor) // AppUserId yoxlaması üçün
+            .FirstOrDefaultAsync(e => e.Id == id)
+            ?? throw new KeyNotFoundException("WorkSchedule not found");
+
+        if (entity.Doctor.AppUserId != currentUserId)
+            throw new UnauthorizedAccessException("You are not allowed to delete this work schedule");
+
+        context.DoctorWorkSchedules.Remove(entity);
+        await context.SaveChangesAsync();
+    }
+
+    public async Task DeleteBreakAsync(string id, string currentUserId)
+    {
+        var entity = await context.DoctorBreaks
+            .Include(e => e.Doctor)
+            .FirstOrDefaultAsync(e => e.Id == id)
+            ?? throw new KeyNotFoundException("Break not found");
+
+        if (entity.Doctor.AppUserId != currentUserId)
+            throw new UnauthorizedAccessException("You are not allowed to delete this break");
+
+        context.DoctorBreaks.Remove(entity);
+        await context.SaveChangesAsync();
+    }
+
+    public async Task DeleteUnavailabilityAsync(string id, string currentUserId)
+    {
+        var entity = await context.DoctorUnavailabilities
+            .Include(e => e.Doctor)
+            .FirstOrDefaultAsync(e => e.Id == id)
+            ?? throw new KeyNotFoundException("Unavailability not found");
+
+        if (entity.Doctor.AppUserId != currentUserId)
+            throw new UnauthorizedAccessException("You are not allowed to delete this unavailability");
+
+        context.DoctorUnavailabilities.Remove(entity);
+        await context.SaveChangesAsync();
+    }
+
+
+
+
 }

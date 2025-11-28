@@ -37,12 +37,13 @@ namespace AppointmentSystem.WebApi.Controllers
             return Ok(Response<AppointmentDto>.Success(appointment, 200));
         }
 
-        [HttpGet("doctor/{doctorId}")]
-        public async Task<IActionResult> GetAppointmentsForDoctor(string doctorId)
+        [HttpGet("doctor-by-user/{userId}")]
+        public async Task<IActionResult> GetAppointmentsForDoctorByUserId(string userId)
         {
-            var appointments = await appointmentService.GetAppointmentsForDoctorAsync(doctorId);
-            return Ok(Response<IEnumerable<AppointmentDto>>.Success(appointments, 200));
+            var appointments = await appointmentService.GetAppointmentsForDoctorByUserIdAsync(userId);
+            return Ok(appointments);
         }
+
 
         [HttpGet("patient/{patientId}")]
         public async Task<IActionResult> GetAppointmentsForPatient(string patientId)

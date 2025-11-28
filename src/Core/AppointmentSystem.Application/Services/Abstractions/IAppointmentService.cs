@@ -10,7 +10,7 @@
 
         Task<AppointmentDto?> GetAppointmentByIdAsync(string appointmentId);
 
-        Task<IEnumerable<AppointmentDto>> GetAppointmentsForDoctorAsync(string doctorId, int page = 1, int pageSize = 20);
+        Task<IEnumerable<AppointmentDto>> GetAppointmentsForDoctorByUserIdAsync(string userId, int page = 1, int pageSize = 20);
 
         Task<IEnumerable<AppointmentDto>> GetAppointmentsForPatientAsync(string patientId, int page = 1, int pageSize = 20);
     }
