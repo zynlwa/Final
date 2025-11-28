@@ -3,11 +3,11 @@ using AppointmentSystem.Application.Common.Models.Slots;
 
 namespace AppointmentSystem.WebApi.Controllers;
 
+[AllowAnonymous]
 [Route("api/[controller]")]
 [ApiController]
 public class AvailabilityController(IAvailabilityService availabilityService, ISlotService slotService) : ControllerBase
 {
-    // 1️⃣ Create a new availability
     [HttpPost]
     public async Task<IActionResult> CreateAvailability([FromBody] CreateAvailabilityDto dto)
     {
@@ -16,7 +16,6 @@ public class AvailabilityController(IAvailabilityService availabilityService, IS
         return CreatedAtAction(nameof(GetAvailabilityById), new { id = availability.Id }, response);
     }
 
-    // 2️⃣ Get availability by ID
     [HttpGet("{id}")]
     public async Task<IActionResult> GetAvailabilityById(string id)
     {
@@ -27,7 +26,6 @@ public class AvailabilityController(IAvailabilityService availabilityService, IS
         return Ok(Response<AvailabilityDto>.Success(availability, 200));
     }
 
-    // 3️⃣ Get available slots for a doctor on a specific date
     [HttpGet("doctor/{doctorId}/slots")]
     public async Task<IActionResult> GetAvailableSlots(string doctorId, [FromQuery] DateTime date)
     {
@@ -35,7 +33,6 @@ public class AvailabilityController(IAvailabilityService availabilityService, IS
         return Ok(Response<IEnumerable<AvailabilityDto>>.Success(slots, 200));
     }
 
-    // 4️⃣ Cancel availability by ID
     [HttpPut("{id}/cancel")]
     public async Task<IActionResult> CancelAvailability(string id)
     {
@@ -44,7 +41,6 @@ public class AvailabilityController(IAvailabilityService availabilityService, IS
 
     }
 
-    // 5️⃣ Get all availability for a doctor (məntiqi fərqli ola bilər)
     [HttpGet("doctor/{doctorId}/availability")]
     public async Task<IActionResult> GetAvailabilityForDoctor(string doctorId, [FromQuery] DateTime? date = null)
     {
@@ -52,7 +48,6 @@ public class AvailabilityController(IAvailabilityService availabilityService, IS
         return Ok(Response<IEnumerable<AvailabilityDto>>.Success(slots, 200));
     }
 
-    // 6️⃣ Get available slots for a doctor and a specific service
     [HttpGet("doctor/{doctorId}/service-slots")]
     public async Task<IActionResult> GetAvailableSlotsForService(string doctorId, [FromQuery] DateTime date, [FromQuery] string serviceId)
     {

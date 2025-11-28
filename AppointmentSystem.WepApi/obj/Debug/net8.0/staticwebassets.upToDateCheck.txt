@@ -1,0 +1,8 @@
+wwwroot\images\doctors\216b2972-d145-4db5-87c0-6b6ab50b50ad.jpg
+wwwroot\images\doctors\303231d0-a9d1-46c4-877b-fc8c03462b0f.jpg
+wwwroot\images\doctors\674ff774-362e-40ec-9d9b-ecc88b59958a.jpg
+wwwroot\images\doctors\775adb19-024f-4f6a-8dbc-f3e509fd4133.jpg
+wwwroot\images\doctors\a4e8c081-e41e-4c57-b42c-7c8507d1a6c1.jpg
+wwwroot\images\doctors\cef1cd19-9a05-42cc-8f46-b8a651de9c7e.jpg
+wwwroot\images\doctors\fd9907ca-2934-4f17-b771-bf9a3d809e7b.jpg
+wwwroot\templates\emailResetTemplate.html

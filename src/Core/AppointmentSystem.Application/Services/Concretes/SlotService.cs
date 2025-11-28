@@ -15,38 +15,40 @@ namespace AppointmentSystem.Application.Services.Concretes
         }
 
         public async Task<IEnumerable<SlotDto>> GenerateSlotsAsync(
-            string doctorId,
-            DateTime date,
-            string medicalServiceId,
-            int intervalMinutes = 15)
+     string doctorId,
+     DateTime date,
+     string medicalServiceId,
+     int intervalMinutes = 15)
         {
-            // 1️⃣ İş saatlarını çəkmək
+            // 1️⃣ İş saatları
             var workSchedules = await _context.DoctorWorkSchedules
                 .Where(ws => ws.DoctorId == doctorId && ws.DayOfWeek == date.DayOfWeek)
                 .ToListAsync();
 
             var workHours = workSchedules
                 .Select(ws => new TimeRange(
-    date.Date + ws.StartTime.TimeOfDay,
-    date.Date + ws.EndTime.TimeOfDay
-)
-)
+                    date.Date + ws.StartTime.TimeOfDay,
+                    date.Date + ws.EndTime.TimeOfDay))
                 .ToList();
 
             if (!workHours.Any())
                 return Array.Empty<SlotDto>();
 
-            // 2️⃣ Breaks
-            var breaks = await _context.DoctorBreaks
-    .Where(b => b.DoctorId == doctorId &&
-           (b.StartTime.Date == date.Date ||
-            b.IsRecurringWeekly && b.StartTime.DayOfWeek == date.DayOfWeek))
-    .AsNoTracking()
-    .ToListAsync();
+
+            // 2️⃣ Breaks (EF-friendly)
+            var allBreaks = await _context.DoctorBreaks
+                .Where(b => b.DoctorId == doctorId)
+                .AsNoTracking()
+                .ToListAsync();
+
+            var breaks = allBreaks
+                .Where(b =>
+                    b.StartTime.Date == date.Date ||
+                    (b.IsRecurringWeekly && b.StartTime.DayOfWeek == date.DayOfWeek))
+                .ToList();
 
             var breakRanges = breaks.Select(b =>
             {
-                // Əgər break həftəlikdirsə, saat hissəsini soruşduğumuz günün tarixinə tətbiq et
                 DateTime start = b.IsRecurringWeekly
                     ? date.Date + b.StartTime.TimeOfDay
                     : b.StartTime;
@@ -55,12 +57,8 @@ namespace AppointmentSystem.Application.Services.Concretes
                     ? date.Date + b.EndTime.TimeOfDay
                     : b.EndTime;
 
-                // Edge case: eğer end <= start, demək break gecəni keçir (məs: 23:30 -> 00:30)
                 if (end <= start)
-                {
-                    // end növbəti günə keçsin
                     end = end.AddDays(1);
-                }
 
                 return new TimeRange(start, end);
             }).ToList();
@@ -75,9 +73,10 @@ namespace AppointmentSystem.Application.Services.Concretes
                 .Select(u => new TimeRange(u.StartTime, u.EndTime))
                 .ToList();
 
+
             // 4️⃣ Existing appointments
             var appointments = await _context.Appointments
-                .Include(a => a.Availability) // ✅ Include lazımdır
+                .Include(a => a.Availability)
                 .Where(a => a.DoctorId == doctorId &&
                             a.Status != Domain.Enums.AppointmentStatus.Cancelled &&
                             a.Availability.StartTime.Date == date.Date)
@@ -86,6 +85,7 @@ namespace AppointmentSystem.Application.Services.Concretes
             var appointmentRanges = appointments
                 .Select(a => new TimeRange(a.Availability.StartTime, a.Availability.EndTime))
                 .ToList();
+
 
             // 5️⃣ Service duration
             var service = await _context.MedicalServices
@@ -96,7 +96,8 @@ namespace AppointmentSystem.Application.Services.Concretes
 
             int durationMinutes = service.DurationMinutes;
 
-            // 6️⃣ Domain SlotService istifadə edərək slotları generasiya et
+
+            // 6️⃣ Domain-generated slotlar
             var slotRanges = _domainSlotService.GenerateSlots(
                 workHours,
                 breakRanges,
@@ -105,9 +106,8 @@ namespace AppointmentSystem.Application.Services.Concretes
                 durationMinutes
             );
 
-            // 7️⃣ DTO olaraq qaytar
+            // 7️⃣ DTO return
             return slotRanges.Select(r => new SlotDto(r.Start, r.End, r.IsBooked));
-
         }
     }
-}
+    }

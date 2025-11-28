@@ -170,3 +170,4 @@ C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\bin\Debug\net8.0\AppointmentSystem.WebApi.staticwebassets.runtime.json
+C:\Users\zeyna\OneDrive\Desktop\Final\AppointmentSystem\AppointmentSystem.WepApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
