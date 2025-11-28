@@ -647,6 +647,22 @@
   },
   {
     "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/Identity/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppointmentSystem.Application.Common.Models.Identity.ChangePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentSystem.WebAPI.Controllers.IdentityController",
     "Method": "ChangeTemporaryPassword",
     "RelativePath": "api/Identity/change-temporary-password",
     "HttpMethod": "POST",

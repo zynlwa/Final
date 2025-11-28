@@ -1,4 +1,6 @@
-﻿namespace AppointmentSystem.Application.Services.Abstractions;
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace AppointmentSystem.Application.Services.Abstractions;
 public interface IIdentityService
 {
     Task<Response<string>> RegisterPatientAsync(PatientRegisterDto dto);
@@ -12,5 +14,5 @@ public interface IIdentityService
     Task<Response<string>> ResetPasswordAsync(ResetPasswordDto dto);
     Task<Response<string>> ChangeTemporaryPasswordAsync(string doctorEmail, string tempPassword, string newPassword);
 
-
+    Task<IdentityResult> ChangePasswordAsync(string userId, string currentPassword, string newPassword);
 }

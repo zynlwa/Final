@@ -165,6 +165,18 @@ public class IdentityController : ControllerBase
             return Ok(result);
         return StatusCode(result.StatusCode, result);
     }
+    [Authorize]
+    [HttpPost("change-password")]
+    public async Task<IActionResult> ChangePassword(ChangePasswordDto model)
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var result = await _identityService.ChangePasswordAsync(userId, model.CurrentPassword, model.NewPassword);
+        if (!result.Succeeded)
+            return BadRequest(result.Errors);
+
+        return Ok(new { message = "Password changed successfully" });
+    }
+
 
 
 }

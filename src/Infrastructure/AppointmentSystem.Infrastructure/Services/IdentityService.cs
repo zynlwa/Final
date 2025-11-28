@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace AppointmentSystem.Infrastructure.Services;
@@ -85,7 +86,20 @@ public class IdentityService(
     }
 
 
+    public async Task<IdentityResult> ChangePasswordAsync(string userId, string currentPassword, string newPassword)
+    {
+        // 1. İstifadəçini tap
+        var user = await userManager.FindByIdAsync(userId);
+        if (user == null)
+        {
+            return IdentityResult.Failed(new IdentityError { Description = "User not found" });
+        }
 
+        // 2. Cari şifrəni yoxla və yeni şifrəni dəyiş
+        var result = await userManager.ChangePasswordAsync(user, currentPassword, newPassword);
+
+        return result;
+    }
 
     public async Task<Response<LoginResponseDto>> LoginAsync(LoginDto loginDto)
     {
