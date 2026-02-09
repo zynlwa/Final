@@ -1,0 +1,147 @@
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace AppointmentSystem.Application.Services.Concretes;
+
+public class DoctorService(
+    IAppDbContext context,
+    IMapper mapper,
+    UserManager<AppUser> userManager,
+    RoleManager<IdentityRole> roleManager,
+    IEmailService emailService
+) : IDoctorService
+{
+    public async Task<DoctorDto> CreateDoctorAsync(CreateDoctorDto createDoctorDto)
+    {
+        var existingUser = await userManager.FindByEmailAsync(createDoctorDto.Email);
+        if (existingUser != null) throw new ConflictException("A user with this email already exists.");
+
+        var existingDoctor = await context.Doctors
+            .FirstOrDefaultAsync(d => d.Email == createDoctorDto.Email && !d.IsDeleted);
+        if (existingDoctor != null) throw new ConflictException("A doctor with this email already exists.");
+
+        var tempPassword = Guid.NewGuid().ToString().Substring(0, 8); 
+
+        var appUser = new AppUser
+        {
+            FirstName = createDoctorDto.FirstName,
+            LastName = createDoctorDto.LastName,
+            UserName = createDoctorDto.Email,
+            Email = createDoctorDto.Email,
+            MustChangePassword = true 
+        };
+
+        var result = await userManager.CreateAsync(appUser, tempPassword);
+        if (!result.Succeeded)
+        {
+            var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+            throw new Exception($"User creation failed: {errors}");
+        }
+
+        if (!await roleManager.RoleExistsAsync("Doctor"))
+            await roleManager.CreateAsync(new IdentityRole("Doctor"));
+
+        await userManager.AddToRoleAsync(appUser, "Doctor");
+
+        
+        await emailService.SendTemporaryPasswordAsync(appUser.Email, tempPassword);
+
+        var doctor = new Doctor(
+            createDoctorDto.FirstName,
+            createDoctorDto.LastName,
+            createDoctorDto.Email,
+            createDoctorDto.Specialty,
+            createDoctorDto.PhoneNumber,
+            appUser.Id,
+            createDoctorDto.ExperienceYears,
+            createDoctorDto.ImageUrl
+        );
+
+        await context.Doctors.AddAsync(doctor);
+        await context.SaveChangesAsync();
+
+        return mapper.Map<DoctorDto>(doctor);
+    }
+
+
+    public async Task UpdateDoctorAsync(string id, UpdateDoctorDto updateDoctorDto)
+    {
+        var doctor = await context.Doctors.FirstOrDefaultAsync(d => d.Id == id && !d.IsDeleted);
+        if (doctor == null) throw new NotFoundException("Doctor not found.");
+
+        if (!string.Equals(doctor.Email, updateDoctorDto.Email, StringComparison.OrdinalIgnoreCase))
+        {
+            var existingUser = await userManager.FindByEmailAsync(updateDoctorDto.Email);
+            if (existingUser != null && existingUser.Id != doctor.AppUserId)
+                throw new ConflictException("This email is already in use by another user.");
+        }
+
+        doctor.Update(
+            updateDoctorDto.FirstName,
+            updateDoctorDto.LastName,
+            updateDoctorDto.Email,
+            updateDoctorDto.PhoneNumber,
+            updateDoctorDto.ExperienceYears,
+            updateDoctorDto.Specialty,
+            updateDoctorDto.ImageUrl
+        );
+
+        var appUser = await userManager.FindByIdAsync(doctor.AppUserId);
+        if (appUser != null && appUser.Email != updateDoctorDto.Email)
+        {
+            appUser.Email = updateDoctorDto.Email;
+            appUser.UserName = updateDoctorDto.Email;
+            appUser.FirstName = updateDoctorDto.FirstName;
+            appUser.LastName = updateDoctorDto.LastName;
+
+            await userManager.UpdateAsync(appUser);
+        }
+
+        context.Doctors.Update(doctor);
+        await context.SaveChangesAsync();
+    }
+
+    public async Task<IEnumerable<DoctorDto>> GetAllDoctorsAsync()
+    {
+        var doctors = await context.Doctors
+            .Include(d => d.AppUser)
+            .Include(d => d.Reviews)      // review-ları daxil et
+            .Include(d => d.Appointments) // pasiyent sayı üçün
+            .Where(d => !d.IsDeleted)
+            .ToListAsync();
+
+        var doctorDtos = doctors.Select(d => new DoctorDto(
+            Id: d.Id,
+            FirstName: d.FirstName,
+            LastName: d.LastName,
+            Specialty: d.Specialty,
+            Email: d.Email,
+            ImageUrl: d.ImageUrl,
+            PhoneNumber: d.PhoneNumber,
+            ExperienceYears: d.ExperienceYears,
+            Rating: d.Reviews.Any() ? d.Reviews.Average(r => r.Rating) : 0, // ortalama rating
+            Patients: d.Appointments.Count,                                  // pasiyent sayı
+            IsDeleted: d.IsDeleted,
+            DeletedAt: d.DeletedAt,
+            DeletedBy: d.DeletedBy
+        ));
+
+        return doctorDtos;
+    }
+
+    public async Task<DoctorDto> GetDoctorByIdAsync(string id)
+    {
+        var doctor = await context.Doctors.FirstOrDefaultAsync(d => d.Id == id && !d.IsDeleted);
+        if (doctor == null) throw new NotFoundException("Doctor not found.");
+        return mapper.Map<DoctorDto>(doctor);
+    }
+
+    public async Task SoftDeleteDoctorAsync(string id, string deletedBy)
+    {
+        var doctor = await context.Doctors.Include(d => d.AppUser).FirstOrDefaultAsync(d => d.Id == id && !d.IsDeleted);
+        if (doctor == null) throw new NotFoundException("Doctor not found.");
+
+        doctor.SoftDelete(deletedBy);
+        context.Doctors.Update(doctor);
+        await context.SaveChangesAsync();
+    }
+}

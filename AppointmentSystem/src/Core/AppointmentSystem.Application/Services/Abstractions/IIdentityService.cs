@@ -1,0 +1,18 @@
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace AppointmentSystem.Application.Services.Abstractions;
+public interface IIdentityService
+{
+    Task<Response<string>> RegisterPatientAsync(PatientRegisterDto dto);
+    Task<Response<string>> RegisterDoctorAsync(DoctorRegisterDto dto);
+    Task<Response<LoginResponseDto>> LoginAsync(LoginDto loginDto);
+    Task<Response<string>> LogoutAsync();
+    Task<Response<UserDto>> GetUserAsync(string userId);
+    Task<Response<UserDto>> UpdateUserAsync(string userId, UpdateUserDto updateUserDto);
+    Task<Response<string>> DeleteUserAsync(string userId);
+    Task<Response<string>> ForgotPasswordAsync(ForgotPasswordDto dto);
+    Task<Response<string>> ResetPasswordAsync(ResetPasswordDto dto);
+    Task<Response<string>> ChangeTemporaryPasswordAsync(string doctorEmail, string tempPassword, string newPassword);
+
+    Task<IdentityResult> ChangePasswordAsync(string userId, string currentPassword, string newPassword);
+}

@@ -1,0 +1,12 @@
+﻿global using AppointmentSystem.Application.Common.Interfaces;
+global using AppointmentSystem.Application.Common.Models.Identity;
+global using AppointmentSystem.Application.Common.Models.Response;
+global using AppointmentSystem.Application.Services.Abstractions;
+global using AppointmentSystem.Domain.Entities;
+global using AppointmentSystem.Domain.Models;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.Extensions.Options;
+global using Microsoft.IdentityModel.Tokens;
+global using System.IdentityModel.Tokens.Jwt;
+global using System.Security.Claims;
+global using System.Text;
